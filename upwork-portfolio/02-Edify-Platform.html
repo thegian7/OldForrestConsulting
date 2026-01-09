@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edify Platform - Portfolio</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        h1 { font-size: 2.5rem; margin-bottom: 0.5rem; color: #0a0a0a; }
+        .subtitle { font-size: 1.2rem; color: #666; margin-bottom: 2rem; }
+        h2 { font-size: 1.4rem; margin: 2rem 0 1rem; color: #0a0a0a; border-bottom: 2px solid #e0e0e0; padding-bottom: 0.5rem; }
+        h3 { font-size: 1.1rem; margin: 1.5rem 0 0.5rem; color: #333; }
+        p { margin-bottom: 1rem; }
+        ul { margin: 0 0 1rem 1.5rem; }
+        li { margin-bottom: 0.5rem; }
+        .skills { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1rem 0; }
+        .skill { background: #f0f0f0; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.9rem; }
+        .highlight { background: #e8f4f8; padding: 1.5rem; border-radius: 8px; margin: 1.5rem 0; }
+        .stat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 1.5rem 0; }
+        .stat { background: #f8f8f8; padding: 1rem; border-radius: 8px; text-align: center; }
+        .stat-number { font-size: 2rem; font-weight: bold; color: #0066cc; }
+        .stat-label { font-size: 0.85rem; color: #666; }
+        .tech-stack { background: #f8f8f8; padding: 1rem; border-left: 4px solid #0066cc; margin: 1rem 0; }
+        .deliverables { background: #f0fff0; padding: 1rem; border-radius: 8px; }
+        @media print { body { padding: 20px; } }
+    </style>
+</head>
+<body>
+    <h1>Edify Platform</h1>
+    <p class="subtitle">Full-Stack Multi-Vendor Marketplace with Stripe Connect</p>
+
+    <h2>Project Overview</h2>
+    <p>Developed a comprehensive marketplace platform enabling athletes to monetize their personal brands through merchandise, trading cards, and subscriptions. The platform serves 500+ active profiles across web and mobile applications with real revenue processing.</p>
+
+    <div class="stat-grid">
+        <div class="stat">
+            <div class="stat-number">500+</div>
+            <div class="stat-label">Active Profiles</div>
+        </div>
+        <div class="stat">
+            <div class="stat-number">80/20</div>
+            <div class="stat-label">Revenue Split</div>
+        </div>
+        <div class="stat">
+            <div class="stat-number">36+</div>
+            <div class="stat-label">Database Tables</div>
+        </div>
+    </div>
+
+    <h2>Platform Components</h2>
+
+    <h3>Edify Backend (Node.js/TypeScript)</h3>
+    <ul>
+        <li>Enterprise REST API with schema-driven development</li>
+        <li>Custom Restura framework for auto-generated routes and types</li>
+        <li>BullMQ job queues for async processing</li>
+        <li>PM2 clustering for zero-downtime deploys</li>
+    </ul>
+
+    <h3>EdifyMe.io (WordPress)</h3>
+    <ul>
+        <li>500+ athlete profile pages</li>
+        <li>WooCommerce integration for merchandise</li>
+        <li>Custom plugins for commission tracking</li>
+        <li>Multi-tenant architecture</li>
+    </ul>
+
+    <h3>EdifyMobile (React Native)</h3>
+    <ul>
+        <li>Cross-platform iOS/Android app</li>
+        <li>Trading card designer with canvas tools</li>
+        <li>Camera integration for uploads</li>
+        <li>Push notifications</li>
+    </ul>
+
+    <h2>Payment System</h2>
+    <div class="highlight">
+        <strong>Stripe Connect Implementation:</strong>
+        <ul style="margin-top: 0.5rem;">
+            <li>Multi-party payments with platform fees</li>
+            <li>Configurable revenue splits (80% to athletes, 20% platform)</li>
+            <li>Automated commission tracking and reconciliation</li>
+            <li>Webhook-driven payment status updates</li>
+            <li>Subscription management with recurring billing</li>
+        </ul>
+    </div>
+
+    <h2>Technical Implementation</h2>
+
+    <h3>Multi-Tenant Architecture</h3>
+    <ul>
+        <li>Role-based access control (RBAC)</li>
+        <li>Row-level security policies</li>
+        <li>Organization-scoped data isolation</li>
+        <li>JWT authentication with refresh tokens</li>
+    </ul>
+
+    <h3>Database Design</h3>
+    <ul>
+        <li>36+ tables with proper normalization</li>
+        <li>Complex foreign key relationships</li>
+        <li>Optimized indexes for common queries</li>
+        <li>Soft deletes and audit logging</li>
+    </ul>
+
+    <h2>Tech Stack</h2>
+    <div class="tech-stack">
+        <strong>Backend:</strong> Node.js, TypeScript, Express, Fastify<br>
+        <strong>Frontend:</strong> React, React Native, Expo, Tailwind CSS<br>
+        <strong>Database:</strong> PostgreSQL, Supabase<br>
+        <strong>Payments:</strong> Stripe Connect, Webhooks<br>
+        <strong>Infrastructure:</strong> Docker, PM2, GitLab CI/CD
+    </div>
+
+    <h2>Skills Demonstrated</h2>
+    <div class="skills">
+        <span class="skill">Node.js</span>
+        <span class="skill">TypeScript</span>
+        <span class="skill">React</span>
+        <span class="skill">React Native</span>
+        <span class="skill">PostgreSQL</span>
+        <span class="skill">Stripe Connect</span>
+        <span class="skill">Multi-tenant</span>
+        <span class="skill">RBAC</span>
+        <span class="skill">REST API</span>
+        <span class="skill">WordPress</span>
+    </div>
+
+    <h2>Deliverables</h2>
+    <div class="deliverables">
+        <ul>
+            <li>Multi-vendor marketplace with payment splits</li>
+            <li>Stripe Connect integration with webhook handling</li>
+            <li>Commission tracking and payout system</li>
+            <li>Admin dashboard for platform operations</li>
+            <li>Mobile app (React Native/Expo)</li>
+            <li>500+ user profiles at scale</li>
+            <li>Multi-tenant database architecture</li>
+            <li>CI/CD pipeline with automated testing</li>
+        </ul>
+    </div>
+
+    <h2>Why This Matters</h2>
+    <p>This project demonstrates end-to-end marketplace development at production scale. The Stripe Connect integration handles the complex payment flows required for service marketplaces - platform fees, provider payouts, and commission tracking - exactly what's needed for gig economy and service booking platforms.</p>
+</body>
+</html>

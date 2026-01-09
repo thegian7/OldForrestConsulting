@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WingBeat - Portfolio</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        h1 { font-size: 2.5rem; margin-bottom: 0.5rem; color: #0a0a0a; }
+        .subtitle { font-size: 1.2rem; color: #666; margin-bottom: 2rem; }
+        h2 { font-size: 1.4rem; margin: 2rem 0 1rem; color: #0a0a0a; border-bottom: 2px solid #e0e0e0; padding-bottom: 0.5rem; }
+        h3 { font-size: 1.1rem; margin: 1.5rem 0 0.5rem; color: #333; }
+        p { margin-bottom: 1rem; }
+        ul { margin: 0 0 1rem 1.5rem; }
+        li { margin-bottom: 0.5rem; }
+        .skills { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1rem 0; }
+        .skill { background: #f0f0f0; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.9rem; }
+        .highlight { background: #e8f4f8; padding: 1.5rem; border-radius: 8px; margin: 1.5rem 0; }
+        .stat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 1.5rem 0; }
+        .stat { background: #f8f8f8; padding: 1rem; border-radius: 8px; text-align: center; }
+        .stat-number { font-size: 2rem; font-weight: bold; color: #0066cc; }
+        .stat-label { font-size: 0.85rem; color: #666; }
+        .tech-stack { background: #f8f8f8; padding: 1rem; border-left: 4px solid #0066cc; margin: 1rem 0; }
+        .deliverables { background: #f0fff0; padding: 1rem; border-radius: 8px; }
+        @media print { body { padding: 20px; } }
+    </style>
+</head>
+<body>
+    <h1>WingBeat</h1>
+    <p class="subtitle">Browser-Based Rhythm Game with Real-Time Audio Analysis</p>
+
+    <h2>Project Overview</h2>
+    <p>Created a rhythm-action game that generates obstacles in real-time based on audio frequency analysis. The game uses Web Audio API with FFT processing to detect beats and create synchronized gameplay elements, delivering 60 FPS performance through optimized rendering techniques.</p>
+
+    <div class="stat-grid">
+        <div class="stat">
+            <div class="stat-number">60</div>
+            <div class="stat-label">FPS Target</div>
+        </div>
+        <div class="stat">
+            <div class="stat-number">7</div>
+            <div class="stat-label">Frequency Bands</div>
+        </div>
+        <div class="stat">
+            <div class="stat-number">&lt;50ms</div>
+            <div class="stat-label">Beat Detection</div>
+        </div>
+    </div>
+
+    <h2>Core Features</h2>
+
+    <h3>Real-Time Audio Analysis</h3>
+    <ul>
+        <li>Web Audio API with AnalyserNode</li>
+        <li>FFT frequency decomposition</li>
+        <li>7 logarithmic frequency bands</li>
+        <li>Energy-based beat detection algorithm</li>
+        <li>Sub-50ms detection latency</li>
+    </ul>
+
+    <h3>Procedural Generation</h3>
+    <ul>
+        <li>Dynamic obstacle generation from audio</li>
+        <li>Parametric curves using Bezier mathematics</li>
+        <li>Difficulty scaling based on song intensity</li>
+        <li>No pre-authored content required</li>
+    </ul>
+
+    <h3>Performance Optimization</h3>
+    <ul>
+        <li>Object pooling to prevent GC pauses</li>
+        <li>Visibility culling for off-screen objects</li>
+        <li>Efficient sprite batching</li>
+        <li>Frame-rate independent physics</li>
+    </ul>
+
+    <h2>Technical Implementation</h2>
+
+    <h3>Audio Processing Pipeline</h3>
+    <ul>
+        <li>Audio source → AnalyserNode → FFT data</li>
+        <li>Frequency band mapping (sub-bass to brilliance)</li>
+        <li>Normalization and smoothing</li>
+        <li>Beat onset detection with adaptive threshold</li>
+    </ul>
+
+    <h3>Rendering System</h3>
+    <ul>
+        <li>Phaser 3 game framework</li>
+        <li>WebGL rendering with Canvas fallback</li>
+        <li>Neon aesthetic with HSL color calculations</li>
+        <li>Multi-layer glow effects with additive blending</li>
+    </ul>
+
+    <h3>Game Architecture</h3>
+    <ul>
+        <li>Singleton pattern for system managers</li>
+        <li>Event-driven architecture for loose coupling</li>
+        <li>State machine for game flow</li>
+        <li>Configuration-driven design for easy tuning</li>
+    </ul>
+
+    <h2>Tech Stack</h2>
+    <div class="tech-stack">
+        <strong>Framework:</strong> Phaser 3<br>
+        <strong>Language:</strong> TypeScript<br>
+        <strong>Audio:</strong> Web Audio API, FFT<br>
+        <strong>Build:</strong> Vite, Webpack<br>
+        <strong>Backend:</strong> Supabase (leaderboards)
+    </div>
+
+    <h2>Skills Demonstrated</h2>
+    <div class="skills">
+        <span class="skill">Phaser 3</span>
+        <span class="skill">TypeScript</span>
+        <span class="skill">Web Audio API</span>
+        <span class="skill">FFT Analysis</span>
+        <span class="skill">Canvas Rendering</span>
+        <span class="skill">Game Development</span>
+        <span class="skill">Performance Optimization</span>
+        <span class="skill">Procedural Generation</span>
+        <span class="skill">State Machines</span>
+    </div>
+
+    <h2>Deliverables</h2>
+    <div class="deliverables">
+        <ul>
+            <li>Browser-based rhythm game</li>
+            <li>Real-time audio frequency analysis</li>
+            <li>Beat detection algorithm</li>
+            <li>Procedural obstacle generation</li>
+            <li>60 FPS optimized rendering</li>
+            <li>Responsive cross-device design</li>
+            <li>Leaderboard system</li>
+            <li>Production build pipeline</li>
+        </ul>
+    </div>
+
+    <h2>Why This Matters</h2>
+    <p>This project demonstrates real-time data processing and visualization capabilities. The same patterns (continuous data stream → processing → real-time display) apply to dashboards, monitoring systems, IoT applications, and any system requiring live data visualization with high performance.</p>
+</body>
+</html>

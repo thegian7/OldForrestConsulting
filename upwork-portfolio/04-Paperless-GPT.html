@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paperless-GPT - Portfolio</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        h1 { font-size: 2.5rem; margin-bottom: 0.5rem; color: #0a0a0a; }
+        .subtitle { font-size: 1.2rem; color: #666; margin-bottom: 2rem; }
+        h2 { font-size: 1.4rem; margin: 2rem 0 1rem; color: #0a0a0a; border-bottom: 2px solid #e0e0e0; padding-bottom: 0.5rem; }
+        h3 { font-size: 1.1rem; margin: 1.5rem 0 0.5rem; color: #333; }
+        p { margin-bottom: 1rem; }
+        ul { margin: 0 0 1rem 1.5rem; }
+        li { margin-bottom: 0.5rem; }
+        .skills { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1rem 0; }
+        .skill { background: #f0f0f0; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.9rem; }
+        .highlight { background: #e8f4f8; padding: 1.5rem; border-radius: 8px; margin: 1.5rem 0; }
+        .tech-stack { background: #f8f8f8; padding: 1rem; border-left: 4px solid #0066cc; margin: 1rem 0; }
+        .deliverables { background: #f0fff0; padding: 1rem; border-radius: 8px; }
+        .architecture { font-family: monospace; background: #1a1a1a; color: #00ff00; padding: 1rem; border-radius: 8px; font-size: 0.85rem; overflow-x: auto; }
+        @media print { body { padding: 20px; } }
+    </style>
+</head>
+<body>
+    <h1>Paperless-GPT</h1>
+    <p class="subtitle">Custom AI Integration for paperless-ngx Document Management</p>
+
+    <h2>Project Overview</h2>
+    <p>Built custom AI services that extend <strong>paperless-ngx</strong>, an open-source document management system. My integrations add intelligent OCR, automatic classification, and semantic search capabilities that the base platform doesn't provide.</p>
+
+    <div class="highlight" style="background: #fff3cd; border-left: 4px solid #ffc107;">
+        <strong>What I Built vs. What I Used:</strong><br>
+        <em>Base Platform:</em> paperless-ngx (open-source, not my code)<br>
+        <em>My Custom Services:</em> paperless-gpt (Go) + paperless-chroma (Python)
+    </div>
+
+    <div class="highlight">
+        <strong>Key Achievement:</strong> Natural language queries like "What were last month's expenses?" return relevant documents instantly using semantic similarity rather than keyword matching.
+    </div>
+
+    <h2>Architecture</h2>
+    <div class="architecture">
+Document Upload → Text Extraction → Embedding Generation
+                                          ↓
+                                   ChromaDB (Vector Store)
+                                          ↓
+User Query → Query Embedding → Similarity Search → Context
+                                                      ↓
+                                              LLM (GPT-4/Ollama)
+                                                      ↓
+                                              Natural Language Response
+    </div>
+
+    <h2>Core Features</h2>
+
+    <h3>Document Processing</h3>
+    <ul>
+        <li>PDF, image, and text document support</li>
+        <li>OCR for scanned documents</li>
+        <li>Automatic text extraction</li>
+        <li>Metadata extraction (dates, amounts, entities)</li>
+    </ul>
+
+    <h3>Vector Search</h3>
+    <ul>
+        <li>Sentence transformer embeddings</li>
+        <li>ChromaDB for vector storage</li>
+        <li>Semantic similarity search</li>
+        <li>Hybrid search (vector + keyword)</li>
+    </ul>
+
+    <h3>LLM Integration</h3>
+    <ul>
+        <li>OpenAI API (GPT-4) support</li>
+        <li>Local models via Ollama</li>
+        <li>Context-aware responses</li>
+        <li>Source document citations</li>
+    </ul>
+
+    <h2>Technical Implementation</h2>
+
+    <h3>Embedding Pipeline</h3>
+    <ul>
+        <li>Sentence Transformers for text embeddings</li>
+        <li>Chunking strategy for long documents</li>
+        <li>Overlap handling for context preservation</li>
+        <li>Batch processing for efficiency</li>
+    </ul>
+
+    <h3>Query Processing</h3>
+    <ul>
+        <li>Query embedding generation</li>
+        <li>Top-K similarity retrieval</li>
+        <li>Re-ranking for relevance</li>
+        <li>Context window management</li>
+    </ul>
+
+    <h3>Multi-Provider Support</h3>
+    <ul>
+        <li>Abstracted LLM interface</li>
+        <li>OpenAI, Anthropic, Google support</li>
+        <li>Local model fallback (Ollama)</li>
+        <li>Cost optimization with model selection</li>
+    </ul>
+
+    <h2>Tech Stack</h2>
+    <div class="tech-stack">
+        <strong>Language:</strong> Python<br>
+        <strong>Vector DB:</strong> ChromaDB<br>
+        <strong>Embeddings:</strong> Sentence Transformers<br>
+        <strong>LLM:</strong> OpenAI API, Ollama<br>
+        <strong>API:</strong> FastAPI/Flask<br>
+        <strong>Deployment:</strong> Docker
+    </div>
+
+    <h2>Skills Demonstrated</h2>
+    <div class="skills">
+        <span class="skill">Python</span>
+        <span class="skill">ChromaDB</span>
+        <span class="skill">Vector Databases</span>
+        <span class="skill">OpenAI API</span>
+        <span class="skill">LLM Integration</span>
+        <span class="skill">Semantic Search</span>
+        <span class="skill">Document Processing</span>
+        <span class="skill">REST API</span>
+        <span class="skill">Docker</span>
+    </div>
+
+    <h2>Deliverables</h2>
+    <div class="deliverables">
+        <ul>
+            <li>Vector database for semantic document search</li>
+            <li>LLM integration for natural language queries</li>
+            <li>Automatic document classification</li>
+            <li>REST API for document operations</li>
+            <li>Docker deployment configuration</li>
+            <li>Multi-provider LLM support</li>
+            <li>Source citation in responses</li>
+        </ul>
+    </div>
+
+    <h2>Why This Matters</h2>
+    <p>This project demonstrates how to extend existing open-source tools with custom AI capabilities. Rather than building from scratch, I integrated modern AI/ML techniques (vector search, LLMs) into an established platform. The RAG pattern used here is applicable to any system requiring intelligent document search.</p>
+</body>
+</html>

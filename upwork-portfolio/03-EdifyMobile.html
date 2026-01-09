@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EdifyMobile - Portfolio</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        h1 { font-size: 2.5rem; margin-bottom: 0.5rem; color: #0a0a0a; }
+        .subtitle { font-size: 1.2rem; color: #666; margin-bottom: 2rem; }
+        h2 { font-size: 1.4rem; margin: 2rem 0 1rem; color: #0a0a0a; border-bottom: 2px solid #e0e0e0; padding-bottom: 0.5rem; }
+        h3 { font-size: 1.1rem; margin: 1.5rem 0 0.5rem; color: #333; }
+        p { margin-bottom: 1rem; }
+        ul { margin: 0 0 1rem 1.5rem; }
+        li { margin-bottom: 0.5rem; }
+        .skills { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1rem 0; }
+        .skill { background: #f0f0f0; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.9rem; }
+        .highlight { background: #e8f4f8; padding: 1.5rem; border-radius: 8px; margin: 1.5rem 0; }
+        .feature-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin: 1.5rem 0; }
+        .feature { background: #f8f8f8; padding: 1rem; border-radius: 8px; }
+        .feature-title { font-weight: bold; margin-bottom: 0.5rem; }
+        .tech-stack { background: #f8f8f8; padding: 1rem; border-left: 4px solid #0066cc; margin: 1rem 0; }
+        .deliverables { background: #f0fff0; padding: 1rem; border-radius: 8px; }
+        @media print { body { padding: 20px; } }
+    </style>
+</head>
+<body>
+    <h1>EdifyMobile</h1>
+    <p class="subtitle">Cross-Platform Trading Card App with Image Capture & Cloud Storage</p>
+
+    <h2>Project Overview</h2>
+    <p>Built a cross-platform mobile application for designing and purchasing custom trading cards. Users can upload photos, customize card designs using a canvas-based editor, and purchase physical cards through integrated print-on-demand fulfillment.</p>
+
+    <div class="highlight">
+        <strong>Key Achievement:</strong> Single codebase serving iOS and Android with native-quality performance and features including camera, haptics, and push notifications.
+    </div>
+
+    <h2>Core Features</h2>
+
+    <div class="feature-grid">
+        <div class="feature">
+            <div class="feature-title">Camera Integration</div>
+            <p>Native camera access for photo capture with image cropping and optimization before upload.</p>
+        </div>
+        <div class="feature">
+            <div class="feature-title">Canvas Design Tool</div>
+            <p>Fabric.js-powered editor for card customization with templates, text, and image manipulation.</p>
+        </div>
+        <div class="feature">
+            <div class="feature-title">Cloud Storage</div>
+            <p>ImageKit CDN integration for optimized image delivery with automatic format conversion.</p>
+        </div>
+        <div class="feature">
+            <div class="feature-title">Push Notifications</div>
+            <p>OneSignal integration for order updates, new features, and engagement campaigns.</p>
+        </div>
+    </div>
+
+    <h2>Technical Implementation</h2>
+
+    <h3>Image Handling Pipeline</h3>
+    <ul>
+        <li>Camera capture with permission handling</li>
+        <li>Client-side image compression</li>
+        <li>Secure upload to cloud storage</li>
+        <li>CDN delivery with responsive sizing</li>
+        <li>Caching strategy for offline access</li>
+    </ul>
+
+    <h3>Canvas-Based Design Tool</h3>
+    <ul>
+        <li>Fabric.js integration for object manipulation</li>
+        <li>Pre-built card templates</li>
+        <li>Text overlay with custom fonts</li>
+        <li>Image positioning and scaling</li>
+        <li>Real-time preview rendering</li>
+    </ul>
+
+    <h3>Payment & Fulfillment</h3>
+    <ul>
+        <li>Stripe payment integration</li>
+        <li>Print-on-demand via Printful API</li>
+        <li>Order tracking and status updates</li>
+        <li>Shipping address management</li>
+    </ul>
+
+    <h2>Mobile-Specific Features</h2>
+    <ul>
+        <li><strong>Haptic Feedback:</strong> Tactile responses for interactions</li>
+        <li><strong>Safe Area Handling:</strong> Proper insets for notches and home indicators</li>
+        <li><strong>Gesture Support:</strong> Swipe, pinch, and pan gestures</li>
+        <li><strong>Offline Mode:</strong> Local data persistence with sync</li>
+        <li><strong>Deep Linking:</strong> Direct navigation from notifications/URLs</li>
+    </ul>
+
+    <h2>Tech Stack</h2>
+    <div class="tech-stack">
+        <strong>Framework:</strong> React Native, Expo SDK<br>
+        <strong>Language:</strong> TypeScript<br>
+        <strong>State:</strong> Zustand, TanStack Query<br>
+        <strong>Design:</strong> Fabric.js (Canvas)<br>
+        <strong>Storage:</strong> ImageKit CDN<br>
+        <strong>Payments:</strong> Stripe<br>
+        <strong>Notifications:</strong> OneSignal
+    </div>
+
+    <h2>Skills Demonstrated</h2>
+    <div class="skills">
+        <span class="skill">React Native</span>
+        <span class="skill">Expo</span>
+        <span class="skill">TypeScript</span>
+        <span class="skill">Camera Integration</span>
+        <span class="skill">Image Upload</span>
+        <span class="skill">Cloud Storage</span>
+        <span class="skill">Stripe</span>
+        <span class="skill">Push Notifications</span>
+        <span class="skill">Canvas/Fabric.js</span>
+        <span class="skill">Mobile UI/UX</span>
+    </div>
+
+    <h2>Deliverables</h2>
+    <div class="deliverables">
+        <ul>
+            <li>Cross-platform mobile app (iOS/Android)</li>
+            <li>Camera integration for photo capture</li>
+            <li>Canvas-based card design tool</li>
+            <li>Cloud image storage with CDN</li>
+            <li>Stripe payment integration</li>
+            <li>Push notification system</li>
+            <li>Order tracking and fulfillment</li>
+            <li>App Store and Play Store deployment</li>
+        </ul>
+    </div>
+
+    <h2>Why This Matters</h2>
+    <p>This project demonstrates mobile-first development with native device features. The image capture → cloud upload → CDN delivery pipeline is exactly what's needed for proof-of-service capture in field service applications. The cross-platform approach ensures maximum reach with minimal development overhead.</p>
+</body>
+</html>
