@@ -6,6 +6,8 @@ import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
+const LOGO_PATH = "/logo.png";
+
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
@@ -37,7 +39,7 @@ export default function Navbar() {
             <div className="container mx-auto px-6 flex items-center justify-between">
                 <Link href="/" className="flex items-center">
                     <Image
-                        src="/logo.png"
+                        src={LOGO_PATH}
                         alt="Old For(rest) Consulting"
                         width={600}
                         height={150}

@@ -6,19 +6,19 @@ import { Bot, Server, ShieldCheck, Rocket } from "lucide-react";
 const services = [
     {
         title: "AI Integration & Completion",
-        description: "We finish what the last team started.",
+        description: "Build and ship AI-powered features that work reliably.",
         icon: Bot,
         items: [
             "AI workflows & Chatbots",
             "API-based systems",
-            "Whisper/voice pipelines",
+            "Voice pipelines (Whisper/OpenAI)",
             "Retrieval systems (RAG)",
             "Automation chains",
         ],
     },
     {
         title: "Replit & Lovable Migration",
-        description: "Outgrown your prototype? We'll get you to real infrastructure.",
+        description: "Move from prototyping platforms to production infrastructure.",
         icon: Rocket,
         items: [
             "Migration to Docker/VPS/Cloud",
@@ -30,7 +30,7 @@ const services = [
     },
     {
         title: "Infrastructure & Architecture",
-        description: "Scaling workloads and fixing the plumbing.",
+        description: "Build scalable systems that handle growth.",
         icon: Server,
         items: [
             "Docker + cloud hosting",
@@ -41,12 +41,12 @@ const services = [
         ],
     },
     {
-        title: "Stabilization & Delivery",
-        description: "Make this thing actually work in production.",
+        title: "Production & Delivery",
+        description: "Launch with confidence and comprehensive support.",
         icon: ShieldCheck,
         items: [
             "End-to-end testing",
-            "Bug squashing & stabilization",
+            "Bug fixes & stabilization",
             "Production deployment",
             "Security hardening",
             "Documentation & handoff",
@@ -74,8 +74,8 @@ export default function Services() {
                         transition={{ delay: 0.1 }}
                         className="text-xl text-gray-400 max-w-2xl mx-auto"
                     >
-                        We specialize in one thing: unsticking complex, half-built AI and
-                        automation systems.
+                        We specialize in completing AI and automation projects that need
+                        experienced technical leadership.
                     </motion.p>
                 </div>
 

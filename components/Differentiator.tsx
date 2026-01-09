@@ -18,16 +18,15 @@ export default function Differentiator() {
                             <div className="absolute -inset-4 bg-primary/20 rounded-xl blur-2xl"></div>
                             <div className="relative bg-secondary border border-white/10 rounded-xl p-8 md:p-12">
                                 <h3 className="text-2xl font-bold text-white mb-6">
-                                    The 80/20 Rescue Specialist
+                                    Specialized in Project Completion
                                 </h3>
                                 <p className="text-gray-300 mb-6 leading-relaxed">
-                                    Most AI projects fail in the last 20%. The glue work. The
-                                    architecture decisions. The “why is this API behaving like a
-                                    gremlin at midnight?” debugging.
+                                    Many AI projects stall in the final stages—the integration work,
+                                    the architecture decisions, the production deployment challenges.
                                 </p>
                                 <p className="text-gray-300 leading-relaxed">
-                                    We step in, diagnose the real blockers, and deliver the last mile
-                                    with enterprise-level precision.
+                                    We step in, identify the blockers, and deliver production-ready
+                                    solutions with clear documentation and support.
                                 </p>
                             </div>
                         </motion.div>
@@ -40,16 +39,16 @@ export default function Differentiator() {
                             viewport={{ once: true }}
                             className="text-3xl md:text-5xl font-bold text-white mb-8 leading-tight"
                         >
-                            You Don’t Need a New Dev Team — <br />
-                            <span className="text-primary">You Need a Finisher.</span>
+                            Expert Help When <br />
+                            <span className="text-primary">You Need It Most.</span>
                         </motion.h2>
 
                         <div className="space-y-6">
                             {[
-                                "Founders who need to ship yesterday",
-                                "SMB owners tired of excuses",
-                                "Overworked dev teams needing backup",
-                                "Agencies who need backend muscle",
+                                "Founders ready to ship their vision",
+                                "Business owners seeking reliable delivery",
+                                "Development teams needing senior support",
+                                "Agencies requiring backend expertise",
                             ].map((item, index) => (
                                 <motion.div
                                     key={item}

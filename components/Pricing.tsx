@@ -77,7 +77,7 @@ export default function Pricing() {
                         transition={{ delay: 0.1 }}
                         className="text-xl text-gray-400 max-w-2xl mx-auto"
                     >
-                        Premium—but attainable—positioning. No hidden fees.
+                        Fair rates for expert work. No hidden fees.
                     </motion.p>
                 </div>
 

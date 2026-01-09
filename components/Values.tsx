@@ -48,8 +48,8 @@ export default function Values() {
                             transition={{ delay: 0.1 }}
                             className="text-xl text-gray-400 leading-relaxed"
                         >
-                            You're not hiring slick "AI thought leaders" with big glasses and
-                            no output. You're hiring a team of craftsmen.
+                            We believe in honest work, clear communication, and delivering
+                            results you can depend on.
                         </motion.p>
                     </div>
 

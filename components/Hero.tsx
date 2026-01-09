@@ -32,7 +32,7 @@ export default function Hero() {
                 >
                     AI Projects Stalled? <br />
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-gray-400">
-                        We Build What Your Team Can't Finish.
+                        Let's Get It Shipped.
                     </span>
                 </motion.h1>
 
@@ -42,8 +42,8 @@ export default function Hero() {
                     transition={{ duration: 0.5, delay: 0.2 }}
                     className="text-xl text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed"
                 >
-                    Fractional CTO expertise for founders and teams who need real
-                    architecture, real execution, and real results—fast.
+                    Fractional CTO expertise for founders and teams who need solid
+                    architecture, clear execution, and real results.
                 </motion.p>
 
                 <motion.div
@@ -56,13 +56,13 @@ export default function Hero() {
                         href="#contact"
                         className="w-full sm:w-auto px-8 py-4 text-base font-semibold text-white bg-primary hover:bg-blue-600 rounded-lg transition-all shadow-[0_0_20px_-5px_rgba(59,130,246,0.5)] hover:shadow-[0_0_25px_-5px_rgba(59,130,246,0.6)]"
                     >
-                        Book a 30-Minute Diagnostic Call
+                        Schedule a Free Consultation
                     </Link>
                     <Link
                         href="#case-studies"
                         className="w-full sm:w-auto px-8 py-4 text-base font-semibold text-gray-300 bg-white/5 border border-white/10 hover:bg-white/10 rounded-lg transition-all flex items-center justify-center gap-2 group"
                     >
-                        See How We Fix AI Projects
+                        View Case Studies
                         <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                     </Link>
                 </motion.div>
