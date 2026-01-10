@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export default function Hero() {
     return (
-        <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+        <section className="relative min-h-screen lg:min-h-[600px] flex items-center justify-center overflow-hidden pt-32 md:pt-20 py-24">
             {/* Background Elements */}
             <div className="absolute inset-0 z-0">
                 <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
@@ -18,7 +18,7 @@ export default function Hero() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
-                    className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-sm text-gray-400 mb-8"
+                    className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-sm text-primary font-medium mb-8"
                 >
                     <Terminal size={14} />
                     <span>System Architecture & Rescue</span>
