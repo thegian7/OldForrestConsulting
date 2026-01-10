@@ -43,7 +43,7 @@ export default function Navbar() {
                         alt="Old For(rest) Consulting"
                         width={600}
                         height={150}
-                        className="h-32 w-auto"
+                        className="h-14 md:h-22 w-auto"
                         priority
                     />
                 </Link>
