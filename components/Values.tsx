@@ -28,7 +28,7 @@ const values = [
 
 export default function Values() {
     return (
-        <section id="values" className="py-24 bg-white/[0.02] border-y border-white/5">
+        <section id="values" className="section-even section-border py-20 md:py-28">
             <div className="container mx-auto px-6">
                 <div className="flex flex-col lg:flex-row items-start gap-16">
                     <div className="lg:w-1/3">

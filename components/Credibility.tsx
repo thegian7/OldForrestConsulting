@@ -13,7 +13,7 @@ const experience = ["NetApp", "Dropbox", "Orbital ATK"];
 
 export default function Credibility() {
     return (
-        <section className="py-12 border-y border-white/5 bg-white/[0.02]">
+        <section className="section-odd section-border py-20 md:py-28">
             <div className="container mx-auto px-6">
                 <div className="flex flex-col md:flex-row items-center justify-between gap-8">
                     <div className="flex flex-wrap justify-center md:justify-start items-center gap-8">

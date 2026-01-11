@@ -5,7 +5,7 @@ import { CheckCircle2 } from "lucide-react";
 
 export default function Differentiator() {
     return (
-        <section className="py-24 bg-white/[0.02] border-y border-white/5">
+        <section className="section-odd section-border py-20 md:py-28">
             <div className="container mx-auto px-6">
                 <div className="flex flex-col lg:flex-row items-center gap-16">
                     <div className="lg:w-1/2">

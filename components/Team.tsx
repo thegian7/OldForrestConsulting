@@ -24,7 +24,7 @@ const team = [
 
 export default function Team() {
     return (
-        <section id="team" className="py-24 relative overflow-hidden">
+        <section id="team" className="section-odd section-border py-20 md:py-28 relative overflow-hidden">
             <div className="container mx-auto px-6">
                 <div className="text-center mb-16">
                     <motion.h2

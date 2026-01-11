@@ -5,7 +5,7 @@ import { ArrowRight } from "lucide-react";
 
 export default function Contact() {
     return (
-        <section id="contact" className="py-24 bg-primary/5 border-t border-white/5">
+        <section id="contact" className="py-20 md:py-28 bg-primary/5 border-t border-white/5">
             <div className="container mx-auto px-6 text-center">
                 <motion.div
                     initial={{ opacity: 0, scale: 0.95 }}
@@ -18,12 +18,12 @@ export default function Contact() {
                         <span className="text-primary">Across the Finish Line.</span>
                     </h2>
 
-                    <div className="w-full max-w-2xl mx-auto rounded-xl overflow-hidden border border-white/10 bg-white">
+                    <div className="w-full max-w-2xl mx-auto min-h-[600px] rounded-xl overflow-hidden border border-white/10 bg-white">
                         <iframe
                             src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3eK9K2ia36IfG1Ru97H1dMak6Zidrn1BJaP9qMgmydMQCvjjwCxji1sFgIf5OpSGim1uJMztvU?gv=true"
                             style={{ border: 0 }}
                             width="100%"
-                            height="600"
+                            height="800"
                             title="Book a 30-Minute Discovery Call"
                         />
                     </div>
@@ -32,7 +32,7 @@ export default function Contact() {
                         Prefer email?{" "}
                         <a
                             href="mailto:chris@oldforrest.net"
-                            className="text-primary hover:underline inline-flex items-center gap-1 group"
+                            className="text-primary hover:text-[#2563eb] underline-offset-4 hover:underline inline-flex items-center gap-1 group transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 focus-visible:rounded"
                         >
                             Send project details
                             <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
