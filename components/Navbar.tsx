@@ -49,19 +49,19 @@ export default function Navbar() {
                 </Link>
 
                 {/* Desktop Nav */}
-                <div className="hidden md:flex items-center gap-8">
+                <div className="hidden md:flex items-center gap-10">
                     {navLinks.map((link) => (
                         <Link
                             key={link.name}
                             href={link.href}
-                            className="text-sm font-medium text-gray-300 hover:text-white transition-colors"
+                            className="text-sm font-medium text-gray-300 hover:text-white transition-colors whitespace-nowrap"
                         >
                             {link.name}
                         </Link>
                     ))}
                     <Link
                         href="#contact"
-                        className="px-5 py-2.5 text-sm font-semibold text-white bg-primary hover:bg-blue-600 rounded-lg transition-colors"
+                        className="px-6 py-3 text-sm font-semibold text-white bg-primary hover:bg-[#2563eb] rounded-lg transition-all duration-200 focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2"
                     >
                         Book a Call
                     </Link>
@@ -99,7 +99,7 @@ export default function Navbar() {
                             <Link
                                 href="#contact"
                                 onClick={() => setIsOpen(false)}
-                                className="px-5 py-3 text-center font-semibold text-white bg-primary hover:bg-blue-600 rounded-lg transition-colors"
+                                className="px-5 py-3 text-center font-semibold text-white bg-primary hover:bg-[#2563eb] rounded-lg transition-all duration-200 focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2"
                             >
                                 Book a Call
                             </Link>
