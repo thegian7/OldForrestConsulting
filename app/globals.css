@@ -26,26 +26,44 @@
 }
 
 :root {
-  /* Dark Steel Theme */
-  --background: #0f172a; /* slate-900 */
-  --foreground: #f8fafc; /* slate-50 */
+  /* Refined Dark Theme with Depth */
+  --background: #0a0f1e; /* Deeper base */
+  --background-elevated: #111827; /* For cards */
+  --foreground: #f1f5f9; /* Slightly warmer white */
 
   --primary: #3b82f6; /* blue-500 */
+  --primary-hover: #2563eb; /* blue-600 */
   --primary-foreground: #ffffff;
 
   --secondary: #1e293b; /* slate-800 */
   --secondary-foreground: #f8fafc;
 
-  --accent: #94a3b8; /* slate-400 */
+  --accent: #60a5fa; /* Brighter blue accent */
   --accent-foreground: #0f172a;
 
   --muted: #1e293b; /* slate-800 */
-  --muted-foreground: #94a3b8; /* slate-400 */
+  --muted-foreground: #cbd5e1; /* slate-300 - improved contrast */
 
-  --card: #1e293b; /* slate-800 */
-  --card-foreground: #f8fafc;
+  --card: #0f1629; /* Slightly lighter than background */
+  --card-hover: #1a1f35; /* Hover state */
+  --card-foreground: #f1f5f9;
 
-  --border: #334155; /* slate-700 */
+  /* Borders */
+  --border-subtle: rgba(255, 255, 255, 0.05);
+  --border-default: rgba(255, 255, 255, 0.10);
+  --border-emphasis: rgba(255, 255, 255, 0.20);
+  --border-primary: rgba(59, 130, 246, 0.5);
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5);
+  --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.6);
+  --shadow-primary: 0 0 20px rgba(59, 130, 246, 0.3);
+
+  /* Section backgrounds for visual separation */
+  --section-even: #0a0f1e;
+  --section-odd: #0d1220;
 }
 
 body {
@@ -56,4 +74,32 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* Focus states for accessibility */
+*:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+  border-radius: 0.25rem;
+}
+
+/* Selection styling */
+::selection {
+  background-color: var(--primary);
+  color: white;
+}
+
+/* Section background utilities */
+.section-even {
+  background-color: var(--section-even);
+}
+
+.section-odd {
+  background-color: var(--section-odd);
+}
+
+.section-border {
+  border-top: 1px solid var(--border-subtle);
 }
