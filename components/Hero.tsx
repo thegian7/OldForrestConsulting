@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export default function Hero() {
     return (
-        <section className="relative min-h-screen lg:min-h-[600px] flex items-center justify-center overflow-hidden pt-32 md:pt-20 py-24">
+        <section className="section-even relative min-h-screen lg:min-h-[600px] flex items-center justify-center overflow-hidden pt-32 md:pt-20 py-20 md:py-28">
             {/* Background Elements */}
             <div className="absolute inset-0 z-0">
                 <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
@@ -18,10 +18,10 @@ export default function Hero() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
-                    className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-sm text-primary font-medium mb-8"
+                    className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-primary/10 border border-primary/20 backdrop-blur-sm text-sm text-primary font-semibold mb-8 mt-4 shadow-sm"
                 >
-                    <Terminal size={14} />
-                    <span>System Architecture & Rescue</span>
+                    <Terminal size={16} className="shrink-0" />
+                    <span className="tracking-wide">System Architecture & Rescue</span>
                 </motion.div>
 
                 <motion.h1
@@ -54,16 +54,16 @@ export default function Hero() {
                 >
                     <Link
                         href="#contact"
-                        className="w-full sm:w-auto px-8 py-4 text-base font-semibold text-white bg-primary hover:bg-blue-600 rounded-lg transition-all shadow-[0_0_20px_-5px_rgba(59,130,246,0.5)] hover:shadow-[0_0_25px_-5px_rgba(59,130,246,0.6)]"
+                        className="w-full sm:w-auto px-8 py-4 text-base font-semibold text-white bg-primary hover:bg-[#2563eb] hover:scale-[1.02] rounded-lg transition-all duration-200 shadow-[0_0_20px_rgba(59,130,246,0.4)] hover:shadow-[0_0_30px_rgba(59,130,246,0.6)] focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2"
                     >
                         Schedule a Free Consultation
                     </Link>
                     <Link
                         href="#case-studies"
-                        className="w-full sm:w-auto px-8 py-4 text-base font-semibold text-gray-300 bg-white/5 border border-white/10 hover:bg-white/10 rounded-lg transition-all flex items-center justify-center gap-2 group"
+                        className="w-full sm:w-auto px-8 py-4 text-base font-semibold text-gray-200 bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 rounded-lg transition-all duration-200 flex items-center justify-center gap-2 group focus-visible:outline-2 focus-visible:outline-white/50 focus-visible:outline-offset-2"
                     >
                         View Case Studies
-                        <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                        <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
                     </Link>
                 </motion.div>
             </div>
