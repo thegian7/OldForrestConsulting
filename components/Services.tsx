@@ -56,7 +56,7 @@ const services = [
 
 export default function Services() {
     return (
-        <section id="services" className="py-24 relative overflow-hidden">
+        <section id="services" className="section-even section-border py-20 md:py-28 relative overflow-hidden">
             <div className="container mx-auto px-6 relative z-10">
                 <div className="text-center mb-16">
                     <motion.h2
@@ -72,7 +72,7 @@ export default function Services() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.1 }}
-                        className="text-xl text-gray-400 max-w-2xl mx-auto"
+                        className="text-xl text-slate-300 max-w-2xl mx-auto"
                     >
                         We specialize in completing AI and automation projects that need
                         experienced technical leadership.
@@ -87,7 +87,7 @@ export default function Services() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.1 }}
-                            className="bg-white/5 border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-colors group"
+                            className="bg-white/5 border border-white/10 rounded-2xl p-8 hover:bg-white/[0.08] hover:border-white/20 hover:shadow-[0_8px_24px_rgba(0,0,0,0.5)] transition-all duration-300 group"
                         >
                             <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mb-6 text-primary group-hover:scale-110 transition-transform">
                                 <service.icon size={24} />
@@ -95,7 +95,7 @@ export default function Services() {
                             <h3 className="text-xl font-bold text-white mb-3">
                                 {service.title}
                             </h3>
-                            <p className="text-gray-400 mb-6">{service.description}</p>
+                            <p className="text-slate-300 mb-6">{service.description}</p>
                             <ul className="space-y-3">
                                 {service.items.map((item) => (
                                     <li key={item} className="flex items-center gap-2 text-sm text-gray-300">
