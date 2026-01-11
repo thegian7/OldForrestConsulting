@@ -7,7 +7,7 @@ import { caseStudies } from "@/lib/case-studies";
 
 export default function CaseStudies() {
     return (
-        <section id="case-studies" className="py-24">
+        <section id="case-studies" className="section-even section-border py-20 md:py-28">
             <div className="container mx-auto px-6">
                 <div className="text-center mb-16">
                     <motion.h2
@@ -23,7 +23,7 @@ export default function CaseStudies() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.1 }}
-                        className="text-xl text-gray-400 max-w-2xl mx-auto"
+                        className="text-xl text-slate-300 max-w-2xl mx-auto"
                     >
                         Real projects. Real results. Here's what we've shipped.
                     </motion.p>
@@ -40,10 +40,10 @@ export default function CaseStudies() {
                         >
                             <Link
                                 href={`/case-studies/${study.slug}`}
-                                className="group relative block bg-secondary rounded-2xl p-8 border border-white/10 hover:border-primary/50 transition-colors h-full"
+                                className="group relative block bg-secondary rounded-2xl p-8 border border-white/10 hover:bg-white/[0.03] hover:border-primary/50 hover:shadow-[0_8px_24px_rgba(0,0,0,0.5)] transition-all duration-300 h-full"
                             >
                                 <div className="absolute top-8 right-8 text-gray-600 group-hover:text-primary transition-colors">
-                                    <ArrowUpRight size={24} />
+                                    <ArrowUpRight size={20} />
                                 </div>
 
                                 <div className="text-sm font-semibold text-primary mb-2">
@@ -58,7 +58,7 @@ export default function CaseStudies() {
                                         <div className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1">
                                             The Problem
                                         </div>
-                                        <p className="text-gray-400 text-sm">{study.problem}</p>
+                                        <p className="text-slate-300 text-sm">{study.problem}</p>
                                     </div>
                                     <div>
                                         <div className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1">
