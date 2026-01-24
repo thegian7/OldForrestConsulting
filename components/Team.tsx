@@ -7,7 +7,7 @@ const team = [
     {
         name: "Christopher Ledbetter",
         role: "The Finisher",
-        bio: "Fractional CTO & AI Rescue Specialist. I step in when projects stall, diagnosing the real blockers and delivering the last mile with enterprise-level precision.",
+        bio: "Fractional CTO & AI Rescue Specialist. I step in when projects stall, find what's actually blocking them, and get them shipped.",
         links: {
             linkedin: "https://www.linkedin.com/in/clledbetter",
         },
@@ -15,7 +15,7 @@ const team = [
     {
         name: "Taylor Westmoreland",
         role: "The Strategist",
-        bio: "Aerospace Engineer turned CTO & Realtor. Brings precision engineering discipline and high-stakes operational experience to complex technical challenges.",
+        bio: "Aerospace Engineer turned CTO & Realtor. Background in systems that can't fail and deals that have to close.",
         links: {
             linkedin: "https://www.linkedin.com/in/tbwestmoreland11",
         },

@@ -7,7 +7,7 @@ const values = [
     {
         icon: Hammer,
         title: "Finish What Others Start",
-        description: "We don't just write code; we deliver completed, working systems.",
+        description: "We deliver completed, working systems. Not half-done prototypes.",
     },
     {
         icon: MessageSquare,

@@ -6,7 +6,7 @@ export function OrganizationJsonLd() {
     url: "https://oldforrest.net",
     logo: "https://oldforrest.net/logo.png",
     description:
-      "Fractional CTO expertise for founders and teams who need real architecture, real execution, and real results—fast.",
+      "Fractional CTO expertise for founders and teams who need real architecture, real execution, and real results, fast.",
     foundingDate: "2024",
     sameAs: [],
     contactPoint: {

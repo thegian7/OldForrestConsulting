@@ -42,7 +42,7 @@ const services = [
     },
     {
         title: "Production & Delivery",
-        description: "Launch with confidence and comprehensive support.",
+        description: "Launch with confidence and full support.",
         icon: ShieldCheck,
         items: [
             "End-to-end testing",

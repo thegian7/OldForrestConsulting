@@ -32,7 +32,7 @@ export const caseStudies: CaseStudy[] = [
         outcome:
             "500+ active profiles, 36+ database tables, zero-downtime deploys with PM2 clustering.",
         overview: [
-            "Developed a comprehensive marketplace platform enabling athletes to monetize their personal brands through merchandise, trading cards, and subscriptions. The platform serves 500+ active profiles across web and mobile applications with real revenue processing.",
+            "Developed a full marketplace platform enabling athletes to monetize their personal brands through merchandise, trading cards, and subscriptions. The platform serves 500+ active profiles across web and mobile applications with real revenue processing.",
             "Implemented Stripe Connect for multi-party payments with configurable platform fees (80% to athletes, 20% platform), automated commission tracking, and webhook-driven payment reconciliation.",
         ],
         highlights: [
@@ -87,13 +87,13 @@ export const caseStudies: CaseStudy[] = [
         role: "AI Engineer",
         subtitle: "Three-Layer AI Document Management with Multi-OCR & Semantic Search",
         problem:
-            "10 years of documents with useless search—OCR couldn't handle poor scans, no semantic understanding.",
+            "10 years of documents with useless search. OCR couldn't handle poor scans, no semantic understanding.",
         solution:
             "Three-layer AI system: multi-provider OCR (GPT-4 Vision, Google Document AI, Ollama), LLM auto-tagging, ChromaDB vector search.",
         outcome:
             "3,000+ documents auto-organized, 90%+ OCR accuracy, semantic search in <1s.",
         overview: [
-            "Built a comprehensive AI system on top of paperless-ngx combining intelligent OCR, auto-classification, and semantic search. The system processes 3,000+ documents automatically with zero manual tagging.",
+            "Built a full AI system on top of paperless-ngx combining multi-provider OCR, auto-classification, and semantic search. The system processes 3,000+ documents automatically with zero manual tagging.",
             "Three integrated services work together: paperless-gpt (Go) for multi-provider OCR with worker pool and LLM-powered auto-tagging, paperless-chroma (Python) for ChromaDB vector database with semantic search, and paperless-ngx for core document storage and UI.",
         ],
         highlights: [
@@ -156,14 +156,14 @@ export const caseStudies: CaseStudy[] = [
         role: "Lead Engineer",
         subtitle: "Twilio SMS Webhook System with Job Queue & Session Management",
         problem:
-            "Needed production-grade messaging automation with webhook handling, session management, and job queuing.",
+            "Needed messaging automation with webhook handling, session management, and job queuing.",
         solution:
             "Twilio webhook system with 4-worker job pool, state machines, cross-conversation sessions, and real-time admin dashboard.",
         outcome:
-            "27 test files, enterprise-ready architecture for WhatsApp Business API patterns.",
+            "27 test files, architecture ready for WhatsApp Business API integration.",
         overview: [
-            "Built a production-grade messaging automation system using Twilio webhooks and Node.js/Express. The system routes incoming messages to appropriate handlers, manages user sessions across conversations, and processes jobs through a worker pool with real-time status tracking.",
-            "The architecture maps directly to WhatsApp Business API integration patterns—same webhook model, session management, and job routing. This makes it ideal for service marketplaces and chatbot systems.",
+            "Built a messaging automation system using Twilio webhooks and Node.js/Express. Routes incoming messages to handlers, manages user sessions across conversations, and processes jobs through a worker pool with real-time status tracking.",
+            "The architecture maps directly to WhatsApp Business API integration patterns: same webhook model, session management, and job routing. This makes it ideal for service marketplaces and chatbot systems.",
         ],
         highlights: [
             { value: "4", label: "Worker Pool" },
@@ -369,9 +369,9 @@ export const caseStudies: CaseStudy[] = [
         solution:
             "RAG pipeline with sentence transformer embeddings, ChromaDB vectors, and multi-provider LLM support (OpenAI, Ollama).",
         outcome:
-            "Concept-based search finds related docs instantly—\"car accident\" returns insurance claims, repair estimates.",
+            "Concept-based search finds related docs instantly. \"Car accident\" returns insurance claims, repair estimates.",
         overview: [
-            "Developed an intelligent document processing system that automatically analyzes, categorizes, and extracts information from uploaded documents using AI. The system uses vector embeddings for semantic search and LLM integration for natural language queries against document collections.",
+            "Built a document processing system that uses AI to analyze, tag, and extract data from uploads. Vector embeddings power semantic search, and LLM integration handles natural language queries against the collection.",
             "Natural language queries like \"What were last month's expenses?\" return relevant documents instantly using semantic similarity rather than keyword matching.",
         ],
         highlights: [

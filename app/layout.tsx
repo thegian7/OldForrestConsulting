@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     template: "%s | Old Forrest Consulting",
   },
   description:
-    "Fractional CTO expertise for founders and teams who need real architecture, real execution, and real results—fast. AI integration, full-stack development, and technical leadership.",
+    "Fractional CTO expertise for founders and teams who need real architecture, real execution, and real results, fast. AI integration, full-stack development, and technical leadership.",
   keywords: [
     "Fractional CTO",
     "AI Project Rescue",
@@ -62,7 +62,7 @@ export const metadata: Metadata = {
     siteName: "Old Forrest Consulting",
     title: "Old Forrest Consulting | AI Project Rescue & Fractional CTO",
     description:
-      "Fractional CTO expertise for founders and teams who need real architecture, real execution, and real results—fast.",
+      "Fractional CTO expertise for founders and teams who need real architecture, real execution, and real results, fast.",
     images: [
       {
         url: "/og-image.png",
@@ -76,7 +76,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Old Forrest Consulting | AI Project Rescue & Fractional CTO",
     description:
-      "Fractional CTO expertise for founders and teams who need real architecture, real execution, and real results—fast.",
+      "Fractional CTO expertise for founders and teams who need real architecture, real execution, and real results, fast.",
     images: ["/og-image.png"],
   },
   alternates: {

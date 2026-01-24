@@ -20,7 +20,7 @@ export default function WeCanHelpCTA() {
 
                     <p className="text-xl text-gray-400 mb-10 max-w-2xl mx-auto">
                         Book a 30-minute diagnostic call. We&apos;ll figure out if we can
-                        help—and if we can&apos;t, we&apos;ll point you in the right direction.
+                        help, and if we can&apos;t, we&apos;ll point you in the right direction.
                     </p>
 
                     <div className="w-full max-w-2xl mx-auto rounded-xl overflow-hidden border border-white/10 bg-white">

@@ -21,7 +21,7 @@ export default function Differentiator() {
                                     Specialized in Project Completion
                                 </h3>
                                 <p className="text-gray-300 mb-6 leading-relaxed">
-                                    Many AI projects stall in the final stages—the integration work,
+                                    Many AI projects stall in the final stages: the integration work,
                                     the architecture decisions, the production deployment challenges.
                                 </p>
                                 <p className="text-gray-300 leading-relaxed">
