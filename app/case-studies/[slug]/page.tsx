@@ -1,6 +1,8 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { ArrowLeft, Mail } from "lucide-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 import { getCaseStudyBySlug, getAllCaseStudySlugs } from "@/lib/case-studies";
 import type { Metadata } from "next";
 
@@ -9,73 +11,123 @@ interface PageProps {
 }
 
 export async function generateStaticParams() {
-    const slugs = getAllCaseStudySlugs();
-    return slugs.map((slug) => ({ slug }));
+    return getAllCaseStudySlugs().map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
     const { slug } = await params;
-    const caseStudy = getCaseStudyBySlug(slug);
+    const study = getCaseStudyBySlug(slug);
 
-    if (!caseStudy) {
+    if (!study) {
         return { title: "Case Study Not Found" };
     }
 
     return {
-        title: `${caseStudy.client} | Old Forrest Consulting`,
-        description: caseStudy.subtitle,
+        title: study.client,
+        description: study.summary,
     };
 }
 
 export default async function CaseStudyPage({ params }: PageProps) {
     const { slug } = await params;
-    const caseStudy = getCaseStudyBySlug(slug);
+    const study = getCaseStudyBySlug(slug);
 
-    if (!caseStudy) {
+    if (!study) {
         notFound();
     }
 
     return (
-        <main className="min-h-screen bg-background text-foreground">
-            {/* Navigation */}
-            <div className="border-b border-white/5 bg-secondary/50">
-                <div className="container mx-auto px-6 py-4">
+        <main className="min-h-screen bg-cream text-ink">
+            <Navbar />
+
+            {/* Back */}
+            <div className="pt-28 md:pt-32 pb-4">
+                <div className="container mx-auto px-6 max-w-5xl">
                     <Link
-                        href="/#case-studies"
-                        className="inline-flex items-center gap-2 text-gray-400 hover:text-white transition-colors"
+                        href="/case-studies"
+                        className="inline-flex items-center gap-2 text-sm text-ink-3 hover:text-forest transition-colors"
                     >
                         <ArrowLeft size={16} />
-                        Back to Case Studies
+                        Back to case studies
                     </Link>
                 </div>
             </div>
 
             {/* Hero */}
-            <section className="py-16 md:py-24 border-b border-white/5">
-                <div className="container mx-auto px-6">
-                    <div className="max-w-4xl">
-                        <div className="text-sm font-semibold text-primary mb-4 uppercase tracking-wider">
-                            {caseStudy.role}
-                        </div>
-                        <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
-                            {caseStudy.client}
-                        </h1>
-                        <p className="text-xl text-gray-400">{caseStudy.subtitle}</p>
+            <section className="pt-6 pb-12 md:pb-16 border-b border-rule">
+                <div className="container mx-auto px-6 max-w-5xl">
+                    <div className="kicker mb-4">Case study</div>
+                    <h1 className="font-heading text-4xl md:text-6xl lg:text-7xl text-forest-deep tracking-tight leading-[1.05] mb-6">
+                        {study.client}
+                    </h1>
+                    <p className="text-lg md:text-xl text-ink-2 leading-relaxed max-w-3xl">
+                        {study.summary}
+                    </p>
+
+                    <div className="mt-8 flex flex-wrap gap-x-8 gap-y-3 text-xs font-sans tracking-[0.08em] uppercase text-ink-3 pt-6 border-t border-rule">
+                        <span>
+                            <strong className="text-forest mr-1">Industries:</strong>
+                            {study.industries.join(" · ")}
+                        </span>
+                        <span>
+                            <strong className="text-forest mr-1">Entities:</strong>
+                            {study.entities}
+                        </span>
+                        <span>
+                            <strong className="text-forest mr-1">Engagement:</strong>
+                            {study.engagement}
+                        </span>
                     </div>
                 </div>
             </section>
 
-            {/* Highlights */}
-            <section className="py-12 bg-white/[0.02] border-b border-white/5">
-                <div className="container mx-auto px-6">
-                    <div className="flex flex-wrap justify-center gap-8 md:gap-16">
-                        {caseStudy.highlights.map((highlight) => (
-                            <div key={highlight.label} className="text-center">
-                                <div className="text-3xl md:text-4xl font-bold text-primary">
-                                    {highlight.value}
+            {/* Body */}
+            <section className="py-16 md:py-20">
+                <div className="container mx-auto px-6 max-w-3xl space-y-12">
+                    <div>
+                        <div className="kicker mb-3">The situation</div>
+                        <p className="text-base md:text-lg text-ink-2 leading-relaxed">
+                            {study.situation}
+                        </p>
+                    </div>
+
+                    <div>
+                        <div className="kicker mb-3">What we did</div>
+                        <ul className="space-y-2">
+                            {study.workItems.map((item) => (
+                                <li
+                                    key={item}
+                                    className="relative pl-6 text-base md:text-lg text-ink-2 leading-relaxed before:content-['■'] before:absolute before:left-0 before:top-2 before:text-ember before:text-xs"
+                                >
+                                    {item}
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+
+                    <div>
+                        <div className="kicker mb-3">The outcome</div>
+                        <p className="text-base md:text-lg text-ink-2 leading-relaxed">
+                            {study.outcome}
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            {/* Stats */}
+            <section className="py-12 md:py-16 bg-cream-2/60 border-y border-rule">
+                <div className="container mx-auto px-6 max-w-6xl">
+                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                        {study.stats.map((stat) => (
+                            <div
+                                key={stat.label}
+                                className="bg-white rounded-md p-5 border-t-[3px] border-ember"
+                            >
+                                <div className="font-heading text-3xl md:text-4xl font-bold text-forest-deep leading-none mb-2">
+                                    {stat.value}
                                 </div>
-                                <div className="text-sm text-gray-500 uppercase tracking-wider">
-                                    {highlight.label}
+                                <div className="text-xs font-sans tracking-[0.08em] uppercase text-ink-3 leading-snug">
+                                    {stat.label}
                                 </div>
                             </div>
                         ))}
@@ -83,157 +135,38 @@ export default async function CaseStudyPage({ params }: PageProps) {
                 </div>
             </section>
 
-            {/* Overview */}
-            <section className="py-16 md:py-24">
-                <div className="container mx-auto px-6">
-                    <div className="max-w-4xl mx-auto">
-                        <h2 className="text-2xl md:text-3xl font-bold text-white mb-8">
-                            Overview
-                        </h2>
-                        <div className="space-y-6">
-                            {caseStudy.overview.map((paragraph, index) => (
-                                <p key={index} className="text-lg text-gray-300 leading-relaxed">
-                                    {paragraph}
-                                </p>
-                            ))}
-                        </div>
+            {/* Reference note */}
+            {study.referenceNote && (
+                <section className="py-12 md:py-16">
+                    <div className="container mx-auto px-6 max-w-3xl">
+                        <p className="text-sm md:text-base text-ink-3 italic leading-relaxed text-center">
+                            {study.referenceNote}
+                        </p>
                     </div>
-                </div>
-            </section>
-
-            {/* Challenge & Solution */}
-            <section className="py-16 md:py-24 bg-white/[0.02] border-y border-white/5">
-                <div className="container mx-auto px-6">
-                    <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-12">
-                        <div>
-                            <h2 className="text-xl font-bold text-white mb-4 flex items-center gap-3">
-                                <span className="w-8 h-8 rounded-full bg-red-500/20 text-red-400 flex items-center justify-center text-sm">
-                                    !
-                                </span>
-                                The Challenge
-                            </h2>
-                            <p className="text-gray-300 leading-relaxed">
-                                {caseStudy.problem}
-                            </p>
-                        </div>
-                        <div>
-                            <h2 className="text-xl font-bold text-white mb-4 flex items-center gap-3">
-                                <span className="w-8 h-8 rounded-full bg-green-500/20 text-green-400 flex items-center justify-center text-sm">
-                                    &#10003;
-                                </span>
-                                The Solution
-                            </h2>
-                            <p className="text-gray-300 leading-relaxed">
-                                {caseStudy.solution}
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* Key Features */}
-            <section className="py-16 md:py-24">
-                <div className="container mx-auto px-6">
-                    <div className="max-w-4xl mx-auto">
-                        <h2 className="text-2xl md:text-3xl font-bold text-white mb-12">
-                            Technical Implementation
-                        </h2>
-                        <div className="grid md:grid-cols-2 gap-8">
-                            {caseStudy.keyFeatures.map((feature) => (
-                                <div
-                                    key={feature.title}
-                                    className="bg-secondary border border-white/10 rounded-xl p-6"
-                                >
-                                    <h3 className="text-lg font-bold text-white mb-4">
-                                        {feature.title}
-                                    </h3>
-                                    <ul className="space-y-2">
-                                        {feature.items.map((item) => (
-                                            <li
-                                                key={item}
-                                                className="flex items-start gap-2 text-gray-300 text-sm"
-                                            >
-                                                <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0" />
-                                                {item}
-                                            </li>
-                                        ))}
-                                    </ul>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* Tech Stack */}
-            <section className="py-16 md:py-24 bg-white/[0.02] border-y border-white/5">
-                <div className="container mx-auto px-6">
-                    <div className="max-w-4xl mx-auto">
-                        <h2 className="text-2xl md:text-3xl font-bold text-white mb-8">
-                            Tech Stack
-                        </h2>
-                        <div className="space-y-6">
-                            {caseStudy.techStack.map((stack) => (
-                                <div key={stack.category} className="flex flex-wrap items-center gap-3">
-                                    <span className="text-sm font-semibold text-gray-500 uppercase tracking-wider w-24">
-                                        {stack.category}
-                                    </span>
-                                    <div className="flex flex-wrap gap-2">
-                                        {stack.items.map((item) => (
-                                            <span
-                                                key={item}
-                                                className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm"
-                                            >
-                                                {item}
-                                            </span>
-                                        ))}
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* Skills */}
-            <section className="py-16 md:py-24">
-                <div className="container mx-auto px-6">
-                    <div className="max-w-4xl mx-auto">
-                        <h2 className="text-2xl md:text-3xl font-bold text-white mb-8">
-                            Skills Demonstrated
-                        </h2>
-                        <div className="flex flex-wrap gap-3">
-                            {caseStudy.skills.map((skill) => (
-                                <span
-                                    key={skill}
-                                    className="px-4 py-2 bg-white/5 border border-white/10 text-gray-300 rounded-lg text-sm"
-                                >
-                                    {skill}
-                                </span>
-                            ))}
-                        </div>
-                    </div>
-                </div>
-            </section>
+                </section>
+            )}
 
             {/* CTA */}
-            <section className="py-16 md:py-24 bg-primary/5 border-t border-white/5">
-                <div className="container mx-auto px-6 text-center">
-                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-                        Have a Similar Project?
+            <section className="py-16 md:py-20 border-t border-rule">
+                <div className="container mx-auto px-6 max-w-4xl text-center">
+                    <h2 className="font-heading text-3xl md:text-4xl text-forest-deep tracking-tight mb-4">
+                        Have a similar setup?
                     </h2>
-                    <p className="text-xl text-gray-400 mb-8 max-w-2xl mx-auto">
-                        Let's discuss how we can help you achieve similar results.
+                    <p className="text-base md:text-lg text-ink-2 leading-relaxed max-w-2xl mx-auto mb-8">
+                        Multi-entity, multi-stack, vendor sprawl, and a leadership
+                        team that wants the same view of the business.
                     </p>
-                    <a
-                        href="mailto:chris@oldforrest.net"
-                        className="inline-flex items-center gap-3 px-8 py-4 text-lg font-bold text-white bg-primary hover:bg-blue-600 rounded-xl transition-all shadow-[0_0_30px_-10px_rgba(59,130,246,0.6)]"
+                    <Link
+                        href="/contact"
+                        className="inline-flex items-center gap-2 px-7 py-3.5 text-base font-semibold text-cream bg-forest hover:bg-forest-deep rounded-md transition-colors"
                     >
-                        <Mail size={20} />
-                        Get in Touch
-                    </a>
+                        Start the conversation
+                        <ArrowRight size={18} />
+                    </Link>
                 </div>
             </section>
+
+            <Footer />
         </main>
     );
 }
