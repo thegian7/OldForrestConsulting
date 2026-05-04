@@ -1,0 +1,1371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Old Forrest Consulting — Managed Intelligence for Operations-Heavy Businesses</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  /* ============ BRAND TOKENS ============ */
+  :root {
+    --forest: #1f3d2b;           /* primary: deep forest green */
+    --forest-deep: #132418;      /* darker shade for emphasis */
+    --moss: #3d5a3f;             /* supporting green */
+    --ember: #b8621b;            /* accent: warm amber/ember */
+    --ember-soft: #d98c4a;       /* lighter ember for highlights */
+    --cream: #f6f2e8;            /* warm off-white bg */
+    --cream-2: #ebe4d3;          /* slightly darker cream */
+    --ink: #1a1a1a;              /* near-black text */
+    --ink-2: #3b3b3b;            /* secondary text */
+    --ink-3: #6b6b6b;            /* tertiary */
+    --rule: #c9bfa8;             /* divider color */
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    color: var(--ink);
+    background: var(--cream);
+    line-height: 1.55;
+    font-size: 11pt;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .sans {
+    font-family: -apple-system, 'Helvetica Neue', Arial, sans-serif;
+  }
+
+  /* ============ PAGE SETUP ============ */
+  .page {
+    width: 8.5in;
+    height: 11in;
+    padding: 0.55in 0.7in 0.5in;
+    margin: 0 auto;
+    background: var(--cream);
+    position: relative;
+    page-break-after: always;
+    page-break-inside: avoid;
+    break-after: page;
+    break-inside: avoid;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .page:last-child {
+    page-break-after: auto;
+    break-after: auto;
+  }
+
+  @page { size: letter; margin: 0; }
+
+  @media print {
+    html, body { background: var(--cream); }
+    .page { box-shadow: none; margin: 0; }
+    .web-nav { display: none !important; }
+  }
+
+  @media screen {
+    body { padding: 24px 0; background: #d8d0bd; }
+    .page {
+      box-shadow: 0 2px 24px rgba(0,0,0,0.12);
+      margin-bottom: 24px;
+    }
+    .web-nav {
+      max-width: 8.5in;
+      margin: 0 auto 16px;
+      padding: 12px 0.75in;
+      font-family: -apple-system, 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10pt;
+      color: var(--ink-3);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--cream);
+      border-radius: 6px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    .web-nav a { color: var(--forest); text-decoration: none; font-weight: 600; }
+    .web-nav a:hover { color: var(--ember); }
+  }
+
+  /* ============ HEADER / FOOTER ============ */
+  .masthead {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 32px;
+  }
+  .wordmark {
+    font-family: 'Georgia', serif;
+    font-size: 14pt;
+    font-weight: 700;
+    color: var(--forest);
+    letter-spacing: 0.02em;
+  }
+  .wordmark .paren { color: var(--ember); }
+  .wordmark-sub {
+    font-family: -apple-system, 'Helvetica Neue', Arial, sans-serif;
+    font-size: 8pt;
+    color: var(--ink-3);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+  .page-meta {
+    text-align: right;
+    font-family: -apple-system, 'Helvetica Neue', Arial, sans-serif;
+    font-size: 8pt;
+    color: var(--ink-3);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .footer {
+    margin-top: auto;
+    padding-top: 20px;
+    border-top: 1px solid var(--rule);
+    display: flex;
+    justify-content: space-between;
+    font-family: -apple-system, 'Helvetica Neue', Arial, sans-serif;
+    font-size: 8pt;
+    color: var(--ink-3);
+    letter-spacing: 0.05em;
+  }
+
+  /* ============ TYPOGRAPHY ============ */
+  h1, h2, h3 { font-family: 'Georgia', serif; font-weight: 700; color: var(--forest-deep); }
+  h1 { font-size: 32pt; line-height: 1.1; letter-spacing: -0.01em; }
+  h2 { font-size: 20pt; line-height: 1.2; margin-bottom: 14px; }
+  h3 { font-size: 13pt; line-height: 1.3; margin-bottom: 8px; }
+  h4 {
+    font-family: -apple-system, 'Helvetica Neue', Arial, sans-serif;
+    font-size: 9pt;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ember);
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  p { margin-bottom: 10px; }
+  .lede { font-size: 13pt; line-height: 1.5; color: var(--ink-2); }
+  strong { color: var(--forest-deep); }
+  em { font-style: italic; color: var(--ink-2); }
+
+  /* Utility: tighter spacing variant */
+  .tight p { margin-bottom: 8px; }
+  .compact h2 { font-size: 18pt; margin-bottom: 10px; }
+
+  /* ============ COVER ============ */
+  .cover {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0.9in 0.75in;
+    background: var(--cream);
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 280px; height: 280px;
+    background: var(--forest);
+    opacity: 0.04;
+    border-radius: 50%;
+    transform: translate(35%, -35%);
+  }
+  .cover::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 180px; height: 180px;
+    background: var(--ember);
+    opacity: 0.06;
+    border-radius: 50%;
+    transform: translate(-40%, 40%);
+  }
+  .cover-top { position: relative; z-index: 2; }
+  .cover-main {
+    position: relative;
+    z-index: 2;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .cover-kicker {
+    font-family: -apple-system, 'Helvetica Neue', Arial, sans-serif;
+    font-size: 10pt;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--ember);
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+  .cover h1 {
+    font-size: 44pt;
+    line-height: 1.05;
+    margin-bottom: 20px;
+    max-width: 6.5in;
+  }
+  .cover h1 .accent { color: var(--ember); font-style: italic; }
+  .cover-lede {
+    font-size: 15pt;
+    color: var(--ink-2);
+    max-width: 5.5in;
+    line-height: 1.45;
+  }
+  .cover-footer {
+    position: relative;
+    z-index: 2;
+    font-family: -apple-system, 'Helvetica Neue', Arial, sans-serif;
+    font-size: 9pt;
+    color: var(--ink-3);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  .cover-footer .right { text-align: right; }
+
+  /* ============ COMPONENTS ============ */
+  .rule-top { border-top: 2px solid var(--forest); padding-top: 14px; margin-top: 14px; }
+  .rule-ember { border-top: 2px solid var(--ember); padding-top: 12px; margin-bottom: 18px; }
+
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+  .three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
+  .four-col { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 16px; }
+
+  .card {
+    background: white;
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    padding: 18px 20px;
+  }
+  .card-dark {
+    background: var(--forest-deep);
+    color: var(--cream);
+    border-radius: 6px;
+    padding: 20px 22px;
+  }
+  .card-dark h3 { color: var(--cream); }
+  .card-dark .muted { color: var(--cream-2); opacity: 0.85; }
+
+  .verb-card {
+    background: white;
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    padding: 16px 18px;
+    border-left: 3px solid var(--ember);
+  }
+  .verb-card h3 {
+    font-family: 'Georgia', serif;
+    font-size: 13pt;
+    color: var(--forest-deep);
+    margin-bottom: 6px;
+  }
+  .verb-card .desc {
+    font-size: 10pt;
+    color: var(--ink-2);
+    line-height: 1.5;
+  }
+
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+    margin-top: 12px;
+  }
+  .tier {
+    background: white;
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    padding: 18px 18px 16px;
+    display: flex;
+    flex-direction: column;
+  }
+  .tier.featured {
+    background: var(--forest-deep);
+    color: var(--cream);
+    border: 1px solid var(--forest-deep);
+    position: relative;
+  }
+  .tier.featured::before {
+    content: 'FLAGSHIP ENGAGEMENT';
+    position: absolute;
+    top: -9px;
+    left: 14px;
+    background: var(--ember);
+    color: white;
+    font-family: -apple-system, 'Helvetica Neue', sans-serif;
+    font-size: 7pt;
+    letter-spacing: 0.15em;
+    font-weight: 700;
+    padding: 3px 9px;
+    border-radius: 3px;
+    z-index: 2;
+  }
+  .tier-name {
+    font-family: 'Georgia', serif;
+    font-size: 14pt;
+    font-weight: 700;
+    color: var(--forest-deep);
+    margin-bottom: 4px;
+  }
+  .tier.featured .tier-name { color: var(--cream); }
+  .tier-tagline {
+    font-family: -apple-system, 'Helvetica Neue', sans-serif;
+    font-size: 8pt;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ember);
+    margin-bottom: 10px;
+  }
+  .tier.featured .tier-tagline { color: var(--ember-soft); }
+  .tier-price {
+    font-family: 'Georgia', serif;
+    font-size: 19pt;
+    font-weight: 700;
+    color: var(--forest);
+    margin-bottom: 2px;
+    line-height: 1.1;
+  }
+  .tier.featured .tier-price { color: var(--cream); }
+  .tier-unit {
+    font-family: -apple-system, 'Helvetica Neue', sans-serif;
+    font-size: 8pt;
+    color: var(--ink-3);
+    margin-bottom: 12px;
+  }
+  .tier.featured .tier-unit { color: var(--cream-2); opacity: 0.8; }
+  .tier ul {
+    list-style: none;
+    padding: 0;
+    margin: 8px 0 0;
+    font-size: 9.5pt;
+    line-height: 1.5;
+  }
+  .tier li {
+    padding: 4px 0 4px 14px;
+    position: relative;
+    color: var(--ink-2);
+  }
+  .tier.featured li { color: var(--cream-2); }
+  .tier li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--ember);
+    font-weight: 700;
+  }
+
+  .timeline {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-top: 20px;
+  }
+  .phase {
+    background: white;
+    border-top: 3px solid var(--forest);
+    padding: 14px 14px 16px;
+    border-radius: 0 0 4px 4px;
+  }
+  .phase-num {
+    font-family: -apple-system, 'Helvetica Neue', sans-serif;
+    font-size: 8pt;
+    letter-spacing: 0.15em;
+    color: var(--ember);
+    font-weight: 700;
+  }
+  .phase-weeks {
+    font-family: 'Georgia', serif;
+    font-size: 11pt;
+    font-weight: 700;
+    color: var(--forest-deep);
+    margin-bottom: 4px;
+  }
+  .phase-title {
+    font-family: 'Georgia', serif;
+    font-size: 11pt;
+    color: var(--ink);
+    margin-bottom: 8px;
+    font-weight: 700;
+  }
+  .phase ul {
+    list-style: none;
+    font-size: 9pt;
+    line-height: 1.45;
+    color: var(--ink-2);
+  }
+  .phase ul li {
+    padding: 2px 0 2px 10px;
+    position: relative;
+  }
+  .phase ul li::before {
+    content: '·';
+    position: absolute;
+    left: 0;
+    color: var(--ember);
+    font-weight: 700;
+  }
+
+  .math-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 12px;
+    font-size: 10pt;
+  }
+  .math-table th {
+    background: var(--forest-deep);
+    color: var(--cream);
+    padding: 8px 12px;
+    text-align: left;
+    font-family: -apple-system, 'Helvetica Neue', sans-serif;
+    font-size: 9pt;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  .math-table th:last-child { text-align: right; }
+  .math-table td {
+    padding: 7px 12px;
+    border-bottom: 1px solid var(--rule);
+    background: white;
+  }
+  .math-table td:last-child { text-align: right; font-family: 'Georgia', serif; font-weight: 700; color: var(--forest); }
+  .math-table tr:last-child td { border-bottom: none; }
+  .math-table tfoot td {
+    background: var(--cream-2);
+    font-weight: 700;
+    color: var(--forest-deep);
+    font-size: 11pt;
+    padding: 12px;
+  }
+  .math-table tfoot td:last-child { color: var(--ember); font-size: 13pt; }
+
+  .callout {
+    background: var(--forest-deep);
+    color: var(--cream);
+    padding: 24px 26px;
+    border-radius: 6px;
+    margin-top: 18px;
+  }
+  .callout-big {
+    font-family: 'Georgia', serif;
+    font-size: 17pt;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 8px;
+  }
+  .callout-big .accent { color: var(--ember-soft); }
+  .callout-sub {
+    font-size: 10pt;
+    color: var(--cream-2);
+    opacity: 0.9;
+    line-height: 1.5;
+  }
+
+  .case-study {
+    background: white;
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    padding: 18px 22px;
+    margin-top: 12px;
+  }
+  .case-meta {
+    display: flex;
+    gap: 18px;
+    font-family: -apple-system, 'Helvetica Neue', sans-serif;
+    font-size: 8.5pt;
+    color: var(--ink-3);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .case-meta strong { color: var(--forest); }
+  .case-section { margin-bottom: 12px; }
+  .case-section:last-child { margin-bottom: 0; }
+  .case-section h4 { margin-bottom: 6px; }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    margin: 18px 0;
+  }
+  .stat {
+    text-align: left;
+    padding: 14px 16px;
+    background: white;
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    border-top: 3px solid var(--ember);
+  }
+  .stat-num {
+    font-family: 'Georgia', serif;
+    font-size: 22pt;
+    font-weight: 700;
+    color: var(--forest-deep);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .stat-label {
+    font-family: -apple-system, 'Helvetica Neue', sans-serif;
+    font-size: 8.5pt;
+    color: var(--ink-3);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    line-height: 1.3;
+  }
+
+  .bullet-list {
+    list-style: none;
+    padding: 0;
+  }
+  .bullet-list li {
+    padding: 5px 0 5px 18px;
+    position: relative;
+    font-size: 10.5pt;
+    line-height: 1.5;
+  }
+  .bullet-list li::before {
+    content: '■';
+    position: absolute;
+    left: 0;
+    color: var(--ember);
+    font-size: 8pt;
+    top: 8px;
+  }
+
+  .ol-steps {
+    list-style: none;
+    padding: 0;
+    counter-reset: steps;
+  }
+  .ol-steps li {
+    counter-increment: steps;
+    padding: 8px 0 10px 38px;
+    position: relative;
+    border-bottom: 1px dashed var(--rule);
+    font-size: 10.5pt;
+    line-height: 1.5;
+  }
+  .ol-steps li:last-child { border-bottom: none; }
+  .ol-steps li::before {
+    content: counter(steps);
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 26px;
+    height: 26px;
+    background: var(--forest-deep);
+    color: var(--cream);
+    border-radius: 50%;
+    text-align: center;
+    line-height: 26px;
+    font-family: 'Georgia', serif;
+    font-weight: 700;
+    font-size: 11pt;
+  }
+  .ol-steps li strong {
+    display: block;
+    color: var(--forest-deep);
+    font-size: 11pt;
+    margin-bottom: 2px;
+  }
+
+  .verticals-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 14px;
+    margin-top: 8px;
+  }
+  .vertical {
+    padding: 14px 16px;
+    background: white;
+    border-radius: 6px;
+    border-left: 3px solid var(--forest);
+  }
+  .vertical h4 { color: var(--forest); margin-bottom: 6px; }
+  .vertical p { font-size: 9.5pt; line-height: 1.45; color: var(--ink-2); margin: 0; }
+
+  .note {
+    font-size: 9pt;
+    color: var(--ink-3);
+    font-style: italic;
+    line-height: 1.5;
+  }
+
+  .cta-box {
+    background: linear-gradient(135deg, var(--forest-deep) 0%, var(--forest) 100%);
+    color: var(--cream);
+    padding: 28px 30px;
+    border-radius: 6px;
+    margin-top: 18px;
+  }
+  .cta-box h3 {
+    color: var(--cream);
+    font-size: 17pt;
+    margin-bottom: 8px;
+  }
+  .cta-box p { color: var(--cream-2); font-size: 10.5pt; line-height: 1.55; margin-bottom: 4px; }
+  .cta-box .contact-line {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(246,242,232,0.25);
+    font-family: -apple-system, 'Helvetica Neue', sans-serif;
+    font-size: 10pt;
+  }
+  .cta-box .contact-line strong { color: var(--ember-soft); display: inline-block; min-width: 80px; }
+
+  .discount-badge {
+    display: inline-block;
+    background: var(--ember);
+    color: white;
+    font-family: -apple-system, 'Helvetica Neue', sans-serif;
+    font-size: 9pt;
+    letter-spacing: 0.1em;
+    padding: 3px 10px;
+    border-radius: 3px;
+    margin-left: 8px;
+    font-weight: 600;
+  }
+
+  /* Sources / references */
+  .sources-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 8px;
+  }
+  .sources-list li {
+    padding: 6px 0 7px 32px;
+    position: relative;
+    font-size: 9pt;
+    line-height: 1.4;
+    border-bottom: 1px dashed var(--rule);
+  }
+  .sources-list li:last-child { border-bottom: none; }
+  .sources-list .ref-num {
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 22px;
+    height: 22px;
+    background: var(--forest-deep);
+    color: var(--cream);
+    border-radius: 50%;
+    text-align: center;
+    line-height: 22px;
+    font-family: 'Georgia', serif;
+    font-weight: 700;
+    font-size: 9pt;
+  }
+  .sources-list .src-label {
+    display: block;
+    font-family: 'Georgia', serif;
+    font-weight: 700;
+    color: var(--forest-deep);
+    font-size: 10pt;
+    margin-bottom: 1px;
+  }
+  .sources-list .src-body { color: var(--ink-2); }
+  .sources-list .src-cite {
+    display: block;
+    margin-top: 2px;
+    font-family: -apple-system, 'Helvetica Neue', sans-serif;
+    font-size: 8pt;
+    color: var(--ink-3);
+  }
+  .sources-list .src-cite a {
+    color: var(--ember);
+    text-decoration: none;
+    word-break: break-all;
+  }
+</style>
+</head>
+<body>
+
+<!-- Web-only nav (hidden in print) -->
+<div class="web-nav no-print">
+  <div>Old Forrest Consulting · Pitch Document</div>
+  <div><a href="OFC-Pitch.pdf">Download PDF ↓</a></div>
+</div>
+
+<!-- ============ PAGE 1: COVER ============ -->
+<section class="page cover">
+  <div class="cover-top">
+    <div class="wordmark">Old For<span class="paren">(</span>r<span class="paren">)</span>est Consulting</div>
+    <div class="wordmark-sub">EST. UTAH · MANAGED INTELLIGENCE</div>
+  </div>
+
+  <div class="cover-main">
+    <div class="cover-kicker">For Trades · Factories · Franchises</div>
+    <h1>Operational clarity<br>for businesses that run on <span class="accent">more than software.</span></h1>
+    <p class="cover-lede">We configure the systems, connect the data, build what's missing, and stay on-call when it breaks. One partner instead of seven.</p>
+  </div>
+
+  <div class="cover-footer">
+    <div>
+      <div style="font-size: 11pt; color: var(--forest); font-weight: 700; letter-spacing: 0.02em; margin-bottom: 4px;">Pitch Document · 2026</div>
+      <div>Prepared for prospective clients</div>
+    </div>
+    <div class="right">
+      <div>chris@oldforrest.net</div>
+      <div>oldforrest.net</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PAGE 2: WHAT WE ARE ============ -->
+<section class="page">
+  <header class="masthead">
+    <div>
+      <div class="wordmark">Old For<span class="paren">(</span>r<span class="paren">)</span>est Consulting</div>
+    </div>
+    <div class="page-meta">What we are · 01</div>
+  </header>
+
+  <h4>The short version</h4>
+  <h2>One firm that integrates, embeds, maintains, and builds the stack your business actually runs on — and handles your vendors.</h2>
+
+  <p class="lede" style="margin-top: 14px; margin-bottom: 20px;">
+    Most mid-market operations-heavy businesses run on a dozen tools nobody fully understands:
+    a CRM, a field app, a time tracker, a quoting tool, an ERP module, a couple of spreadsheets
+    holding everything together, and a few pieces of hardware in the shop that one person knows
+    how to fix. When something breaks, you call a different vendor for each layer. When you want
+    to know how the business is actually doing, you get a report that's two weeks old.
+  </p>
+
+  <p style="margin-bottom: 22px;">
+    We replace that. We're a small firm that does what used to take a fractional CTO, an MSP,
+    a BI consultancy, and an integration partner — combined, coordinated, and delivered by the
+    same team that knows your business. AI-enabled where it matters; human where it has to be.
+  </p>
+
+  <div class="rule-ember"></div>
+  <h4>The four verbs</h4>
+  <div class="four-col" style="margin-top: 14px;">
+    <div class="verb-card">
+      <h3>Integrate</h3>
+      <div class="desc">Make your systems talk. CRM to accounting to field tools to dashboards. No more data trapped in silos.</div>
+    </div>
+    <div class="verb-card">
+      <h3>Embed</h3>
+      <div class="desc">Configure the stack to how your business actually works. Not theoretical best-practice — your reality.</div>
+    </div>
+    <div class="verb-card">
+      <h3>Maintain</h3>
+      <div class="desc">On-call for the software and hardware. Monitoring, updates, fixes. Your stack stays quiet.</div>
+    </div>
+    <div class="verb-card">
+      <h3>Build</h3>
+      <div class="desc">Custom dashboards, automations, tools. When off-the-shelf doesn't fit your workflow, we ship what does.</div>
+    </div>
+  </div>
+
+  <div class="callout">
+    <div class="callout-big">Plus the quiet killer feature: <span class="accent">we handle your vendors.</span></div>
+    <div class="callout-sub">
+      One throat to choke. We own the relationship with your CRM provider, your field-tool vendor,
+      your hardware supplier, your internet provider, and the guy who built your website.
+      You stop being the integration manager for your own business.
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div>Old Forrest Consulting LLC · Utah</div>
+    <div>Page 01</div>
+  </footer>
+</section>
+
+<!-- ============ PAGE 3: WHO WE SERVE ============ -->
+<section class="page">
+  <header class="masthead">
+    <div>
+      <div class="wordmark">Old For<span class="paren">(</span>r<span class="paren">)</span>est Consulting</div>
+    </div>
+    <div class="page-meta">Who we serve · 02</div>
+  </header>
+
+  <h4>Three verticals, one pattern</h4>
+  <h2>Operations-heavy businesses the big firms won't touch and the generalists don't understand.</h2>
+
+  <p style="margin-top: 14px; margin-bottom: 20px;">
+    Every business we serve shares the same profile: physical operations, a distributed workforce or
+    locations, a mix of legacy and modern tools, data trapped across systems, and no one on the inside
+    whose job is to make sense of it. The BI consultancies won't touch them because the engagements
+    are too small. Generalist MSPs don't understand how the business actually runs.
+    We sit in that gap — and we're the only people who belong there.
+  </p>
+
+  <div class="verticals-row">
+    <div class="vertical">
+      <h4>Trades</h4>
+      <p>Construction, exteriors, roofing, HVAC, plumbing, electrical. Field crews, job sites, multiple entities, quoting and scheduling tools layered over accounting, and a CRM that nobody trusts.</p>
+    </div>
+    <div class="vertical">
+      <h4>Factories</h4>
+      <p>Small-to-mid manufacturers, shops, fabrication. ERP modules, shop-floor hardware, inventory and production data that doesn't reach management in time to act on it.</p>
+    </div>
+    <div class="vertical">
+      <h4>Franchises</h4>
+      <p>Multi-location operators. Each location runs a slightly different stack, corporate wants unified reporting, and "rolling it up" currently means someone's spreadsheet.</p>
+    </div>
+  </div>
+
+  <div class="rule-ember" style="margin-top: 28px;"></div>
+  <h4>Why we work for these businesses</h4>
+
+  <ol class="ol-steps" style="margin-top: 10px;">
+    <li>
+      <strong>We're the whole stack.</strong>
+      You stop paying four different vendors to coordinate badly. One invoice, one Slack channel, one partner who knows everything.
+    </li>
+    <li>
+      <strong>We move fast because we use AI where it matters.</strong>
+      Configuration, integration, and dashboard work that took agencies three months takes us three weeks. You get agency-grade output at a pace that actually matches how your business moves.
+    </li>
+    <li>
+      <strong>We stay.</strong>
+      After the initial build, we're still here — monitoring, iterating, answering the phone when the shop PC won't boot. Most consultants hand off and disappear. We don't.
+    </li>
+    <li>
+      <strong>We know your business, not just your software.</strong>
+      A dashboard is only useful if the person who built it understands what the numbers mean to you. We take the time to get that right once, and everything downstream is better for it.
+    </li>
+  </ol>
+
+  <footer class="footer">
+    <div>Old Forrest Consulting LLC · Utah</div>
+    <div>Page 02</div>
+  </footer>
+</section>
+
+<!-- ============ PAGE 4: THE 90-DAY FLOW ============ -->
+<section class="page">
+  <header class="masthead">
+    <div>
+      <div class="wordmark">Old For<span class="paren">(</span>r<span class="paren">)</span>est Consulting</div>
+    </div>
+    <div class="page-meta">The flow · 03</div>
+  </header>
+
+  <h4>How it works</h4>
+  <h2>The Embed sprint: when you want it all configured in 90 days.</h2>
+
+  <p style="margin-top: 14px; margin-bottom: 4px;">
+    The flow below is what an <strong>Embed</strong> engagement looks like — a 90-day configuration
+    sprint that takes a business from tool sprawl to a working, integrated stack with live dashboards
+    and documented runbooks. It's the right fit when you want real change fast. Clients who already
+    have a working stack can skip the sprint and start at <strong>Operate</strong> or <strong>Maintain</strong>
+    — the first 30 days of any engagement still include discovery, just proportional to the tier.
+  </p>
+
+  <div class="timeline">
+    <div class="phase">
+      <div class="phase-num">PHASE 01</div>
+      <div class="phase-weeks">Weeks 1–2</div>
+      <div class="phase-title">Discovery</div>
+      <ul>
+        <li>Inventory every tool, vendor, and integration</li>
+        <li>Walk the shop, ride along with field crews</li>
+        <li>Interview owners, ops leads, and daily users</li>
+        <li>Map data flows — real ones, not org-chart ones</li>
+        <li>Identify quick wins and deep fixes</li>
+      </ul>
+    </div>
+    <div class="phase">
+      <div class="phase-num">PHASE 02</div>
+      <div class="phase-weeks">Weeks 3–6</div>
+      <div class="phase-title">Configure</div>
+      <ul>
+        <li>Stand up and tune CRM, field tools, accounting links</li>
+        <li>Build workflows and automations</li>
+        <li>Fix or replace broken vendor setups</li>
+        <li>Standardize data entry and naming</li>
+        <li>Document everything as we go</li>
+      </ul>
+    </div>
+    <div class="phase">
+      <div class="phase-num">PHASE 03</div>
+      <div class="phase-weeks">Weeks 7–10</div>
+      <div class="phase-title">Integrate & Build</div>
+      <ul>
+        <li>Connect systems to central data layer</li>
+        <li>Build live BI dashboards (owner, ops, field)</li>
+        <li>Custom tooling where off-the-shelf falls short</li>
+        <li>Alerting on what actually matters</li>
+        <li>Vendor relationships formalized under us</li>
+      </ul>
+    </div>
+    <div class="phase">
+      <div class="phase-num">PHASE 04</div>
+      <div class="phase-weeks">Weeks 11–12</div>
+      <div class="phase-title">Handoff & Steady State</div>
+      <ul>
+        <li>Train your team on the new flow</li>
+        <li>Document the full stack and runbooks</li>
+        <li>Transition to ongoing support tier</li>
+        <li>Set recurring review cadence</li>
+        <li>On-call coverage begins</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card-dark" style="margin-top: 28px;">
+    <h3 style="font-size: 14pt; margin-bottom: 10px;">After the 90 days, what steady state looks like</h3>
+    <p class="muted" style="font-size: 10.5pt; line-height: 1.55; margin-bottom: 8px;">
+      You have a stack that works. Your dashboards are live. Your vendors are managed. Your data
+      tells you what happened yesterday, not what happened last month. When something breaks,
+      you call one number. When you want to change something, you ask one team.
+    </p>
+    <p class="muted" style="font-size: 10.5pt; line-height: 1.55;">
+      We're still here — as much or as little as you need. Most clients settle into a monthly
+      rhythm of a standing review, ongoing small builds, and on-call coverage for the stack.
+      Some need more. Some need less. The tier structure on the next page is how we match
+      what you need to what you pay.
+    </p>
+  </div>
+
+  <footer class="footer">
+    <div>Old Forrest Consulting LLC · Utah</div>
+    <div>Page 03</div>
+  </footer>
+</section>
+
+<!-- ============ PAGE 5: PRICING ============ -->
+<section class="page">
+  <header class="masthead">
+    <div>
+      <div class="wordmark">Old For<span class="paren">(</span>r<span class="paren">)</span>est Consulting</div>
+    </div>
+    <div class="page-meta">Pricing · 04</div>
+  </header>
+
+  <h4>Transparent by design</h4>
+  <h2>Four tiers. Pick the right entry point for where you are today.</h2>
+
+  <p style="margin-top: 14px; margin-bottom: 12px;">
+    Pick the tier that matches where you are today. Most clients with real operational complexity
+    start with <strong>Embed</strong> — a 90-day configuration sprint that gets the whole stack
+    into shape fast. Others start at <strong>Operate</strong> or <strong>Maintain</strong> and
+    build momentum from there. <strong>Build</strong> projects sit alongside any tier for discrete work.
+  </p>
+
+  <div class="pricing-grid">
+    <div class="tier featured">
+      <div class="tier-name">Embed</div>
+      <div class="tier-tagline">90-DAY INTENSIVE</div>
+      <div class="tier-price">$40k<span style="font-size: 11pt; font-weight: 400; opacity: 0.7;">/mo</span></div>
+      <div class="tier-unit">× 3 months · $120k total</div>
+      <ul>
+        <li>Full discovery and inventory</li>
+        <li>Stack configuration and tuning</li>
+        <li>System integration and data layer</li>
+        <li>BI dashboards built and live</li>
+        <li>Custom tooling as needed</li>
+        <li>Vendor consolidation</li>
+        <li>Documentation and runbooks</li>
+        <li>Handoff to steady-state tier</li>
+      </ul>
+    </div>
+    <div class="tier">
+      <div class="tier-name">Operate</div>
+      <div class="tier-tagline">ACTIVE ONGOING</div>
+      <div class="tier-price">$10k–$15k<span style="font-size: 11pt; font-weight: 400;">/mo</span></div>
+      <div class="tier-unit">Multi-system, active work</div>
+      <ul>
+        <li>Everything in Maintain, plus:</li>
+        <li>Ongoing dashboard iteration</li>
+        <li>Active vendor management</li>
+        <li>New integrations as needed</li>
+        <li>Monthly strategy review</li>
+        <li>Custom builds included up to scope</li>
+      </ul>
+    </div>
+    <div class="tier">
+      <div class="tier-name">Maintain</div>
+      <div class="tier-tagline">STABILIZED · LOW-TOUCH</div>
+      <div class="tier-price">$5k<span style="font-size: 11pt; font-weight: 400;">/mo</span></div>
+      <div class="tier-unit">~20 hours/mo</div>
+      <ul>
+        <li>On-call software & hardware support</li>
+        <li>Integration monitoring</li>
+        <li>Minor iterations and fixes</li>
+        <li>Monthly review and roadmap check-in</li>
+        <li>Vendor liaison</li>
+        <li>Larger work scoped as Build projects</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top: 18px; border-left: 3px solid var(--ember);">
+    <h4 style="margin-bottom: 8px;">Build · Discrete projects</h4>
+    <p style="font-size: 10.5pt; line-height: 1.55; margin-bottom: 0;">
+      Layered on any tier when you need a specific thing built — a new integration, a custom tool,
+      a migration, a website rebuild. <strong>Fixed-fee scopes, not hourly.</strong> Most projects
+      land in the $5k–$50k range depending on complexity.
+    </p>
+  </div>
+
+  <div class="rule-ember" style="margin-top: 22px;"></div>
+  <h4>Three ways to start</h4>
+  <p style="margin-top: 8px; font-size: 10.5pt; line-height: 1.55;">
+    <strong>Embed</strong> is the right fit when you want everything configured, integrated, and live
+    in 90 days — multi-entity holdings, multi-location operators, or trades companies that have outgrown
+    the spreadsheet stage. <strong>Operate</strong> makes sense when you already have a working stack
+    and want us actively building, integrating, and iterating alongside your team. <strong>Maintain</strong>
+    is for businesses whose stack is stable and who mostly need a reliable on-call partner and a monthly
+    check-in. Any tier can graduate up or down as needs change — no penalty, no renegotiation theater.
+  </p>
+
+  <p class="note" style="margin-top: 12px;">
+    All engagements are covered by our standard Master Service Agreement. Pricing is firm —
+    what keeps it that way is that it's genuinely fair for the work. See the next page for the math.
+  </p>
+
+  <footer class="footer">
+    <div>Old Forrest Consulting LLC · Utah</div>
+    <div>Page 04</div>
+  </footer>
+</section>
+
+<!-- ============ PAGE 6: THE MATH ============ -->
+<section class="page">
+  <header class="masthead">
+    <div>
+      <div class="wordmark">Old For<span class="paren">(</span>r<span class="paren">)</span>est Consulting</div>
+    </div>
+    <div class="page-meta">The math · 05</div>
+  </header>
+
+  <h4>What you'd pay elsewhere</h4>
+  <h2>The split-vendor comparison.</h2>
+
+  <p style="margin-top: 14px; margin-bottom: 8px;">
+    The easiest way to understand what Embed is worth is to price out what it costs to source the same
+    work across the vendors you'd otherwise hire. Here's the current-market comparison for a client
+    with real operational complexity — the kind of client who needs Embed.
+  </p>
+
+  <table class="math-table">
+    <thead>
+      <tr>
+        <th>Function</th>
+        <th>Typical vendor</th>
+        <th>Monthly equivalent</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>HubSpot / CRM admin & RevOps</td>
+        <td>Certified partner agency</td>
+        <td>$8k–$15k<sup>1</sup></td>
+      </tr>
+      <tr>
+        <td>Custom BI dashboards & hosting</td>
+        <td>Dev shop or freelance team</td>
+        <td>$10k–$20k<sup>2</sup></td>
+      </tr>
+      <tr>
+        <td>Fractional CTO</td>
+        <td>Solo fractional</td>
+        <td>$10k–$15k<sup>3</sup></td>
+      </tr>
+      <tr>
+        <td>Fractional COO / ops strategist</td>
+        <td>Solo fractional</td>
+        <td>$8k–$12k<sup>4</sup></td>
+      </tr>
+      <tr>
+        <td>Managed IT / on-call support</td>
+        <td>Regional MSP</td>
+        <td>$3k–$6k<sup>5</sup></td>
+      </tr>
+      <tr>
+        <td>Web dev / integrations</td>
+        <td>Agency project fees, amortized</td>
+        <td>$5k–$10k<sup>6</sup></td>
+      </tr>
+      <tr>
+        <td>Vendor evaluation & procurement</td>
+        <td>Boutique consultant</td>
+        <td>$5k–$10k<sup>7</sup></td>
+      </tr>
+      <tr>
+        <td>Executive documentation & comms</td>
+        <td>Fractional chief of staff</td>
+        <td>$3k–$5k<sup>8</sup></td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="2">Split-vendor total (midpoint)</td>
+        <td>~$70k/mo</td>
+      </tr>
+    </tfoot>
+  </table>
+
+  <div class="callout" style="padding: 18px 22px; margin-top: 14px;">
+    <div class="callout-big" style="font-size: 15pt; margin-bottom: 6px;">Embed is <span class="accent">~40% less</span> than the split-vendor equivalent.</div>
+    <div class="callout-sub" style="font-size: 9.5pt;">
+      Embed at $40k/mo is roughly 40% below the midpoint of sourcing the same work across vendors —
+      before counting the coordination tax (20–30% slippage across 6–8 vendors) and the project-management
+      burden that currently falls on you. In steady state, Maintain at $5k/mo is the cheapest insurance
+      policy you'll buy for your stack.
+    </div>
+  </div>
+
+  <div class="rule-ember" style="margin-top: 18px;"></div>
+  <h4>What makes this math work</h4>
+  <ul class="bullet-list" style="margin-top: 6px;">
+    <li><strong>AI where it matters.</strong> Configuration, documentation, and dashboard work is force-multiplied by modern tooling. Agency-grade output at two-person speed.</li>
+    <li><strong>Vertical pattern recognition.</strong> We've done this in construction and exteriors already. We're not learning your industry on your dime.</li>
+    <li><strong>Context compounds.</strong> After 90 days we know your business. A vendor you replaced starts from zero; we build on what's already there.</li>
+  </ul>
+
+  <footer class="footer">
+    <div>Old Forrest Consulting LLC · Utah</div>
+    <div>Page 05</div>
+  </footer>
+</section>
+
+<!-- ============ PAGE 7: SOURCES ============ -->
+<section class="page">
+  <header class="masthead">
+    <div>
+      <div class="wordmark">Old For<span class="paren">(</span>r<span class="paren">)</span>est Consulting</div>
+    </div>
+    <div class="page-meta">Sources · 06</div>
+  </header>
+
+  <h4>Methodology & references</h4>
+  <h2>Where the comparison numbers come from.</h2>
+
+  <p style="margin-top: 10px; margin-bottom: 2px; font-size: 10pt; line-height: 1.5;">
+    The split-vendor comparison uses 2026 market-rate ranges drawn from published pricing guides,
+    benchmark reports, and MSP/fractional-leadership research across North America. Ranges reflect
+    what a mid-market operationally-complex client would pay to source each function from a qualified
+    specialist. Source numbers match the superscripts in the comparison table.
+  </p>
+
+  <ul class="sources-list">
+    <li>
+      <span class="ref-num">1</span>
+      <span class="src-label">HubSpot / CRM admin & RevOps — $8k–$15k/mo</span>
+      <span class="src-body">Certified HubSpot partner agency retainers for active portal administration, RevOps architecture, and workflow management. Range consistent with industry-standard implementation-plus-retainer pricing for mid-market HubSpot customers.</span>
+      <span class="src-cite">HubSpot Solutions Partner directory pricing benchmarks, 2026. Blended from certified partner public rate cards.</span>
+    </li>
+    <li>
+      <span class="ref-num">2</span>
+      <span class="src-label">Custom BI dashboards & hosting — $10k–$20k/mo</span>
+      <span class="src-body">Ongoing dev-shop or freelance-team retainers for custom BI builds (Next.js, React, data pipeline, hosting). Reflects typical full-stack team rates for active dashboard iteration plus infrastructure management.</span>
+      <span class="src-cite">US dev agency retainer benchmarks, 2026; cross-referenced with Pertama Partners AI/BI implementation cost ranges.</span>
+    </li>
+    <li>
+      <span class="ref-num">3</span>
+      <span class="src-label">Fractional CTO — $10k–$15k/mo</span>
+      <span class="src-body">Mid-to-upper range for ongoing fractional CTO retainers for growth-stage and mid-market companies, reflecting 2–3 days per week of senior technical leadership.</span>
+      <span class="src-cite">Fractional CTO Cost &amp; Rates 2026 Complete Pricing Guide (fractionalctoexperts.com); Kompella Technologies 2026 pricing guide; Emizentech fractional CTO rates 2026.</span>
+    </li>
+    <li>
+      <span class="ref-num">4</span>
+      <span class="src-label">Fractional COO / ops strategist — $8k–$12k/mo</span>
+      <span class="src-body">Typical ongoing retainer range for solo fractional COO/ops leadership at mid-market scale. Aligned with fractional-executive ranges across adjacent functions (CFO, CTO) in operations-heavy industries.</span>
+      <span class="src-cite">Cross-referenced from Madras Accountancy Fractional CFO Rates by Industry 2026 (construction vertical) and fractional-executive pricing guides.</span>
+    </li>
+    <li>
+      <span class="ref-num">5</span>
+      <span class="src-label">Managed IT / on-call support — $3k–$6k/mo</span>
+      <span class="src-body">Regional MSP pricing for a ~20–30 user mid-market trades/construction client at $100–$200 per user per month for comprehensive managed services including monitoring, helpdesk, and security.</span>
+      <span class="src-cite">Datapath Managed IT Services Pricing Guide 2026; Solutionbuilders Ultimate 2026 Guide to Managed IT Services Pricing; Corsica Technologies 2026 pricing benchmarks.</span>
+    </li>
+    <li>
+      <span class="ref-num">6</span>
+      <span class="src-label">Web dev / integrations — $5k–$10k/mo</span>
+      <span class="src-body">Amortized agency project fees for website rebuilds, integration builds, and ongoing web development work, spread over typical 6–12 month engagement cycles.</span>
+      <span class="src-cite">US digital agency project-fee benchmarks, 2026. Derived from public agency rate cards for mid-market clients.</span>
+    </li>
+    <li>
+      <span class="ref-num">7</span>
+      <span class="src-label">Vendor evaluation & procurement — $5k–$10k/mo</span>
+      <span class="src-body">Boutique consulting fees for ongoing vendor evaluation, procurement support, and tool selection across software and hardware stacks typical in operationally-complex mid-market businesses.</span>
+      <span class="src-cite">Boutique consulting retainer benchmarks; cross-referenced from MSP value-based pricing examples in DeskDay 2026 MSP pricing guide.</span>
+    </li>
+    <li>
+      <span class="ref-num">8</span>
+      <span class="src-label">Executive documentation & comms — $3k–$5k/mo</span>
+      <span class="src-body">Fractional chief of staff or executive-ghostwriter monthly retainer range for ongoing leadership documentation, briefings, and stakeholder communications at mid-market scale.</span>
+      <span class="src-cite">Fractional chief-of-staff market benchmarks, 2026.</span>
+    </li>
+  </ul>
+
+  <p class="note" style="margin-top: 12px;">
+    Coordination tax estimate (20–30% additional cost across 6–8 vendors) reflects commonly-reported
+    overhead from duplicated discovery, misaligned context, and client-side project management burden
+    when sourcing across multiple specialized vendors. Client savings will vary by stack complexity,
+    vendor count, and operational maturity.
+  </p>
+
+  <footer class="footer">
+    <div>Old Forrest Consulting LLC · Utah</div>
+    <div>Page 06</div>
+  </footer>
+</section>
+
+<!-- ============ PAGE 7: CASE STUDY ============ -->
+<section class="page">
+  <header class="masthead">
+    <div>
+      <div class="wordmark">Old For<span class="paren">(</span>r<span class="paren">)</span>est Consulting</div>
+    </div>
+    <div class="page-meta">Proof · 07</div>
+  </header>
+
+  <h4>Case study</h4>
+  <h2>ERK Holdings — a multi-entity construction & exteriors family of companies.</h2>
+
+  <div class="case-study">
+    <div class="case-meta">
+      <div><strong>Client:</strong> ERK Holdings</div>
+      <div><strong>Entities:</strong> 4+ operating companies</div>
+      <div><strong>Engagement:</strong> Ongoing (12+ months)</div>
+      <div><strong>Industries:</strong> Construction · Roofing · Exteriors</div>
+    </div>
+
+    <div class="case-section">
+      <h4>The situation</h4>
+      <p style="font-size: 10pt; line-height: 1.5;">
+        A Utah-based holding company with several operating businesses across construction, roofing,
+        and exterior services. Multiple CRMs, field tools, time-tracking, and accounting platforms —
+        none talking to each other. Ownership couldn't get a clear picture across entities.
+        Vendor sprawl was real: a marketing agency, a website provider, a CRM partner,
+        and several software tools with no unified owner.
+      </p>
+    </div>
+
+    <div class="case-section">
+      <h4>What we did</h4>
+      <ul class="bullet-list" style="font-size: 10pt;">
+        <li>Rebuilt the HubSpot portal — pipelines, deal stages, properties, associations across entities</li>
+        <li>Configured forms, workflows, and auto-reply automations for Cardinal Roofing's inbound demand</li>
+        <li>Built a live pipeline health dashboard in Next.js, deployed to a dedicated VPS</li>
+        <li>Evaluated and selected workforce tools (time tracking, GPS fleet) with written comparison briefs</li>
+        <li>Handled the Orem office's internet infrastructure decision (UTOPIA Fiber)</li>
+        <li>Rebuilt Cardinal Roofing's website, coordinating the transition off the prior agency</li>
+        <li>Active on-call coverage for software and hardware issues across entities</li>
+      </ul>
+    </div>
+
+    <div class="case-section">
+      <h4>The outcome</h4>
+      <p style="font-size: 10pt; line-height: 1.5;">
+        ERK's ownership now has cross-entity visibility they couldn't get before. Each operating
+        company has a CRM pipeline that's actually trusted. Vendor count is down; coordination overhead
+        is near zero. The firm operates as fractional operational leadership across the holding —
+        in-office regularly, available to leadership, with active expansion into additional entities.
+      </p>
+    </div>
+  </div>
+
+  <div class="stats-row" style="margin: 14px 0;">
+    <div class="stat">
+      <div class="stat-num">4+</div>
+      <div class="stat-label">Operating entities<br>supported</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">12+</div>
+      <div class="stat-label">Months<br>active engagement</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">1</div>
+      <div class="stat-label">Partner replacing<br>a fleet of vendors</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">~40%</div>
+      <div class="stat-label">Below split-vendor<br>cost equivalent</div>
+    </div>
+  </div>
+
+  <p class="note" style="margin-top: 10px;">
+    Client reference available on request. Derek Hansen, ERK Holdings, is happy to speak directly
+    with serious prospects about the engagement experience.
+  </p>
+
+  <footer class="footer">
+    <div>Old Forrest Consulting LLC · Utah</div>
+    <div>Page 07</div>
+  </footer>
+</section>
+
+<!-- ============ PAGE 8: NEXT STEPS ============ -->
+<section class="page">
+  <header class="masthead">
+    <div>
+      <div class="wordmark">Old For<span class="paren">(</span>r<span class="paren">)</span>est Consulting</div>
+    </div>
+    <div class="page-meta">Next steps · 08</div>
+  </header>
+
+  <h4>How the first conversation works</h4>
+  <h2>No pressure. No long sales cycle. We'll tell you honestly if we're a fit.</h2>
+
+  <p style="margin-top: 12px; margin-bottom: 14px;">
+    We don't do the traditional enterprise sales dance. If you're a trades, factory, or franchise
+    operation that's felt the pain of too many disconnected tools, the first conversation is simple.
+  </p>
+
+  <ol class="ol-steps">
+    <li>
+      <strong>Intro call — 30 minutes.</strong>
+      Tell us about your business, the stack, and what's frustrating you right now. No slides, no pitch. We listen.
+    </li>
+    <li>
+      <strong>Discovery session — 60–90 minutes.</strong>
+      If there's a fit, we do a paid working session walking the stack together. You come away with a clear picture of what an engagement looks like.
+    </li>
+    <li>
+      <strong>Scoped proposal — within 5 business days.</strong>
+      The right tier for you — Embed, Operate, or Maintain — with a realistic scope and a fixed price. No surprises.
+    </li>
+    <li>
+      <strong>Decide on your timeline.</strong>
+      Yes, and we start when you're ready. No or not-yet, and we part cleanly. Either way you leave with a clearer picture of your own stack.
+    </li>
+  </ol>
+
+  <div class="cta-box" style="padding: 22px 26px; margin-top: 14px;">
+    <h3 style="font-size: 16pt; margin-bottom: 6px;">Let's have the first conversation.</h3>
+    <p style="margin-bottom: 0;">Reach out directly. Mention who referred you — it goes to the top of the queue.</p>
+    <div class="contact-line" style="margin-top: 12px; padding-top: 12px;">
+      <div><strong>Email</strong> chris@oldforrest.net</div>
+      <div><strong>Partner</strong> taylor@oldforrest.net</div>
+      <div><strong>Web</strong> oldforrest.net</div>
+    </div>
+  </div>
+
+  <div class="rule-ember" style="margin-top: 20px;"></div>
+  <h4>Who we are</h4>
+  <p style="font-size: 10pt; line-height: 1.5; margin-top: 4px;">
+    Old Forrest Consulting is a Utah-based firm founded by <strong>Christopher Ledbetter</strong> and
+    <strong>Taylor Westmoreland</strong>. Christopher's background spans technical leadership at NetApp,
+    Dropbox, and Orbital ATK. Taylor is an aerospace engineer turned operator. We built Old Forrest
+    to be the kind of partner we wished we'd had when we were on the operating side —
+    honest, fast, and present.
+  </p>
+
+  <footer class="footer">
+    <div>Old Forrest Consulting LLC · Utah · © 2026</div>
+    <div>Page 08</div>
+  </footer>
+</section>
+
+</body>
+</html>

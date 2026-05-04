@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Outfit } from "next/font/google";
+import { Inter, Fraunces } from "next/font/google";
 import "./globals.css";
 import {
   OrganizationJsonLd,
@@ -13,9 +13,9 @@ const inter = Inter({
   display: "swap",
 });
 
-const outfit = Outfit({
+const fraunces = Fraunces({
   subsets: ["latin"],
-  variable: "--font-outfit",
+  variable: "--font-fraunces",
   display: "swap",
 });
 
@@ -24,22 +24,24 @@ const BASE_URL = "https://oldforrest.net";
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   title: {
-    default: "Old Forrest Consulting | AI Project Rescue & Fractional CTO",
+    default: "Old Forrest Consulting | Managed Intelligence for Operations-Heavy Businesses",
     template: "%s | Old Forrest Consulting",
   },
   description:
-    "Fractional CTO expertise for founders and teams who need real architecture, real execution, and real results, fast. AI integration, full-stack development, and technical leadership.",
+    "One firm that integrates, embeds, maintains, and builds the stack your business actually runs on — and handles your vendors. For trades, factories, and franchises.",
   keywords: [
+    "Managed Intelligence",
+    "Operations Consulting",
+    "Trades Consulting",
+    "Factory Operations",
+    "Franchise Operations",
     "Fractional CTO",
-    "AI Project Rescue",
-    "Technical Leadership",
-    "Full Stack Development",
-    "TypeScript",
-    "React",
-    "Node.js",
-    "AI Integration",
-    "Startup CTO",
-    "Technical Consulting",
+    "Fractional COO",
+    "BI Dashboards",
+    "CRM Integration",
+    "HubSpot",
+    "Vendor Management",
+    "Utah Consulting",
   ],
   authors: [{ name: "Old Forrest Consulting" }],
   creator: "Old Forrest Consulting",
@@ -60,23 +62,23 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: BASE_URL,
     siteName: "Old Forrest Consulting",
-    title: "Old Forrest Consulting | AI Project Rescue & Fractional CTO",
+    title: "Old Forrest Consulting | Managed Intelligence for Operations-Heavy Businesses",
     description:
-      "Fractional CTO expertise for founders and teams who need real architecture, real execution, and real results, fast.",
+      "One firm that integrates, embeds, maintains, and builds the stack your business actually runs on — and handles your vendors.",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Old Forrest Consulting - Fractional CTO Services",
+        alt: "Old Forrest Consulting — Managed Intelligence",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Old Forrest Consulting | AI Project Rescue & Fractional CTO",
+    title: "Old Forrest Consulting | Managed Intelligence",
     description:
-      "Fractional CTO expertise for founders and teams who need real architecture, real execution, and real results, fast.",
+      "One firm that integrates, embeds, maintains, and builds the stack your business actually runs on — and handles your vendors.",
     images: ["/og-image.png"],
   },
   alternates: {
@@ -101,7 +103,7 @@ export default function RootLayout({
         <WebSiteJsonLd />
       </head>
       <body
-        className={`${inter.variable} ${outfit.variable} antialiased bg-background text-foreground font-sans`}
+        className={`${inter.variable} ${fraunces.variable} antialiased bg-background text-foreground font-sans`}
       >
         {children}
       </body>

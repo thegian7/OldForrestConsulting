@@ -1,105 +1,71 @@
 @import "tailwindcss";
 
 @theme {
+  /* Fonts */
   --font-sans: var(--font-inter);
-  --font-heading: var(--font-outfit);
+  --font-heading: var(--font-fraunces);
 
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  
-  --color-border: var(--border);
-}
+  /* Brand tokens — taken verbatim from OFC pitch deck */
+  --color-forest: #1f3d2b;
+  --color-forest-deep: #132418;
+  --color-moss: #3d5a3f;
+  --color-ember: #b8621b;
+  --color-ember-soft: #d98c4a;
+  --color-cream: #f6f2e8;
+  --color-cream-2: #ebe4d3;
+  --color-ink: #1a1a1a;
+  --color-ink-2: #3b3b3b;
+  --color-ink-3: #6b6b6b;
+  --color-rule: #c9bfa8;
 
-:root {
-  /* Refined Dark Theme with Depth */
-  --background: #0a0f1e; /* Deeper base */
-  --background-elevated: #111827; /* For cards */
-  --foreground: #f1f5f9; /* Slightly warmer white */
-
-  --primary: #3b82f6; /* blue-500 */
-  --primary-hover: #2563eb; /* blue-600 */
-  --primary-foreground: #ffffff;
-
-  --secondary: #1e293b; /* slate-800 */
-  --secondary-foreground: #f8fafc;
-
-  --accent: #60a5fa; /* Brighter blue accent */
-  --accent-foreground: #0f172a;
-
-  --muted: #1e293b; /* slate-800 */
-  --muted-foreground: #cbd5e1; /* slate-300 - improved contrast */
-
-  --card: #0f1629; /* Slightly lighter than background */
-  --card-hover: #1a1f35; /* Hover state */
-  --card-foreground: #f1f5f9;
-
-  /* Borders */
-  --border-subtle: rgba(255, 255, 255, 0.05);
-  --border-default: rgba(255, 255, 255, 0.10);
-  --border-emphasis: rgba(255, 255, 255, 0.20);
-  --border-primary: rgba(59, 130, 246, 0.5);
-
-  /* Shadows */
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
-  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5);
-  --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.6);
-  --shadow-primary: 0 0 20px rgba(59, 130, 246, 0.3);
-
-  /* Section backgrounds for visual separation */
-  --section-even: #0a0f1e;
-  --section-odd: #0d1220;
+  /* Semantic aliases — let the rest of the app stay readable */
+  --color-background: var(--color-cream);
+  --color-foreground: var(--color-ink);
+  --color-primary: var(--color-forest);
+  --color-primary-foreground: var(--color-cream);
+  --color-accent: var(--color-ember);
+  --color-accent-foreground: var(--color-cream);
+  --color-muted: var(--color-cream-2);
+  --color-muted-foreground: var(--color-ink-3);
+  --color-border: var(--color-rule);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: var(--color-cream);
+  color: var(--color-ink);
   font-family: var(--font-sans);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   font-weight: 700;
-  letter-spacing: -0.02em;
+  color: var(--color-forest-deep);
+  letter-spacing: -0.01em;
+  line-height: 1.15;
 }
 
-/* Focus states for accessibility */
+h4.kicker, .kicker {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-ember);
+  font-weight: 700;
+}
+
+strong { color: var(--color-forest-deep); }
+em { font-style: italic; color: var(--color-ink-2); }
+
+::selection {
+  background-color: var(--color-forest);
+  color: var(--color-cream);
+}
+
 *:focus-visible {
-  outline: 2px solid var(--primary);
+  outline: 2px solid var(--color-ember);
   outline-offset: 2px;
   border-radius: 0.25rem;
-}
-
-/* Selection styling */
-::selection {
-  background-color: var(--primary);
-  color: white;
-}
-
-/* Section background utilities */
-.section-even {
-  background-color: var(--section-even);
-}
-
-.section-odd {
-  background-color: var(--section-odd);
-}
-
-.section-border {
-  border-top: 1px solid var(--border-subtle);
 }
