@@ -1,72 +1,96 @@
+const BASE_URL = "https://oldforrest.net";
+
 export function OrganizationJsonLd() {
-  const structuredData = {
+  const data = {
     "@context": "https://schema.org",
     "@type": "Organization",
     name: "Old Forrest Consulting",
-    url: "https://oldforrest.net",
-    logo: "https://oldforrest.net/logo.png",
+    legalName: "Old Forrest Consulting LLC",
+    url: BASE_URL,
+    logo: `${BASE_URL}/logo.png`,
     description:
-      "Fractional CTO expertise for founders and teams who need real architecture, real execution, and real results, fast.",
+      "Managed Intelligence for trades, factories, and franchises. One firm that integrates, embeds, maintains, and builds the stack your business actually runs on, and handles your vendors.",
     foundingDate: "2024",
+    address: {
+      "@type": "PostalAddress",
+      addressRegion: "UT",
+      addressCountry: "US",
+    },
+    contactPoint: [
+      {
+        "@type": "ContactPoint",
+        contactType: "sales",
+        email: "chris@oldforrest.net",
+        availableLanguage: "English",
+      },
+    ],
     sameAs: [],
-    contactPoint: {
-      "@type": "ContactPoint",
-      contactType: "customer service",
-      availableLanguage: "English",
-    },
-    serviceArea: {
-      "@type": "Place",
-      name: "Worldwide",
-    },
   };
 
   return (
     <script
       type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
     />
   );
 }
 
 export function ProfessionalServiceJsonLd() {
-  const structuredData = {
+  const data = {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     name: "Old Forrest Consulting",
-    url: "https://oldforrest.net",
+    url: BASE_URL,
     description:
-      "Fractional CTO and technical leadership services for startups and growing teams.",
-    priceRange: "$$$$",
-    areaServed: "Worldwide",
+      "Operations consulting for trades, factories, and franchises. One firm that integrates, embeds, maintains, and builds your stack, and handles your vendors.",
+    priceRange: "$5,000 - $40,000 / month",
+    areaServed: {
+      "@type": "Country",
+      name: "United States",
+    },
+    address: {
+      "@type": "PostalAddress",
+      addressRegion: "UT",
+      addressCountry: "US",
+    },
     hasOfferCatalog: {
       "@type": "OfferCatalog",
-      name: "Consulting Services",
+      name: "Engagement tiers",
       itemListElement: [
         {
           "@type": "Offer",
           itemOffered: {
             "@type": "Service",
-            name: "AI Project Rescue",
+            name: "Embed",
             description:
-              "Rescue stalled AI projects with expert technical leadership and implementation.",
+              "90-day configuration sprint that takes a business from tool sprawl to a working, integrated stack with live dashboards and documented runbooks.",
           },
         },
         {
           "@type": "Offer",
           itemOffered: {
             "@type": "Service",
-            name: "Fractional CTO",
+            name: "Operate",
             description:
-              "Part-time technical leadership for startups and growing teams.",
+              "Active ongoing engagement: dashboard iteration, vendor management, new integrations, and monthly strategy review.",
           },
         },
         {
           "@type": "Offer",
           itemOffered: {
             "@type": "Service",
-            name: "Full-Stack Development",
+            name: "Maintain",
             description:
-              "End-to-end development services using TypeScript, React, Node.js, and modern cloud infrastructure.",
+              "On-call software and hardware support with integration monitoring and a monthly review cadence.",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Build",
+            description:
+              "Discrete fixed-fee projects: integrations, custom tooling, dashboards, migrations, website rebuilds.",
           },
         },
       ],
@@ -76,28 +100,23 @@ export function ProfessionalServiceJsonLd() {
   return (
     <script
       type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
     />
   );
 }
 
 export function WebSiteJsonLd() {
-  const structuredData = {
+  const data = {
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: "Old Forrest Consulting",
-    url: "https://oldforrest.net",
-    potentialAction: {
-      "@type": "SearchAction",
-      target: "https://oldforrest.net/?q={search_term_string}",
-      "query-input": "required name=search_term_string",
-    },
+    url: BASE_URL,
   };
 
   return (
     <script
       type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
     />
   );
 }
