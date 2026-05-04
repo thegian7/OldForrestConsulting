@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "plugins": {
+    "serena@claude-plugins-official": [
+      {
+        "scope": "project",
+        "installPath": "C:\\Users\\colin\\.claude\\plugins\\cache\\claude-plugins-official\\serena\\e30768372b41",
+        "version": "e30768372b41",
+        "installedAt": "2026-01-26T18:50:00.000Z",
+        "lastUpdated": "2026-01-26T18:50:00.000Z"
+      }
+    ]
+  }
+}

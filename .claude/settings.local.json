@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__plugin_serena_serena__find_symbol",
+      "Skill(humanizer)"
+    ]
+  },
+  "enabledPlugins": {
+    "serena@claude-plugins-official": true
+  }
+}
