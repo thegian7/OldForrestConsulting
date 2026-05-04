@@ -30,13 +30,13 @@ jobs:
         env:
           NEXT_PUBLIC_FORMSPREE_ENDPOINT: ${{ secrets.FORMSPREE_ENDPOINT }}
 
-      - name: Deploy out/ to Hostinger via FTPS
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      - name: Deploy out/ to Hostinger via SFTP
+        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
         with:
           server: ${{ secrets.HOSTINGER_HOST }}
+          port: 65002
           username: ${{ secrets.HOSTINGER_USER }}
           password: ${{ secrets.HOSTINGER_PASSWORD }}
-          protocol: ftps
-          port: 21
-          local-dir: ./out/
-          server-dir: ./public_html/
+          local_path: './out/*'
+          remote_path: '/public_html/'
+          sftpArgs: '-o ConnectTimeout=10'
