@@ -1,28 +1,18 @@
 import Navbar from "@/components/Navbar";
-import Hero from "@/components/Hero";
-import Credibility from "@/components/Credibility";
-import Services from "@/components/Services";
-import Differentiator from "@/components/Differentiator";
-import CaseStudies from "@/components/CaseStudies";
-import Team from "@/components/Team";
-import Values from "@/components/Values";
-import Pricing from "@/components/Pricing";
-import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import Hero from "@/components/home/Hero";
+import Verbs from "@/components/home/Verbs";
+import VerticalsTeaser from "@/components/home/VerticalsTeaser";
+import PrimaryCTA from "@/components/home/PrimaryCTA";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-background text-foreground selection:bg-primary/30">
+    <main className="min-h-screen bg-cream text-ink">
       <Navbar />
       <Hero />
-      <Credibility />
-      <Services />
-      <Differentiator />
-      <CaseStudies />
-      <Team />
-      <Values />
-      <Pricing />
-      <Contact />
+      <Verbs />
+      <VerticalsTeaser />
+      <PrimaryCTA />
       <Footer />
     </main>
   );
