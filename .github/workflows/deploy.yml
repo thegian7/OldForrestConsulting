@@ -38,5 +38,5 @@ jobs:
           username: ${{ secrets.HOSTINGER_USER }}
           password: ${{ secrets.HOSTINGER_PASSWORD }}
           local_path: './out/*'
-          remote_path: '/public_html/'
+          remote_path: 'public_html/'
           sftpArgs: '-o ConnectTimeout=10'
