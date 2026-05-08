@@ -7,7 +7,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
     title: "Services",
     description:
-        "Integrate, embed, maintain, and build. Plus the quiet killer feature — we handle your vendors. The 90-day Embed sprint and ongoing tiers.",
+        "Integrate, embed, maintain, and build. And we handle your vendors so you don't have to. The 90-day Embed sprint and ongoing tiers.",
 };
 
 const verbs = [
@@ -158,13 +158,13 @@ export default function ServicesPage() {
                         }}
                     >
                         <h2 className="font-heading text-2xl md:text-4xl text-cream tracking-tight leading-[1.2] mb-3">
-                            Plus the quiet killer feature:{" "}
+                            And the part nobody else offers:{" "}
                             <span className="text-ember-soft">
                                 we handle your vendors.
                             </span>
                         </h2>
                         <p className="text-base md:text-lg text-cream-2/90 leading-relaxed">
-                            One throat to choke. We own the relationship with your CRM
+                            One number to call. We own the relationship with your CRM
                             provider, your field-tool vendor, your hardware supplier,
                             your internet provider, and the guy who built your website.
                             You stop being the integration manager for your own business.

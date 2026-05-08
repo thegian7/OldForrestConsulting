@@ -24,7 +24,7 @@ const principles = [
         body: "Most consultants hand off and disappear. We're still here — monitoring, iterating, answering the phone.",
     },
     {
-        head: "One throat to choke.",
+        head: "One number to call.",
         body: "We own the relationships with your CRM, field tools, hardware, internet, and website vendors. You stop being the integration manager for your own business.",
     },
 ];

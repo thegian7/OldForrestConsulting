@@ -81,7 +81,7 @@ export default function LegalPageLayout({
             </nav>
           )}
 
-          <div className="prose prose-base md:prose-lg max-w-none prose-headings:font-heading prose-headings:text-forest-deep prose-headings:tracking-tight prose-h2:mt-10 prose-h2:mb-4 prose-h3:mt-8 prose-h3:mb-3 prose-p:text-ink-2 prose-p:leading-relaxed prose-strong:text-forest-deep prose-a:text-forest prose-a:underline-offset-2 hover:prose-a:text-ember prose-li:text-ink-2 prose-ul:my-4 prose-ol:my-4">
+          <div className="max-w-none text-ink-2 leading-relaxed">
             {children}
           </div>
         </div>

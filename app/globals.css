@@ -30,34 +30,38 @@
   --color-border: var(--color-rule);
 }
 
-body {
-  background: var(--color-cream);
-  color: var(--color-ink);
-  font-family: var(--font-sans);
-  line-height: 1.55;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@layer base {
+  body {
+    background: var(--color-cream);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  :where(h1, h2, h3, h4, h5, h6) {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--color-forest);
+    letter-spacing: -0.01em;
+    line-height: 1.15;
+  }
+
+  :where(strong) { color: var(--color-forest-deep); }
+  :where(em) { font-style: italic; color: var(--color-ink-2); }
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-heading);
-  font-weight: 700;
-  color: var(--color-forest);
-  letter-spacing: -0.01em;
-  line-height: 1.15;
+@layer components {
+  .kicker {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-ember);
+    font-weight: 700;
+  }
 }
-
-h4.kicker, .kicker {
-  font-family: var(--font-sans);
-  font-size: 0.75rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--color-ember);
-  font-weight: 700;
-}
-
-strong { color: var(--color-forest-deep); }
-em { font-style: italic; color: var(--color-ink-2); }
 
 ::selection {
   background-color: var(--color-forest);
