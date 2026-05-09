@@ -3,6 +3,10 @@ import { ArrowRight } from "lucide-react";
 
 const verbs = [
     {
+        name: "Build",
+        desc: "Custom dashboards, automations, tools. When off-the-shelf doesn't fit your workflow, we ship what does.",
+    },
+    {
         name: "Integrate",
         desc: "Make your systems talk. CRM to accounting to field tools to dashboards. No more data trapped in silos.",
     },
@@ -13,10 +17,6 @@ const verbs = [
     {
         name: "Maintain",
         desc: "On-call for the software and hardware. Monitoring, updates, fixes. Your stack stays quiet.",
-    },
-    {
-        name: "Build",
-        desc: "Custom dashboards, automations, tools. When off-the-shelf doesn't fit your workflow, we ship what does.",
     },
 ];
 
@@ -53,7 +53,7 @@ export default function Verbs() {
 
                 <div className="mt-10">
                     <Link
-                        href="/services"
+                        href="/services#embed-sprint"
                         className="inline-flex items-center gap-2 text-sm font-semibold text-forest hover:text-ember transition-colors"
                     >
                         See the full Embed sprint

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { intakeSteps } from "@/lib/intake-steps";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -159,7 +160,7 @@ export default function ServicesPage() {
                     >
                         <h2 className="font-heading text-2xl md:text-4xl text-cream tracking-tight leading-[1.2] mb-3">
                             And the part nobody else offers:{" "}
-                            <span className="text-ember-soft">
+                            <span className="italic text-cream-2 underline decoration-cream-2/60 underline-offset-[6px] decoration-1">
                                 we handle your vendors.
                             </span>
                         </h2>
@@ -173,8 +174,55 @@ export default function ServicesPage() {
                 </div>
             </section>
 
+            {/* Intake — how engagements start */}
+            <section className="py-16 md:py-20 bg-cream-2/40 border-t border-rule">
+                <div className="container mx-auto px-6 max-w-6xl">
+                    <div className="kicker mb-3">How engagements start</div>
+                    <h2 className="font-heading text-3xl md:text-5xl text-forest-deep tracking-tight leading-[1.1] max-w-4xl mb-6">
+                        Before any work starts, four conversations.
+                    </h2>
+                    <p className="text-base md:text-lg text-ink-2 leading-relaxed max-w-3xl mb-12">
+                        We don&apos;t do the enterprise sales dance. The intake is short,
+                        honest, and ends with a fixed-price scoped proposal — or a clean
+                        no. Either way, you leave with a clearer picture of your own stack.
+                    </p>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                        {intakeSteps.map((step, i) => (
+                            <div
+                                key={step.title}
+                                className="bg-white border-l-[3px] border-forest rounded-r-md p-5"
+                            >
+                                <div className="font-sans text-xs font-bold tracking-[0.15em] text-ember mb-2">
+                                    STEP {String(i + 1).padStart(2, "0")}
+                                </div>
+                                <div className="font-heading text-base font-bold text-forest-deep mb-2 leading-snug">
+                                    {step.title}
+                                </div>
+                                <p className="text-[0.85rem] text-ink-2 leading-relaxed">
+                                    {step.body}
+                                </p>
+                            </div>
+                        ))}
+                    </div>
+
+                    <div className="mt-10">
+                        <Link
+                            href="/contact"
+                            className="inline-flex items-center gap-2 text-sm font-semibold text-forest hover:text-ember transition-colors"
+                        >
+                            Start the intake
+                            <ArrowRight size={16} />
+                        </Link>
+                    </div>
+                </div>
+            </section>
+
             {/* 90-day Embed flow */}
-            <section className="py-16 md:py-20 border-y border-rule bg-cream-2/40">
+            <section
+                id="embed-sprint"
+                className="py-16 md:py-20 border-y border-rule scroll-mt-24"
+            >
                 <div className="container mx-auto px-6 max-w-6xl">
                     <div className="kicker mb-3">How it works</div>
                     <h2 className="font-heading text-3xl md:text-5xl text-forest-deep tracking-tight leading-[1.1] max-w-4xl mb-6">

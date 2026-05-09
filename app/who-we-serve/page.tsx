@@ -7,7 +7,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
     title: "Who We Serve",
     description:
-        "Trades, factories, and franchises. Operations-heavy businesses with distributed workforces, mixed legacy and modern tools, and data trapped across systems.",
+        "Trades, factories, franchises, and property management. Operations-heavy businesses with distributed workforces, mixed legacy and modern tools, and data trapped across systems.",
 };
 
 const verticals = [
@@ -22,6 +22,10 @@ const verticals = [
     {
         name: "Franchises",
         desc: "Multi-location operators. Each location runs a slightly different stack, corporate wants unified reporting, and \"rolling it up\" currently means someone's spreadsheet. We standardize the per-location stack where it matters, leave it alone where it doesn't, and build the roll-up so corporate stops re-doing the math every Monday.",
+    },
+    {
+        name: "Property Management",
+        desc: "Multi-property residential and commercial operators. PMS, accounting, maintenance ticketing, tenant comms, and a leasing pipeline that lives in someone's inbox. We tie the property data to the books, formalize the maintenance workflow, and stand up the portfolio dashboard ownership stops asking for in spreadsheets.",
     },
 ];
 
@@ -52,7 +56,7 @@ export default function WhoWeServePage() {
             {/* Header */}
             <section className="pt-32 pb-12 md:pt-40 md:pb-16 border-b border-rule">
                 <div className="container mx-auto px-6 max-w-6xl">
-                    <div className="kicker mb-4">Three verticals, one pattern</div>
+                    <div className="kicker mb-4">Four verticals, one pattern</div>
                     <h1 className="font-heading text-4xl md:text-6xl lg:text-7xl text-forest-deep tracking-tight leading-[1.05] max-w-5xl">
                         Operations-heavy businesses the big firms won&apos;t touch and
                         the generalists{" "}
@@ -80,7 +84,7 @@ export default function WhoWeServePage() {
             {/* Verticals */}
             <section className="py-16 md:py-20 bg-cream-2/60 border-y border-rule">
                 <div className="container mx-auto px-6 max-w-6xl">
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
                         {verticals.map((v) => (
                             <div
                                 key={v.name}

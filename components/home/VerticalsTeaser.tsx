@@ -14,6 +14,10 @@ const verticals = [
         name: "Franchises",
         desc: "Multi-location operators. Each location runs a slightly different stack, corporate wants unified reporting, and roll-ups live in spreadsheets.",
     },
+    {
+        name: "Property Management",
+        desc: "Multi-property residential and commercial operators. PMS, accounting, maintenance ticketing, and tenant comms each on a different tool — and a leasing pipeline living in someone's inbox.",
+    },
 ];
 
 export default function VerticalsTeaser() {
@@ -28,7 +32,7 @@ export default function VerticalsTeaser() {
                     </h2>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
                     {verticals.map((v) => (
                         <div
                             key={v.name}

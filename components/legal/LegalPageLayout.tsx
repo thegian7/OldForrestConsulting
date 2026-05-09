@@ -81,7 +81,7 @@ export default function LegalPageLayout({
             </nav>
           )}
 
-          <div className="max-w-none text-ink-2 leading-relaxed">
+          <div className="legal-body max-w-none text-ink font-medium leading-relaxed">
             {children}
           </div>
         </div>

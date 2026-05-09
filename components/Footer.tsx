@@ -26,9 +26,9 @@ export default function Footer() {
                     <div>
                         <Wordmark size="md" showSubline className="mb-5" />
                         <p className="text-sm text-ink-2 leading-relaxed max-w-xs">
-                            Managed intelligence for trades, factories, and franchises.
-                            One firm that integrates, embeds, maintains, and builds the
-                            stack your business actually runs on.
+                            Managed intelligence for trades, factories, franchises,
+                            and property management. One firm that integrates, embeds,
+                            maintains, and builds the stack your business actually runs on.
                         </p>
                     </div>
 

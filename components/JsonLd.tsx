@@ -9,7 +9,7 @@ export function OrganizationJsonLd() {
     url: BASE_URL,
     logo: `${BASE_URL}/logo.png`,
     description:
-      "Managed Intelligence for trades, factories, and franchises. One firm that integrates, embeds, maintains, and builds the stack your business actually runs on, and handles your vendors.",
+      "Managed Intelligence for trades, factories, franchises, and property management. One firm that integrates, embeds, maintains, and builds the stack your business actually runs on, and handles your vendors.",
     foundingDate: "2024",
     address: {
       "@type": "PostalAddress",
@@ -42,7 +42,7 @@ export function ProfessionalServiceJsonLd() {
     name: "Old Forrest Consulting",
     url: BASE_URL,
     description:
-      "Operations consulting for trades, factories, and franchises. One firm that integrates, embeds, maintains, and builds your stack, and handles your vendors.",
+      "Operations consulting for trades, factories, franchises, and property management. One firm that integrates, embeds, maintains, and builds your stack, and handles your vendors.",
     priceRange: "$5,000 - $40,000 / month",
     areaServed: {
       "@type": "Country",

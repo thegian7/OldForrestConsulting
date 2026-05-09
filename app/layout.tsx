@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     template: "%s | Old Forrest Consulting",
   },
   description:
-    "One firm that integrates, embeds, maintains, and builds the stack your business actually runs on — and handles your vendors. For trades, factories, and franchises.",
+    "One firm that integrates, embeds, maintains, and builds the stack your business actually runs on — and handles your vendors. For trades, factories, franchises, and property management.",
   keywords: [
     "Managed Intelligence",
     "Operations Consulting",

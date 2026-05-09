@@ -26,7 +26,7 @@ export default function SOWPage() {
       tableOfContents={tableOfContents}
     >
       <div className="mb-8 p-6 bg-cream-2/60 border border-rule rounded-xl">
-        <p className="text-ink-2">
+        <p>
           This Statement of Work (&quot;SOW&quot;) is entered into pursuant to the Master Service
           Agreement between Old Forrest Consulting LLC and Client. This SOW is subject to all
           terms and conditions of the MSA.
@@ -77,15 +77,15 @@ export default function SOWPage() {
           <div>
             <label className="block text-ink-3 text-sm mb-1">Engagement Type</label>
             <div className="flex gap-4 mt-2">
-              <label className="flex items-center gap-2 text-ink-2">
+              <label className="flex items-center gap-2">
                 <div className="w-4 h-4 border border-rule rounded"></div>
                 Hourly Consulting
               </label>
-              <label className="flex items-center gap-2 text-ink-2">
+              <label className="flex items-center gap-2">
                 <div className="w-4 h-4 border border-rule rounded"></div>
                 Project Rescue
               </label>
-              <label className="flex items-center gap-2 text-ink-2">
+              <label className="flex items-center gap-2">
                 <div className="w-4 h-4 border border-rule rounded"></div>
                 Fractional CTO
               </label>
@@ -111,7 +111,7 @@ export default function SOWPage() {
           [List specific, measurable objectives for this engagement]
         </p>
         <div className="border border-rule rounded p-4 bg-cream-2">
-          <ul className="space-y-2 text-ink-2">
+          <ul className="space-y-2">
             <li>1. ________________________________________________</li>
             <li>2. ________________________________________________</li>
             <li>3. ________________________________________________</li>
@@ -131,7 +131,7 @@ export default function SOWPage() {
       {/* Section 3: Deliverables */}
       <section id="deliverables" className="mb-12">
         <h2 className="text-2xl font-bold text-forest-deep mb-4">3. Deliverables</h2>
-        <p className="text-ink-2 mb-4">
+        <p className="mb-4">
           Consultant shall deliver the following items upon completion of the project:
         </p>
 
@@ -147,28 +147,28 @@ export default function SOWPage() {
             </thead>
             <tbody>
               <tr>
-                <td className="border border-rule px-4 py-3 text-ink-2">D1</td>
-                <td className="border border-rule px-4 py-3 text-ink-2">________</td>
-                <td className="border border-rule px-4 py-3 text-ink-2">________</td>
-                <td className="border border-rule px-4 py-3 text-ink-2">________</td>
+                <td className="border border-rule px-4 py-3">D1</td>
+                <td className="border border-rule px-4 py-3">________</td>
+                <td className="border border-rule px-4 py-3">________</td>
+                <td className="border border-rule px-4 py-3">________</td>
               </tr>
               <tr className="bg-cream-2">
-                <td className="border border-rule px-4 py-3 text-ink-2">D2</td>
-                <td className="border border-rule px-4 py-3 text-ink-2">________</td>
-                <td className="border border-rule px-4 py-3 text-ink-2">________</td>
-                <td className="border border-rule px-4 py-3 text-ink-2">________</td>
+                <td className="border border-rule px-4 py-3">D2</td>
+                <td className="border border-rule px-4 py-3">________</td>
+                <td className="border border-rule px-4 py-3">________</td>
+                <td className="border border-rule px-4 py-3">________</td>
               </tr>
               <tr>
-                <td className="border border-rule px-4 py-3 text-ink-2">D3</td>
-                <td className="border border-rule px-4 py-3 text-ink-2">________</td>
-                <td className="border border-rule px-4 py-3 text-ink-2">________</td>
-                <td className="border border-rule px-4 py-3 text-ink-2">________</td>
+                <td className="border border-rule px-4 py-3">D3</td>
+                <td className="border border-rule px-4 py-3">________</td>
+                <td className="border border-rule px-4 py-3">________</td>
+                <td className="border border-rule px-4 py-3">________</td>
               </tr>
               <tr className="bg-cream-2">
-                <td className="border border-rule px-4 py-3 text-ink-2">D4</td>
-                <td className="border border-rule px-4 py-3 text-ink-2">________</td>
-                <td className="border border-rule px-4 py-3 text-ink-2">________</td>
-                <td className="border border-rule px-4 py-3 text-ink-2">________</td>
+                <td className="border border-rule px-4 py-3">D4</td>
+                <td className="border border-rule px-4 py-3">________</td>
+                <td className="border border-rule px-4 py-3">________</td>
+                <td className="border border-rule px-4 py-3">________</td>
               </tr>
             </tbody>
           </table>
@@ -203,28 +203,28 @@ export default function SOWPage() {
             </thead>
             <tbody>
               <tr>
-                <td className="border border-rule px-4 py-3 text-ink-2">M1: Kickoff</td>
-                <td className="border border-rule px-4 py-3 text-ink-2">Project initiation</td>
-                <td className="border border-rule px-4 py-3 text-ink-2">________</td>
-                <td className="border border-rule px-4 py-3 text-ink-2">$________</td>
+                <td className="border border-rule px-4 py-3">M1: Kickoff</td>
+                <td className="border border-rule px-4 py-3">Project initiation</td>
+                <td className="border border-rule px-4 py-3">________</td>
+                <td className="border border-rule px-4 py-3">$________</td>
               </tr>
               <tr className="bg-cream-2">
-                <td className="border border-rule px-4 py-3 text-ink-2">M2: ________</td>
-                <td className="border border-rule px-4 py-3 text-ink-2">________</td>
-                <td className="border border-rule px-4 py-3 text-ink-2">________</td>
-                <td className="border border-rule px-4 py-3 text-ink-2">$________</td>
+                <td className="border border-rule px-4 py-3">M2: ________</td>
+                <td className="border border-rule px-4 py-3">________</td>
+                <td className="border border-rule px-4 py-3">________</td>
+                <td className="border border-rule px-4 py-3">$________</td>
               </tr>
               <tr>
-                <td className="border border-rule px-4 py-3 text-ink-2">M3: ________</td>
-                <td className="border border-rule px-4 py-3 text-ink-2">________</td>
-                <td className="border border-rule px-4 py-3 text-ink-2">________</td>
-                <td className="border border-rule px-4 py-3 text-ink-2">$________</td>
+                <td className="border border-rule px-4 py-3">M3: ________</td>
+                <td className="border border-rule px-4 py-3">________</td>
+                <td className="border border-rule px-4 py-3">________</td>
+                <td className="border border-rule px-4 py-3">$________</td>
               </tr>
               <tr className="bg-cream-2">
-                <td className="border border-rule px-4 py-3 text-ink-2">M4: Final Delivery</td>
-                <td className="border border-rule px-4 py-3 text-ink-2">Project completion</td>
-                <td className="border border-rule px-4 py-3 text-ink-2">________</td>
-                <td className="border border-rule px-4 py-3 text-ink-2">$________</td>
+                <td className="border border-rule px-4 py-3">M4: Final Delivery</td>
+                <td className="border border-rule px-4 py-3">Project completion</td>
+                <td className="border border-rule px-4 py-3">________</td>
+                <td className="border border-rule px-4 py-3">$________</td>
               </tr>
             </tbody>
           </table>
@@ -240,15 +240,15 @@ export default function SOWPage() {
             <div>
               <label className="block text-ink-3 text-sm mb-1">Pricing Model</label>
               <div className="flex flex-col gap-2 mt-2">
-                <label className="flex items-center gap-2 text-ink-2">
+                <label className="flex items-center gap-2">
                   <div className="w-4 h-4 border border-rule rounded"></div>
                   Fixed Price: $________________
                 </label>
-                <label className="flex items-center gap-2 text-ink-2">
+                <label className="flex items-center gap-2">
                   <div className="w-4 h-4 border border-rule rounded"></div>
                   Hourly: $______/hour (Est. ______ hours)
                 </label>
-                <label className="flex items-center gap-2 text-ink-2">
+                <label className="flex items-center gap-2">
                   <div className="w-4 h-4 border border-rule rounded"></div>
                   Monthly Retainer: $______/month
                 </label>
@@ -262,14 +262,14 @@ export default function SOWPage() {
         </div>
 
         <h3 className="text-xl font-semibold text-forest-deep mt-6 mb-3">5.1 Payment Schedule</h3>
-        <div className="space-y-3 text-ink-2">
+        <div className="space-y-3">
           <p><strong className="text-forest-deep">Deposit:</strong> ___% ($________) due upon SOW execution</p>
           <p><strong className="text-forest-deep">Progress Payments:</strong> As specified in milestones above</p>
           <p><strong className="text-forest-deep">Final Payment:</strong> Due upon delivery and acceptance</p>
         </div>
 
         <h3 className="text-xl font-semibold text-forest-deep mt-6 mb-3">5.2 Hourly Overage (if applicable)</h3>
-        <p className="text-ink-2">
+        <p>
           If actual hours exceed the estimate by more than 10%, Consultant will notify Client
           and obtain written approval before continuing. Additional hours will be billed at
           $______/hour.
@@ -279,11 +279,11 @@ export default function SOWPage() {
       {/* Section 6: Client Responsibilities */}
       <section id="client-responsibilities" className="mb-12">
         <h2 className="text-2xl font-bold text-forest-deep mb-4">6. Client Responsibilities</h2>
-        <p className="text-ink-2 mb-4">
+        <p className="mb-4">
           Client agrees to provide the following in a timely manner to enable Consultant to
           perform the Services:
         </p>
-        <ul className="list-disc list-inside text-ink-2 space-y-2">
+        <ul className="list-disc list-insidespace-y-2">
           <li>Access to all necessary systems, codebases, and environments</li>
           <li>Required credentials and permissions</li>
           <li>Designated point of contact available for questions and decisions</li>
@@ -296,7 +296,7 @@ export default function SOWPage() {
         </div>
 
         <div className="mt-6 p-4 bg-cream-2 border border-l-4 border-ember rounded-lg">
-          <p className="text-ink-2 text-sm">
+          <p className="text-sm">
             <strong>Note:</strong> Delays in Client providing required access, feedback, or
             approvals may result in schedule adjustments and will not be considered a delay
             by Consultant.
@@ -307,12 +307,12 @@ export default function SOWPage() {
       {/* Section 7: Out of Scope */}
       <section id="out-of-scope" className="mb-12">
         <h2 className="text-2xl font-bold text-forest-deep mb-4">7. Out of Scope</h2>
-        <p className="text-ink-2 mb-4">
+        <p className="mb-4">
           The following items are explicitly excluded from this SOW and would require a
           separate SOW or change order:
         </p>
         <div className="bg-cream-2 border border-rule rounded-lg p-6">
-          <ul className="space-y-2 text-ink-2">
+          <ul className="space-y-2">
             <li className="flex items-start gap-2">
               <span className="text-ember">x</span>
               <span>________________________________________________</span>
@@ -336,13 +336,13 @@ export default function SOWPage() {
       {/* Section 8: Change Orders */}
       <section id="change-orders" className="mb-12">
         <h2 className="text-2xl font-bold text-forest-deep mb-4">8. Change Orders</h2>
-        <p className="text-ink-2 mb-4">
+        <p className="mb-4">
           Any changes to the scope, deliverables, timeline, or pricing defined in this SOW
           must be documented in a written Change Order signed by both parties.
         </p>
 
         <h3 className="text-xl font-semibold text-forest-deep mt-6 mb-3">8.1 Change Order Process</h3>
-        <ol className="list-decimal list-inside text-ink-2 space-y-2">
+        <ol className="list-decimal list-insidespace-y-2">
           <li>Client submits change request in writing (email acceptable)</li>
           <li>Consultant evaluates impact on scope, timeline, and cost within 3 business days</li>
           <li>Consultant provides written estimate for the change</li>
@@ -351,7 +351,7 @@ export default function SOWPage() {
         </ol>
 
         <h3 className="text-xl font-semibold text-forest-deep mt-6 mb-3">8.2 Change Order Fees</h3>
-        <p className="text-ink-2">
+        <p>
           Changes will be priced at the hourly rate of $______/hour, or as a fixed fee for
           defined scope additions. A minimum change order fee of $______ applies.
         </p>
@@ -362,10 +362,10 @@ export default function SOWPage() {
         <h2 className="text-2xl font-bold text-forest-deep mb-4">9. Acceptance Criteria</h2>
 
         <h3 className="text-xl font-semibold text-forest-deep mt-6 mb-3">9.1 Acceptance Process</h3>
-        <p className="text-ink-2 mb-4">
+        <p className="mb-4">
           Upon delivery of each milestone or deliverable:
         </p>
-        <ol className="list-decimal list-inside text-ink-2 space-y-2">
+        <ol className="list-decimal list-insidespace-y-2">
           <li>Consultant delivers work product and notifies Client</li>
           <li>Client has 5 business days to review and test</li>
           <li>Client provides written acceptance or specific rejection reasons</li>
@@ -382,7 +382,7 @@ export default function SOWPage() {
         </div>
 
         <h3 className="text-xl font-semibold text-forest-deep mt-6 mb-3">9.3 Warranty Period</h3>
-        <p className="text-ink-2">
+        <p>
           Following final acceptance, a 30-day warranty period begins. During this period,
           Consultant will correct any defects in the delivered Work Product at no additional
           charge. The warranty covers defects against the agreed specifications only and does
@@ -393,7 +393,7 @@ export default function SOWPage() {
       {/* Signature Block */}
       <section className="mt-16 p-8 bg-cream-2 border border-rule rounded-xl">
         <h2 className="text-xl font-bold text-forest-deep mb-6">Agreement</h2>
-        <p className="text-ink-2 mb-8">
+        <p className="mb-8">
           By signing below, both parties agree to perform according to the terms of this
           Statement of Work and the referenced Master Service Agreement.
         </p>

@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ContactForm from "@/components/contact/ContactForm";
+import { intakeSteps } from "@/lib/intake-steps";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -8,25 +9,6 @@ export const metadata: Metadata = {
     description:
         "Tell us about your business, the stack, and what's frustrating you. No slides, no pitch, no long sales cycle. Email chris@oldforrest.net or use the form.",
 };
-
-const steps = [
-    {
-        title: "Intro call — 30 minutes.",
-        body: "Tell us about your business, the stack, and what's frustrating you right now. No slides, no pitch. We listen.",
-    },
-    {
-        title: "Discovery session — 60–90 minutes.",
-        body: "If there's a fit, we do a paid working session walking the stack together. You come away with a clear picture of what an engagement looks like.",
-    },
-    {
-        title: "Scoped proposal — within 5 business days.",
-        body: "The right tier for you — Embed, Operate, or Maintain — with a realistic scope and a fixed price. No surprises.",
-    },
-    {
-        title: "Decide on your timeline.",
-        body: "Yes, and we start when you're ready. No or not-yet, and we part cleanly. Either way you leave with a clearer picture of your own stack.",
-    },
-];
 
 export default function ContactPage() {
     return (
@@ -47,7 +29,8 @@ export default function ContactPage() {
                     </h1>
                     <p className="mt-6 md:mt-8 text-lg text-ink-2 leading-relaxed max-w-3xl">
                         We don&apos;t do the traditional enterprise sales dance. If
-                        you&apos;re a trades, factory, or franchise operation that&apos;s
+                        you&apos;re a trades, factory, franchise, or property management
+                        operation that&apos;s
                         felt the pain of too many disconnected tools, the first
                         conversation is simple.
                     </p>
@@ -65,7 +48,7 @@ export default function ContactPage() {
                                 What to expect.
                             </h2>
                             <ol className="list-none p-0">
-                                {steps.map((step, i) => (
+                                {intakeSteps.map((step, i) => (
                                     <li
                                         key={step.title}
                                         className="relative pl-12 py-4 border-b border-dashed border-rule last:border-b-0"

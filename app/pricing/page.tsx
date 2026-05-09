@@ -425,8 +425,10 @@ export default function PricingPage() {
                     >
                         <div className="font-heading text-2xl md:text-3xl text-cream tracking-tight leading-tight mb-2">
                             Embed is{" "}
-                            <span className="text-ember-soft">~40% less</span> than
-                            the split-vendor equivalent.
+                            <span className="italic text-cream-2 underline decoration-cream-2/60 underline-offset-[6px] decoration-1">
+                                ~40% less
+                            </span>{" "}
+                            than the split-vendor equivalent.
                         </div>
                         <p className="text-sm md:text-base text-cream-2/90 leading-relaxed">
                             Embed at $40k/mo is roughly 40% below the midpoint of
