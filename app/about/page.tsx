@@ -98,12 +98,14 @@ export default function AboutPage() {
                             </div>
                             <p className="text-base text-ink-2 leading-relaxed mb-4">
                                 Christopher&apos;s background spans technical
-                                leadership at <strong>NetApp</strong>,{" "}
-                                <strong>Dropbox</strong>, and{" "}
-                                <strong>Orbital ATK</strong>. He&apos;s the senior
-                                operator on the engagements — the person walking the
-                                shop, sitting with leadership, and owning the stack
-                                end-to-end.
+                                leadership at <strong>NetApp</strong> and{" "}
+                                <strong>Dropbox</strong>, with hands-on work across
+                                infrastructure, data platforms, and AI tooling. He
+                                runs the firm — leading engagement strategy, technical
+                                architecture, and the AI-enabled workflows that let a
+                                small team ship at the pace of an agency. He&apos;s
+                                the partner on the first call and the one who keeps
+                                scope honest from intake through handoff.
                             </p>
                             <a
                                 href="mailto:chris@oldforrest.net"
@@ -121,10 +123,15 @@ export default function AboutPage() {
                                 Partner · Operations
                             </div>
                             <p className="text-base text-ink-2 leading-relaxed mb-4">
-                                Taylor is an aerospace engineer turned operator. He
-                                brings the discipline of process-heavy engineering to
-                                the integration and configuration work, with a deep
-                                instinct for how operations actually run.
+                                Taylor is an aerospace engineer turned operator, with
+                                engineering experience at{" "}
+                                <strong>Orbital ATK</strong>. He brings the discipline
+                                of process-heavy engineering to the integration and
+                                configuration work, with a deep instinct for how
+                                operations actually run. He&apos;s the senior operator
+                                on the engagements — the person walking the shop,
+                                sitting with leadership, and owning the stack
+                                end-to-end.
                             </p>
                             <a
                                 href="mailto:taylor@oldforrest.net"
