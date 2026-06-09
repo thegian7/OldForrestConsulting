@@ -13,6 +13,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/services`, priority: 0.9, changeFrequency: "monthly" },
     { url: `${BASE_URL}/who-we-serve`, priority: 0.9, changeFrequency: "monthly" },
     { url: `${BASE_URL}/pricing`, priority: 0.9, changeFrequency: "monthly" },
+    { url: `${BASE_URL}/operational-intelligence`, priority: 0.9, changeFrequency: "weekly" },
     { url: `${BASE_URL}/case-studies`, priority: 0.85, changeFrequency: "monthly" },
     { url: `${BASE_URL}/about`, priority: 0.7, changeFrequency: "yearly" },
     { url: `${BASE_URL}/contact`, priority: 0.7, changeFrequency: "yearly" },
