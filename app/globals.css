@@ -1,10 +1,14 @@
 @import "tailwindcss";
 
-@theme {
-  /* Fonts */
+/* Font tokens must live in @theme inline: they reference next/font variables
+   that only exist at runtime on <body>, and a plain @theme resolves them at
+   build time to the default stacks (headings silently lose Fraunces). */
+@theme inline {
   --font-sans: var(--font-inter);
   --font-heading: var(--font-fraunces);
+}
 
+@theme {
   /* Brand tokens — taken verbatim from OFC pitch deck */
   --color-forest: #1f3d2b;
   --color-forest-deep: #132418;
