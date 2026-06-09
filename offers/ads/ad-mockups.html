@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Operational Intelligence — Meta Ad Mockups</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Archivo:wght@400..700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #f4efe3;
+    --paper-2: #ece4d2;
+    --ink: #16291e;
+    --ink-soft: #3c5246;
+    --ink-faint: #6b7d72;
+    --forest: #1d3a2a;
+    --brass: #a87b2d;
+    --brass-bright: #c89b4a;
+    --red: #9a3b2e;
+    --rule: rgba(22,41,30,0.18);
+    --rule-soft: rgba(22,41,30,0.10);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #2b2b28; color: #ddd;
+    font-family: "Archivo", sans-serif;
+    padding: 48px; display: flex; flex-direction: column; gap: 64px;
+  }
+  .unit { display: flex; gap: 40px; align-items: flex-start; flex-wrap: wrap; }
+  .meta-copy {
+    max-width: 420px; font-size: 14px; line-height: 1.6;
+    background: #1f1f1d; border: 1px solid #3a3a36; border-radius: 8px; padding: 20px;
+  }
+  .meta-copy h2 { font-size: 15px; color: #c89b4a; margin-bottom: 10px; font-family: "Fraunces", serif; }
+  .meta-copy dt { color: #9a9a92; font-size: 11px; text-transform: uppercase; letter-spacing: .12em; margin-top: 12px; }
+  .meta-copy dd { color: #e8e8e2; }
+  .carousel-row { display: flex; gap: 24px; overflow-x: auto; padding-bottom: 12px; }
+
+  /* ===== Shared ad chrome ===== */
+  .ad {
+    background: var(--paper);
+    background-image:
+      radial-gradient(ellipse 80% 40% at 50% -5%, rgba(200,155,74,.12), transparent),
+      repeating-linear-gradient(0deg, transparent 0 2px, rgba(22,41,30,.012) 2px 4px);
+    color: var(--ink); position: relative; overflow: hidden;
+    display: flex; flex-direction: column; flex-shrink: 0;
+  }
+  .sq { width: 1080px; height: 1080px; padding: 84px; }
+  .card { width: 1080px; height: 1350px; padding: 84px; }
+  .story { width: 1080px; height: 1920px; padding: 96px 84px; }
+  .ad .brand {
+    margin-top: auto; display: flex; align-items: center; gap: 20px;
+    border-top: 2px solid var(--rule); padding-top: 36px;
+  }
+  .seal {
+    width: 72px; height: 72px; border-radius: 50%; flex-shrink: 0;
+    background: var(--forest); color: var(--brass-bright);
+    border: 3px solid var(--brass);
+    display: flex; align-items: center; justify-content: center;
+    font-family: "Fraunces", serif; font-weight: 700; font-size: 28px;
+  }
+  .brand-name { font-family: "Fraunces", serif; font-weight: 600; font-size: 30px; }
+  .brand-name span { color: var(--brass); }
+  .brand-tag { margin-left: auto; font-size: 22px; color: var(--ink-faint); letter-spacing: .14em; text-transform: uppercase; }
+  .kicker {
+    font-size: 24px; letter-spacing: .24em; text-transform: uppercase;
+    color: var(--brass); font-weight: 600; margin-bottom: 40px;
+  }
+  .display { font-family: "Fraunces", serif; font-weight: 600; line-height: 1.08; }
+  .quote-mark { font-family: "Fraunces", serif; font-size: 200px; line-height: .6; color: var(--brass); display: block; margin-bottom: 8px; }
+  .fig { font-variant-numeric: tabular-nums; }
+  .neg { color: var(--red); }
+
+  /* Ad 1: Tuesday email */
+  #ad-tuesday .display { font-size: 70px; margin-bottom: 48px; }
+  .mini-digest {
+    background: #fbf8f0; border: 2px solid var(--rule); border-radius: 16px;
+    box-shadow: 0 36px 64px -32px rgba(22,41,30,.5);
+    transform: rotate(-0.6deg); overflow: hidden;
+  }
+  .mini-digest-head {
+    display: flex; gap: 20px; align-items: center;
+    padding: 28px 36px; border-bottom: 2px solid var(--rule); background: var(--paper-2);
+  }
+  .mini-digest-head .seal { width: 64px; height: 64px; font-size: 24px; }
+  .md-meta { font-size: 20px; color: var(--ink-faint); }
+  .md-meta b { color: var(--ink-soft); }
+  .md-subject { font-family: "Fraunces", serif; font-weight: 600; font-size: 30px; margin-top: 4px; }
+  .md-body { padding: 12px 36px 28px; }
+  .md-row { padding: 22px 0; border-bottom: 1px solid var(--rule-soft); }
+  .md-row:last-child { border-bottom: none; }
+  .md-label { font-size: 18px; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 6px; }
+  .md-fig { font-family: "Fraunces", serif; font-weight: 600; font-size: 40px; }
+  .md-note { font-size: 22px; color: var(--ink-soft); margin-top: 6px; line-height: 1.4; }
+
+  /* Ad 2: three-day question */
+  #ad-threeday .display { font-size: 86px; margin-bottom: 56px; }
+  .timeline { display: flex; flex-direction: column; gap: 28px; margin-bottom: 24px; }
+  .tl-row { display: flex; align-items: baseline; gap: 28px; font-size: 40px; }
+  .tl-day { font-family: "Fraunces", serif; font-weight: 600; width: 280px; color: var(--forest); }
+  .tl-what { color: var(--ink-soft); }
+  .tl-row.bad .tl-what { color: var(--red); font-style: italic; }
+
+  /* Carousel cards */
+  .card .qnum { font-family: "Fraunces", serif; font-size: 120px; color: var(--brass); font-weight: 600; margin-bottom: 32px; }
+  .card .display { font-size: 84px; }
+  .card .qnote { font-size: 34px; color: var(--ink-faint); margin-top: 36px; line-height: 1.45; }
+  .card-hook .display { font-size: 92px; }
+  .card-close { background: var(--forest); color: var(--paper); }
+  .card-close .display { font-size: 84px; color: var(--paper); }
+  .card-close .display em { color: var(--brass-bright); font-style: italic; }
+  .card-close .qnote { color: rgba(244,239,227,.75); }
+  .card-close .brand { border-top-color: rgba(244,239,227,.25); }
+  .card-close .brand-name { color: var(--paper); }
+  .card-close .brand-tag { color: rgba(244,239,227,.6); }
+  .pill {
+    display: inline-block; margin-top: 44px; align-self: flex-start;
+    background: var(--brass-bright); color: var(--forest);
+    font-weight: 700; font-size: 32px; border-radius: 999px; padding: 22px 44px;
+  }
+
+  /* Ad 4: controller */
+  #ad-controller .display { font-size: 84px; }
+  #ad-controller .display em { color: var(--brass); font-style: italic; }
+  #ad-controller .sub { font-size: 36px; color: var(--ink-soft); margin-top: 48px; line-height: 1.5; max-width: 820px; }
+
+  /* Ad 5: keep quickbooks */
+  #ad-keep .display { font-size: 88px; }
+  .keep-list { margin: 56px 0 0; }
+  .keep-row { display: flex; align-items: center; gap: 24px; font-size: 44px; padding: 18px 0; border-bottom: 1px solid var(--rule-soft); }
+  .keep-check { color: var(--forest); font-family: "Fraunces", serif; font-weight: 700; }
+  .keep-row b { font-family: "Fraunces", serif; font-weight: 600; }
+  .keep-punch { font-size: 40px; color: var(--ink-soft); margin-top: 48px; font-style: italic; }
+
+  /* Story frames */
+  .story .display { font-size: 96px; }
+  .story-label {
+    position: absolute; top: 36px; left: 84px; font-size: 22px;
+    letter-spacing: .2em; text-transform: uppercase; color: var(--ink-faint);
+    border: 1px solid var(--rule); border-radius: 999px; padding: 10px 24px;
+  }
+  .story-script {
+    margin-top: 56px; border-left: 6px solid var(--brass); padding-left: 36px;
+    font-size: 34px; color: var(--ink-soft); line-height: 1.5;
+  }
+  .story-dash { margin-top: 64px; display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+  .story-dash .sd-card { background: #fbf8f0; border: 2px solid var(--rule); border-radius: 14px; padding: 32px; }
+  .sd-k { font-size: 20px; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-faint); }
+  .sd-v { font-family: "Fraunces", serif; font-weight: 600; font-size: 56px; margin-top: 8px; }
+</style>
+</head>
+<body>
+
+<!-- ============ AD 1: THE TUESDAY EMAIL ============ -->
+<div class="unit">
+  <div class="ad sq" id="ad-tuesday">
+    <div class="kicker">Sent Tuesdays, 6:00 AM</div>
+    <h1 class="display">This email goes to owners who run more than one company.</h1>
+    <div class="mini-digest">
+      <div class="mini-digest-head">
+        <div class="seal">OF</div>
+        <div>
+          <div class="md-meta"><b>Old Forrest Intelligence</b> · Tue 6:00 AM</div>
+          <div class="md-subject">Week 24: WIP exposure up $340K</div>
+        </div>
+      </div>
+      <div class="md-body">
+        <div class="md-row">
+          <div class="md-label">Cash, all entities</div>
+          <div class="md-fig fig">$2,410,000</div>
+          <div class="md-note">Up $180K, after intercompany. Entity 3 is holding $610K it does not need this month.</div>
+        </div>
+        <div class="md-row">
+          <div class="md-label">Job margin watch</div>
+          <div class="md-fig fig neg">6.2% vs 11% bid</div>
+          <div class="md-note">Fuller St. Labor burn, not materials. Talk to the PM this week.</div>
+        </div>
+      </div>
+    </div>
+    <div class="brand">
+      <div class="seal">OF</div>
+      <div class="brand-name">Old Forrest <span>Consulting</span></div>
+      <div class="brand-tag">Operational Intelligence</div>
+    </div>
+  </div>
+  <dl class="meta-copy">
+    <h2>Ad 1 · "The Tuesday Email" · 1080×1080 · cold + warm</h2>
+    <dt>Primary text</dt>
+    <dd>Every Tuesday at 6am, owners of multi-entity construction groups get a short email written from their live numbers. Real cash across all entities. Which jobs are actually making money. WIP exposure, explained in plain English. No login. No dashboard homework.</dd>
+    <dt>Headline</dt>
+    <dd>See a sample Tuesday digest</dd>
+    <dt>Description</dt>
+    <dd>Built for owners running 2 or more entities.</dd>
+    <dt>CTA button</dt>
+    <dd>Learn More → /operational-intelligence</dd>
+  </dl>
+</div>
+
+<!-- ============ AD 2: THE THREE-DAY QUESTION ============ -->
+<div class="unit">
+  <div class="ad sq" id="ad-threeday">
+    <span class="quote-mark">&ldquo;</span>
+    <h1 class="display">How much cash do we actually have?</h1>
+    <div class="timeline">
+      <div class="tl-row"><span class="tl-day">Monday</span><span class="tl-what">You ask.</span></div>
+      <div class="tl-row"><span class="tl-day">Thursday</span><span class="tl-what">The spreadsheet comes back.</span></div>
+      <div class="tl-row bad"><span class="tl-day">Friday</span><span class="tl-what">It is already stale.</span></div>
+    </div>
+    <div class="brand">
+      <div class="seal">OF</div>
+      <div class="brand-name">Old Forrest <span>Consulting</span></div>
+      <div class="brand-tag">Operational Intelligence</div>
+    </div>
+  </div>
+  <dl class="meta-copy">
+    <h2>Ad 2 · "The Three-Day Question" · 1080×1080 · cold</h2>
+    <dt>Primary text</dt>
+    <dd>If you run 3 or more companies, the cash question should take ten seconds, not three days. Every entity, after intercompany, on one screen. Your software stays. We connect it.</dd>
+    <dt>Headline</dt>
+    <dd>One picture across every entity you own</dd>
+    <dt>Description</dt>
+    <dd>Fixed prices. Connectors, not migrations.</dd>
+    <dt>CTA button</dt>
+    <dd>Learn More → /operational-intelligence</dd>
+  </dl>
+</div>
+
+<!-- ============ AD 3: FIVE QUESTIONS CAROUSEL (7 cards, 1080×1350) ============ -->
+<div class="unit" style="flex-direction: column;">
+  <dl class="meta-copy">
+    <h2>Ad 3 · "Five Questions" carousel · 7 cards · 1080×1350 · cold</h2>
+    <dt>Primary text</dt>
+    <dd>Five questions every owner of a multi-entity group should be able to answer on any Tuesday morning. How many can you answer today?</dd>
+    <dt>Headline (per card)</dt>
+    <dd>Card cap: "Question 1 of 5" ... final card: "Start with the assessment"</dd>
+    <dt>CTA button</dt>
+    <dd>Learn More → /operational-intelligence</dd>
+  </dl>
+  <div class="carousel-row">
+    <div class="ad card card-hook" id="car-0">
+      <div class="kicker">For multi-entity operators</div>
+      <h1 class="display">Five questions you should be able to answer on any Tuesday.</h1>
+      <p class="qnote">Swipe. Count how many you can answer today.</p>
+      <div class="brand"><div class="seal">OF</div><div class="brand-name">Old Forrest <span>Consulting</span></div></div>
+    </div>
+    <div class="ad card" id="car-1">
+      <div class="qnum fig">01</div>
+      <h1 class="display">What is our real cash position, across every entity, after intercompany?</h1>
+      <p class="qnote">Not the sum of five bank feeds. The consolidated number.</p>
+      <div class="brand"><div class="seal">OF</div><div class="brand-name">Old Forrest <span>Consulting</span></div></div>
+    </div>
+    <div class="ad card" id="car-2">
+      <div class="qnum fig">02</div>
+      <h1 class="display">Which jobs are actually making money, and which only look like it?</h1>
+      <p class="qnote">Billed percent against true percent complete, by job.</p>
+      <div class="brand"><div class="seal">OF</div><div class="brand-name">Old Forrest <span>Consulting</span></div></div>
+    </div>
+    <div class="ad card" id="car-3">
+      <div class="qnum fig">03</div>
+      <h1 class="display">What is our WIP exposure right now?</h1>
+      <p class="qnote">Underbillings, overbillings, and retainage in one view.</p>
+      <div class="brand"><div class="seal">OF</div><div class="brand-name">Old Forrest <span>Consulting</span></div></div>
+    </div>
+    <div class="ad card" id="car-4">
+      <div class="qnum fig">04</div>
+      <h1 class="display">Where are intercompany flows hiding profit or risk?</h1>
+      <p class="qnote">Equipment rents, shared labor, management fees. Traced, not guessed.</p>
+      <div class="brand"><div class="seal">OF</div><div class="brand-name">Old Forrest <span>Consulting</span></div></div>
+    </div>
+    <div class="ad card" id="car-5">
+      <div class="qnum fig">05</div>
+      <h1 class="display">Who is utilized, who is idle, and what is that costing?</h1>
+      <p class="qnote">Crews and equipment, priced by the day.</p>
+      <div class="brand"><div class="seal">OF</div><div class="brand-name">Old Forrest <span>Consulting</span></div></div>
+    </div>
+    <div class="ad card card-close" id="car-6">
+      <h1 class="display">If the answers live in a spreadsheet, <em>we should talk.</em></h1>
+      <p class="qnote">Fixed-price assessment. Three weeks. The roadmap is yours to keep either way.</p>
+      <span class="pill">See how it works</span>
+      <div class="brand"><div class="seal">OF</div><div class="brand-name">Old Forrest <span>Consulting</span></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ AD 4: YOUR CONTROLLER ============ -->
+<div class="unit">
+  <div class="ad sq" id="ad-controller">
+    <div class="kicker">A word about the spreadsheet</div>
+    <h1 class="display">Your controller is excellent. <em>The consolidation spreadsheet isn't.</em></h1>
+    <p class="sub">Excel holds up fine at one entity. At four, with intercompany, job costing, and WIP, it quietly breaks. Nobody finds out until it matters.</p>
+    <div class="brand">
+      <div class="seal">OF</div>
+      <div class="brand-name">Old Forrest <span>Consulting</span></div>
+      <div class="brand-tag">Operational Intelligence</div>
+    </div>
+  </div>
+  <dl class="meta-copy">
+    <h2>Ad 4 · "Your Controller" · 1080×1080 · cold + warm</h2>
+    <dt>Primary text</dt>
+    <dd>Keep your controller. Retire the spreadsheet. We connect QuickBooks, Procore, payroll, and the sheets that matter into one consolidated picture, with intercompany handled correctly. Your controller gets hours back. You get answers on Tuesday.</dd>
+    <dt>Headline</dt>
+    <dd>The spreadsheet broke at entity number three</dd>
+    <dt>Description</dt>
+    <dd>Connectors, not migrations.</dd>
+    <dt>CTA button</dt>
+    <dd>Learn More → /operational-intelligence</dd>
+  </dl>
+</div>
+
+<!-- ============ AD 5: KEEP QUICKBOOKS (retargeting) ============ -->
+<div class="unit">
+  <div class="ad sq" id="ad-keep">
+    <h1 class="display">We don't replace your software.</h1>
+    <div class="keep-list">
+      <div class="keep-row"><span class="keep-check">✓</span><span>Keep <b>QuickBooks</b>. All of them.</span></div>
+      <div class="keep-row"><span class="keep-check">✓</span><span>Keep <b>Procore</b> and <b>ServiceTitan</b>.</span></div>
+      <div class="keep-row"><span class="keep-check">✓</span><span>Keep the spreadsheets your PMs love.</span></div>
+    </div>
+    <p class="keep-punch">We connect them. One picture, every entity.</p>
+    <div class="brand">
+      <div class="seal">OF</div>
+      <div class="brand-name">Old Forrest <span>Consulting</span></div>
+      <div class="brand-tag">Operational Intelligence</div>
+    </div>
+  </div>
+  <dl class="meta-copy">
+    <h2>Ad 5 · "Keep QuickBooks" · 1080×1080 · retargeting only</h2>
+    <dt>Primary text</dt>
+    <dd>The reason BI projects die: somebody asks your team to change software. We don't. Connectors, not migrations. Fixed prices, objective milestones, and a weekly digest the owner actually reads.</dd>
+    <dt>Headline</dt>
+    <dd>Still thinking it over? Your systems stay.</dd>
+    <dt>Description</dt>
+    <dd>Start with a $9,500 fixed assessment.</dd>
+    <dt>CTA button</dt>
+    <dd>Learn More → /operational-intelligence</dd>
+  </dl>
+</div>
+
+<!-- ============ AD 6: FOUNDER VIDEO STORYBOARD (9:16) ============ -->
+<div class="unit" style="flex-direction: column;">
+  <dl class="meta-copy">
+    <h2>Ad 6 · Founder video · 30s · 9:16 (Reels/Stories) · cold + warm</h2>
+    <dt>Format</dt>
+    <dd>Talking head (Chris), cut to screen recording of the dashboard and digest, captions burned in. Shoot on a phone. Authentic beats polished for this audience.</dd>
+    <dt>Primary text</dt>
+    <dd>A question for owners who run more than one company.</dd>
+    <dt>Headline</dt>
+    <dd>What is your real cash position right now?</dd>
+    <dt>CTA button</dt>
+    <dd>Learn More → /operational-intelligence</dd>
+  </dl>
+  <div class="carousel-row">
+    <div class="ad story" id="story-1">
+      <span class="story-label">Frame 1 · 0 to 8s · talking head</span>
+      <h1 class="display">&ldquo;If you own more than one company, quick question.&rdquo;</h1>
+      <div class="story-script">SCRIPT: "What is your real cash position right now? All entities, after intercompany. Not roughly. Actually."</div>
+      <div class="brand"><div class="seal">OF</div><div class="brand-name">Old Forrest <span>Consulting</span></div></div>
+    </div>
+    <div class="ad story" id="story-2">
+      <span class="story-label">Frame 2 · 8 to 20s · screen recording</span>
+      <h1 class="display">&ldquo;If the honest answer is &lsquo;I'd have to ask someone&rsquo;...&rdquo;</h1>
+      <div class="story-dash">
+        <div class="sd-card"><div class="sd-k">Cash, all entities</div><div class="sd-v fig">$2.41M</div></div>
+        <div class="sd-card"><div class="sd-k">WIP exposure</div><div class="sd-v fig neg">$1.92M</div></div>
+        <div class="sd-card"><div class="sd-k">Jobs on margin</div><div class="sd-v fig">11 of 14</div></div>
+        <div class="sd-card"><div class="sd-k">Idle cost, wk</div><div class="sd-v fig neg">$9.3K</div></div>
+      </div>
+      <div class="story-script">SCRIPT: "...this is what Tuesday morning looks like for my clients. Every entity. One picture. Plain English."</div>
+      <div class="brand"><div class="seal">OF</div><div class="brand-name">Old Forrest <span>Consulting</span></div></div>
+    </div>
+    <div class="ad story" id="story-3">
+      <span class="story-label">Frame 3 · 20 to 30s · talking head + end card</span>
+      <h1 class="display">&ldquo;Your software stays. Fixed prices. The first deliverable is yours to keep either way.&rdquo;</h1>
+      <div class="story-script">SCRIPT: "Link below. See a sample Tuesday digest for a group like yours."</div>
+      <span class="pill">oldforrest.net/operational-intelligence</span>
+      <div class="brand"><div class="seal">OF</div><div class="brand-name">Old Forrest <span>Consulting</span></div></div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
