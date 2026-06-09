@@ -1,17 +1,5 @@
 import type { Metadata } from "next";
-import { Fraunces, Archivo } from "next/font/google";
 import OperationalIntelligenceClient from "./OperationalIntelligenceClient";
-
-const fraunces = Fraunces({
-  subsets: ["latin"],
-  variable: "--font-oi-display",
-  axes: ["opsz", "SOFT", "WONK"],
-});
-
-const archivo = Archivo({
-  subsets: ["latin"],
-  variable: "--font-oi-text",
-});
 
 export const metadata: Metadata = {
   title: "Operational Intelligence for Multi-Entity Operators | Old Forrest Consulting",
@@ -27,9 +15,5 @@ export const metadata: Metadata = {
 };
 
 export default function OperationalIntelligencePage() {
-  return (
-    <div className={`${fraunces.variable} ${archivo.variable}`}>
-      <OperationalIntelligenceClient />
-    </div>
-  );
+  return <OperationalIntelligenceClient />;
 }

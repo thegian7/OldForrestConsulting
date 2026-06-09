@@ -3,6 +3,8 @@
 import { useState, type FormEvent } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Wordmark from "@/components/Wordmark";
+import Footer from "@/components/Footer";
 
 const QUESTIONS = [
   {
@@ -84,7 +86,8 @@ function DigestMock() {
     <div className="oi-digest" role="img" aria-label="Sample Tuesday digest email">
       <div className="oi-digest-head">
         <div className="oi-digest-seal" aria-hidden="true">
-          OF
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/logo-mark.png" alt="" />
         </div>
         <div>
           <div className="oi-digest-meta">
@@ -197,8 +200,10 @@ export default function OperationalIntelligenceClient() {
     <main className="oi">
       {/* ===== Top bar ===== */}
       <header className="oi-topbar">
-        <Link href="/" className="oi-wordmark">
-          Old Forrest <span>Consulting</span>
+        <Link href="/" className="oi-brandlink">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/logo-mark.png" alt="" className="oi-logomark" />
+          <Wordmark size="sm" />
         </Link>
         <span className="oi-topbar-tag">Operational Intelligence</span>
         <a className="oi-topbar-cta" href="#start">
@@ -481,45 +486,43 @@ export default function OperationalIntelligenceClient() {
       </section>
 
       {/* ===== Footer ===== */}
-      <footer className="oi-footer">
-        <span>Old Forrest Consulting LLC</span>
-        <Link href="/">oldforrest.net</Link>
-        <span className="oi-footer-fine">
-          Not a CPA firm. We build the picture; your accountants stay your
-          accountants.
-        </span>
-      </footer>
+      <div className="oi-finebar">
+        Not a CPA firm. We build the picture; your accountants stay your
+        accountants.
+      </div>
+      <Footer />
 
       {/* ===== Scoped styles ===== */}
       <style>{`
         .oi {
-          --paper: #f4efe3;
-          --paper-2: #ece4d2;
-          --paper-3: #e4dac3;
-          --ink: #16291e;
-          --ink-soft: #3c5246;
-          --ink-faint: #6b7d72;
-          --forest: #1d3a2a;
-          --brass: #a87b2d;
-          --brass-bright: #c89b4a;
+          /* Site brand tokens (globals.css @theme), aliased to the page's vocabulary */
+          --paper: var(--color-cream, #f6f2e8);
+          --paper-2: var(--color-cream-2, #ebe4d3);
+          --ink: var(--color-ink, #1a1a1a);
+          --ink-soft: var(--color-ink-2, #3b3b3b);
+          --ink-faint: var(--color-ink-3, #6b6b6b);
+          --forest: var(--color-forest, #1f3d2b);
+          --forest-deep: var(--color-forest-deep, #132418);
+          --brass: var(--color-ember, #b8621b);
+          --brass-bright: var(--color-ember-soft, #d98c4a);
           --red: #9a3b2e;
-          --rule: rgba(22, 41, 30, 0.18);
-          --rule-soft: rgba(22, 41, 30, 0.10);
+          --rule: var(--color-rule, #c9bfa8);
+          --rule-soft: rgba(201, 191, 168, 0.45);
 
-          font-family: var(--font-oi-text), sans-serif;
+          font-family: var(--font-inter), sans-serif;
           background-color: var(--paper);
           background-image:
-            radial-gradient(ellipse 80% 50% at 50% -10%, rgba(200, 155, 74, 0.10), transparent),
-            repeating-linear-gradient(0deg, transparent 0 2px, rgba(22, 41, 30, 0.012) 2px 4px);
+            radial-gradient(ellipse 80% 50% at 50% -10%, rgba(217, 140, 74, 0.08), transparent),
+            repeating-linear-gradient(0deg, transparent 0 2px, rgba(19, 36, 24, 0.012) 2px 4px);
           color: var(--ink);
           line-height: 1.55;
           font-size: 17px;
         }
         .oi ::selection { background: var(--brass); color: var(--paper); }
         .oi h1, .oi h2, .oi h3 {
-          font-family: var(--font-oi-display), serif;
+          font-family: var(--font-fraunces), serif;
           letter-spacing: -0.01em;
-          color: var(--ink);
+          color: var(--forest-deep);
         }
         .oi em { font-style: italic; }
         .oi a { color: inherit; }
@@ -530,12 +533,11 @@ export default function OperationalIntelligenceClient() {
           padding: 1.1rem clamp(1.25rem, 5vw, 4rem);
           border-bottom: 1px solid var(--rule);
         }
-        .oi-wordmark {
-          font-family: var(--font-oi-display), serif;
-          font-weight: 700; font-size: 1.15rem; text-decoration: none;
-          white-space: nowrap;
+        .oi-brandlink {
+          display: inline-flex; align-items: center; gap: 0.7rem;
+          text-decoration: none; white-space: nowrap;
         }
-        .oi-wordmark span { color: var(--brass); }
+        .oi-logomark { width: 38px; height: auto; display: block; }
         .oi-topbar-tag {
           font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase;
           color: var(--ink-faint); margin-right: auto;
@@ -562,7 +564,7 @@ export default function OperationalIntelligenceClient() {
           font-size: clamp(2.4rem, 6vw, 4.4rem);
           font-weight: 600; line-height: 1.06; margin-bottom: 1.5rem;
         }
-        .oi-hero h1 em { color: var(--forest); }
+        .oi-hero h1 em { color: var(--brass); }
         .oi-sub {
           font-size: clamp(1.05rem, 2vw, 1.25rem); color: var(--ink-soft);
           max-width: 38rem; margin: 0 auto 2.2rem;
@@ -604,7 +606,7 @@ export default function OperationalIntelligenceClient() {
         .oi-hero-pane-after .oi-pane-label { color: var(--brass); border-color: var(--brass); }
         .oi-hero-arrow {
           align-self: center; font-size: 1.6rem; color: var(--brass);
-          font-family: var(--font-oi-display), serif;
+          font-family: var(--font-fraunces), serif;
         }
 
         .oi-chaos { position: relative; height: 100%; min-height: 210px; }
@@ -647,7 +649,7 @@ export default function OperationalIntelligenceClient() {
         .oi-dash-v {
           font-size: 1.35rem; font-weight: 600;
           font-variant-numeric: tabular-nums;
-          font-family: var(--font-oi-display), serif;
+          font-family: var(--font-fraunces), serif;
         }
         .oi-neg { color: var(--red); }
 
@@ -661,7 +663,7 @@ export default function OperationalIntelligenceClient() {
           display: flex; align-items: baseline; gap: 1.25rem; margin-bottom: 2.5rem;
         }
         .oi-section-no {
-          font-family: var(--font-oi-display), serif;
+          font-family: var(--font-fraunces), serif;
           color: var(--brass); font-size: 1.1rem; font-weight: 600;
         }
         .oi-section-head h2 {
@@ -680,12 +682,12 @@ export default function OperationalIntelligenceClient() {
           padding: 1.4rem 0; border-bottom: 1px solid var(--rule-soft);
         }
         .oi-qnum {
-          font-family: var(--font-oi-display), serif;
+          font-family: var(--font-fraunces), serif;
           font-size: 1.6rem; color: var(--brass); font-weight: 600;
           font-variant-numeric: tabular-nums; flex-shrink: 0; width: 3rem;
         }
         .oi-q {
-          font-family: var(--font-oi-display), serif;
+          font-family: var(--font-fraunces), serif;
           font-size: clamp(1.15rem, 2.4vw, 1.55rem); font-weight: 500; line-height: 1.3;
         }
         .oi-qnote { color: var(--ink-faint); font-size: 0.95rem; margin-top: 0.3rem; }
@@ -708,18 +710,18 @@ export default function OperationalIntelligenceClient() {
         }
         .oi-digest-seal {
           width: 44px; height: 44px; border-radius: 50%;
-          background: var(--forest); color: var(--brass-bright);
+          background: var(--paper-2); overflow: hidden;
           display: flex; align-items: center; justify-content: center;
-          font-family: var(--font-oi-display), serif; font-weight: 700;
           flex-shrink: 0; border: 2px solid var(--brass);
         }
+        .oi-digest-seal img { width: 80%; height: auto; display: block; }
         .oi-digest-meta {
           display: flex; gap: 0.8rem; align-items: baseline;
           font-size: 0.78rem; color: var(--ink-faint);
         }
         .oi-digest-from { font-weight: 600; color: var(--ink-soft); }
         .oi-digest-subject {
-          font-family: var(--font-oi-display), serif;
+          font-family: var(--font-fraunces), serif;
           font-weight: 600; font-size: 1.05rem; margin-top: 0.15rem;
         }
         .oi-digest-body { padding: 0.6rem 1.4rem 1.2rem; }
@@ -732,7 +734,7 @@ export default function OperationalIntelligenceClient() {
           color: var(--ink-faint); padding-top: 0.3rem;
         }
         .oi-row-fig {
-          font-family: var(--font-oi-display), serif;
+          font-family: var(--font-fraunces), serif;
           font-size: 1.25rem; font-weight: 600;
           font-variant-numeric: tabular-nums;
         }
@@ -758,12 +760,12 @@ export default function OperationalIntelligenceClient() {
           width: 34px; height: 34px; border-radius: 50%;
           border: 1px solid var(--brass); color: var(--brass);
           display: flex; align-items: center; justify-content: center;
-          font-family: var(--font-oi-display), serif; font-weight: 600;
+          font-family: var(--font-fraunces), serif; font-weight: 600;
           flex-shrink: 0;
         }
         .oi-step h3 { font-size: 1.25rem; font-weight: 600; }
         .oi-step-price {
-          font-family: var(--font-oi-display), serif;
+          font-family: var(--font-fraunces), serif;
           color: var(--forest); font-weight: 600; margin-bottom: 0.8rem;
           font-variant-numeric: tabular-nums;
         }
@@ -790,13 +792,13 @@ export default function OperationalIntelligenceClient() {
           text-align: center; padding: clamp(3rem, 6vw, 4.5rem) 1.5rem;
         }
         .oi-band p {
-          font-family: var(--font-oi-display), serif;
+          font-family: var(--font-fraunces), serif;
           font-size: clamp(1.5rem, 3.4vw, 2.3rem); font-weight: 500;
           max-width: 50rem; margin: 0 auto; line-height: 1.25;
         }
         .oi-band em { color: var(--brass-bright); }
         .oi-band .oi-band-sub {
-          font-family: var(--font-oi-text), sans-serif;
+          font-family: var(--font-inter), sans-serif;
           font-size: 1rem; color: rgba(244, 239, 227, 0.75); margin-top: 1rem;
         }
 
@@ -805,7 +807,7 @@ export default function OperationalIntelligenceClient() {
           border-bottom: 1px solid var(--rule-soft); padding: 1.1rem 0;
         }
         .oi-faq-list summary {
-          font-family: var(--font-oi-display), serif;
+          font-family: var(--font-fraunces), serif;
           font-size: 1.12rem; font-weight: 600; cursor: pointer;
           list-style: none; display: flex; justify-content: space-between; gap: 1rem;
         }
@@ -833,7 +835,7 @@ export default function OperationalIntelligenceClient() {
           text-transform: uppercase; color: var(--ink-soft);
         }
         .oi-form input, .oi-form select {
-          font-family: var(--font-oi-text), sans-serif;
+          font-family: var(--font-inter), sans-serif;
           font-size: 1rem; color: var(--ink);
           background: #fbf8f0; border: 1px solid var(--rule);
           border-radius: 8px; padding: 0.7rem 0.9rem;
@@ -842,15 +844,12 @@ export default function OperationalIntelligenceClient() {
           outline: 2px solid var(--brass); outline-offset: 1px;
         }
 
-        /* Footer */
-        .oi-footer {
+        /* Fine-print bar above the site footer */
+        .oi-finebar {
           border-top: 1px solid var(--rule);
-          padding: 2rem clamp(1.25rem, 5vw, 4rem);
-          display: flex; gap: 1.5rem; align-items: baseline; flex-wrap: wrap;
-          font-size: 0.85rem; color: var(--ink-faint);
+          padding: 1.25rem clamp(1.25rem, 5vw, 4rem);
+          font-size: 0.85rem; color: var(--ink-faint); font-style: italic;
         }
-        .oi-footer a { color: var(--forest); font-weight: 600; text-decoration: none; }
-        .oi-footer-fine { margin-left: auto; font-style: italic; }
 
         /* Responsive */
         @media (max-width: 900px) {
