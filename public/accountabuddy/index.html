@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AccountaBuddy — Find your fitness accountability partner</title>
+<meta name="description" content="Get matched with a workout accountability partner whose goals and schedule line up with yours — then keep each other showing up." />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%92%AA%3C/text%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#0e1014;
+    --bg-2:#14171e;
+    --surface:#181c24;
+    --surface-2:#1f2430;
+    --line:#2a3140;
+    --text:#eef1f6;
+    --text-2:#9aa3b5;
+    --text-3:#6b7384;
+    --lime:#c8f135;
+    --lime-ink:#10130a;
+    --coral:#ff6b5e;
+    --blue:#5ad1ff;
+    --good:#4ade80;
+    --radius:16px;
+    --radius-sm:10px;
+    --shadow:0 18px 50px -20px rgba(0,0,0,.7);
+    --maxw:980px;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    min-height:100vh;
+  }
+  h1,h2,h3,.display{font-family:'Space Grotesk','Inter',sans-serif;letter-spacing:-.02em;line-height:1.12;margin:0}
+  a{color:inherit}
+  button{font-family:inherit}
+  ::selection{background:var(--lime);color:var(--lime-ink)}
+  :focus-visible{outline:3px solid var(--blue);outline-offset:2px;border-radius:6px}
+
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+
+  /* App bar */
+  header.bar{position:sticky;top:0;z-index:30;backdrop-filter:blur(10px);background:rgba(14,16,20,.72);border-bottom:1px solid var(--line)}
+  .bar .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+  .brand{display:flex;align-items:center;gap:10px;font-family:'Space Grotesk';font-weight:700;font-size:18px}
+  .brand .mark{width:30px;height:30px;border-radius:9px;background:linear-gradient(135deg,var(--lime),#9bd400);display:grid;place-items:center;color:var(--lime-ink);font-size:16px;box-shadow:0 0 0 1px rgba(200,241,53,.3),0 6px 18px -6px rgba(200,241,53,.6)}
+  .bar-actions{display:flex;gap:8px;align-items:center}
+  .pill{font-size:12px;color:var(--text-3);border:1px solid var(--line);padding:4px 10px;border-radius:999px}
+
+  /* Buttons */
+  .btn{appearance:none;border:1px solid transparent;border-radius:12px;padding:13px 20px;font-size:15px;font-weight:600;cursor:pointer;transition:transform .12s ease,background .15s ease,border-color .15s ease;display:inline-flex;align-items:center;gap:9px;justify-content:center}
+  .btn:active{transform:translateY(1px)}
+  .btn-primary{background:var(--lime);color:var(--lime-ink);box-shadow:0 10px 30px -12px rgba(200,241,53,.7)}
+  .btn-primary:hover{background:#d4f74e}
+  .btn-ghost{background:var(--surface-2);color:var(--text);border-color:var(--line)}
+  .btn-ghost:hover{border-color:#3a4255;background:#252b38}
+  .btn-quiet{background:transparent;color:var(--text-2);border-color:transparent;padding:10px 12px}
+  .btn-quiet:hover{color:var(--text);background:var(--surface)}
+  .btn-block{width:100%}
+  .btn:disabled{opacity:.5;cursor:not-allowed}
+
+  /* Screens */
+  .screen{display:none;animation:fade .35s ease}
+  .screen.active{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  section.pad{padding:54px 0}
+
+  /* Hero */
+  .hero{position:relative;overflow:hidden}
+  .hero .blob{position:absolute;border-radius:50%;filter:blur(70px);opacity:.5;z-index:0;animation:float 14s ease-in-out infinite}
+  .hero .b1{width:380px;height:380px;background:radial-gradient(circle,#9bd400,transparent 70%);top:-120px;left:-80px}
+  .hero .b2{width:320px;height:320px;background:radial-gradient(circle,#ff6b5e,transparent 70%);top:40px;right:-90px;animation-delay:-5s}
+  .hero .b3{width:300px;height:300px;background:radial-gradient(circle,#5ad1ff,transparent 70%);bottom:-140px;left:30%;animation-delay:-9s}
+  @keyframes float{0%,100%{transform:translate(0,0)}50%{transform:translate(18px,-22px)}}
+  .hero-inner{position:relative;z-index:1;text-align:center;padding:64px 0 40px}
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--lime);border:1px solid rgba(200,241,53,.3);background:rgba(200,241,53,.06);padding:6px 14px;border-radius:999px;margin-bottom:22px}
+  .hero h1{font-size:clamp(34px,6vw,60px);font-weight:700}
+  .hero h1 .hl{color:var(--lime)}
+  .hero p.sub{font-size:clamp(16px,2.4vw,20px);color:var(--text-2);max-width:600px;margin:18px auto 30px}
+  .hero-cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+  .trust{margin-top:18px;font-size:13px;color:var(--text-3)}
+
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:46px}
+  .step{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px;text-align:left}
+  .step .n{width:32px;height:32px;border-radius:9px;background:var(--surface-2);border:1px solid var(--line);display:grid;place-items:center;font-family:'Space Grotesk';font-weight:700;color:var(--lime);margin-bottom:12px}
+  .step h3{font-size:17px;margin-bottom:6px}
+  .step p{margin:0;color:var(--text-2);font-size:14px}
+
+  /* Cards / forms */
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow)}
+  .section-head{margin-bottom:26px}
+  .section-head h2{font-size:clamp(24px,4vw,32px)}
+  .section-head p{color:var(--text-2);margin:8px 0 0}
+
+  fieldset{border:none;margin:0 0 22px;padding:0}
+  legend{font-family:'Space Grotesk';font-weight:600;font-size:15px;margin-bottom:4px;padding:0}
+  .hint{font-size:13px;color:var(--text-3);margin:0 0 12px}
+  label.field{display:block;font-weight:600;font-size:14px;margin-bottom:8px}
+  input[type=text],textarea,select{width:100%;background:var(--bg-2);border:1px solid var(--line);border-radius:var(--radius-sm);color:var(--text);padding:13px 14px;font-size:15px;font-family:inherit;transition:border-color .15s}
+  input[type=text]:focus,textarea:focus,select:focus{border-color:var(--lime);outline:none}
+  textarea{resize:vertical;min-height:84px}
+  select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%239aa3b5' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px}
+
+  .chips{display:flex;flex-wrap:wrap;gap:9px}
+  .chip{appearance:none;cursor:pointer;border:1px solid var(--line);background:var(--bg-2);color:var(--text-2);padding:9px 15px;border-radius:999px;font-size:14px;font-weight:500;transition:all .14s}
+  .chip:hover{border-color:#3a4255;color:var(--text)}
+  .chip[aria-pressed=true]{background:var(--lime);color:var(--lime-ink);border-color:var(--lime);font-weight:600}
+  .seg{display:flex;gap:9px;flex-wrap:wrap}
+  .err{color:var(--coral);font-size:13px;margin-top:7px;min-height:0;display:none}
+  .err.show{display:block}
+  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+
+  /* Match cards */
+  .match-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .mcard{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:20px;display:flex;flex-direction:column;gap:14px;transition:transform .15s,border-color .15s}
+  .mcard:hover{transform:translateY(-3px);border-color:#3a4255}
+  .mcard.top{border-color:rgba(200,241,53,.5);box-shadow:0 0 0 1px rgba(200,241,53,.25),var(--shadow)}
+  .mtop{display:flex;align-items:center;gap:13px}
+  .avatar{width:50px;height:50px;border-radius:14px;background:var(--surface-2);display:grid;place-items:center;font-size:26px;flex:none}
+  .mname{font-family:'Space Grotesk';font-weight:700;font-size:18px}
+  .mmeta{font-size:13px;color:var(--text-3)}
+  .ring{--p:0;position:relative;width:62px;height:62px;flex:none;border-radius:50%;background:conic-gradient(var(--lime) calc(var(--p)*1%),var(--surface-2) 0);display:grid;place-items:center;margin-left:auto}
+  .ring::after{content:'';position:absolute;inset:6px;border-radius:50%;background:var(--surface)}
+  .ring .pct{position:relative;z-index:1;font-family:'Space Grotesk';font-weight:700;font-size:15px}
+  .mcard.top .ring .pct{color:var(--lime)}
+  .tags{display:flex;flex-wrap:wrap;gap:6px}
+  .tag{font-size:12px;color:var(--text-2);background:var(--bg-2);border:1px solid var(--line);padding:4px 9px;border-radius:7px}
+  .why{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:7px}
+  .why li{font-size:13px;color:var(--text-2);display:flex;gap:8px;align-items:flex-start}
+  .why li .ic{color:var(--lime);flex:none}
+
+  .more{display:none;margin-top:16px}
+  .more.show{display:block}
+
+  /* Dashboard */
+  .dash-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:18px;align-items:start}
+  .buddy-hero{display:flex;align-items:center;gap:16px;margin-bottom:6px}
+  .buddy-hero .avatar{width:64px;height:64px;font-size:34px}
+  .breakdown{display:flex;flex-direction:column;gap:11px;margin-top:18px}
+  .bk{display:grid;grid-template-columns:120px 1fr 42px;gap:12px;align-items:center;font-size:13px}
+  .bk .bar{height:8px;border-radius:99px;background:var(--surface-2);overflow:hidden}
+  .bk .bar i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,var(--lime),#9bd400);width:0;transition:width .8s cubic-bezier(.2,.8,.2,1)}
+  .bk .v{text-align:right;color:var(--text-2);font-variant-numeric:tabular-nums}
+  .label{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--text-3);font-weight:600;margin-bottom:10px}
+
+  .streak-top{display:flex;align-items:baseline;gap:10px;margin-bottom:4px}
+  .streak-num{font-family:'Space Grotesk';font-weight:700;font-size:40px;color:var(--lime)}
+  .grid14{display:grid;grid-template-columns:repeat(7,1fr);gap:7px;margin:16px 0}
+  .day{aspect-ratio:1;border-radius:8px;background:var(--surface-2);border:1px solid var(--line);display:grid;place-items:center;font-size:11px;color:var(--text-3)}
+  .day.done{background:var(--lime);border-color:var(--lime);color:var(--lime-ink);font-weight:700}
+  .day.miss{background:var(--bg-2);opacity:.6}
+  .day.today{outline:2px solid var(--blue);outline-offset:1px}
+  .day.future{opacity:.35}
+  .vs{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--text-2);border-top:1px solid var(--line);padding-top:14px;margin-top:4px}
+
+  .free-list{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px}
+  .free{font-size:13px;background:rgba(90,209,255,.08);border:1px solid rgba(90,209,255,.25);color:var(--blue);padding:5px 11px;border-radius:8px}
+
+  .dash-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+
+  /* Modal */
+  .modal{position:fixed;inset:0;z-index:50;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(6,8,12,.7);backdrop-filter:blur(4px)}
+  .modal.open{display:flex}
+  .modal .box{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);max-width:460px;width:100%;padding:24px;box-shadow:var(--shadow)}
+  .msg-template{background:var(--bg-2);border:1px solid var(--line);border-radius:var(--radius-sm);padding:14px;font-size:14px;color:var(--text);margin:14px 0;white-space:pre-wrap}
+  .demo-note{font-size:12px;color:var(--text-3);display:flex;gap:7px;align-items:center;margin-top:4px}
+
+  footer.foot{border-top:1px solid var(--line);margin-top:40px;padding:26px 0;color:var(--text-3);font-size:13px}
+  footer.foot .wrap{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap}
+  .link-btn{background:none;border:none;color:var(--text-3);cursor:pointer;font-size:13px;text-decoration:underline;padding:0}
+  .link-btn:hover{color:var(--coral)}
+
+  .toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(20px);background:var(--surface-2);border:1px solid var(--line);color:var(--text);padding:12px 18px;border-radius:12px;font-size:14px;box-shadow:var(--shadow);opacity:0;pointer-events:none;transition:all .3s;z-index:60}
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+  @media (max-width:880px){
+    .steps,.match-grid{grid-template-columns:1fr}
+    .dash-grid{grid-template-columns:1fr}
+    .grid-2{grid-template-columns:1fr}
+  }
+  @media (max-width:640px){
+    section.pad{padding:36px 0}
+    .hero-inner{padding:44px 0 28px}
+    .card{padding:18px}
+    .bk{grid-template-columns:96px 1fr 38px}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none!important;transition:none!important}
+  }
+</style>
+</head>
+<body>
+<header class="bar">
+  <div class="wrap">
+    <div class="brand"><span class="mark">💪</span> AccountaBuddy</div>
+    <div class="bar-actions">
+      <span class="pill" id="bar-status">Demo</span>
+      <button class="btn btn-quiet" id="nav-dash" style="display:none">My buddy</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <div class="screen" id="screen-hero">
+    <section class="hero">
+      <span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span>
+      <div class="wrap hero-inner">
+        <span class="eyebrow">● Accountability beats willpower</span>
+        <h1>Get matched with a workout partner who <span class="hl">actually shows up</span>.</h1>
+        <p class="sub">Tell us your goal and when you train. We pair you with someone whose schedule and ambitions line up with yours — then you keep each other honest.</p>
+        <div class="hero-cta">
+          <button class="btn btn-primary" id="cta-start">Find my buddy →</button>
+          <a class="btn btn-ghost" href="#how">How it works</a>
+        </div>
+        <p class="trust">Free to try · No sign-up · Your data stays in your browser</p>
+      </div>
+      <div class="wrap" id="how">
+        <div class="steps">
+          <div class="step"><div class="n">1</div><h3>Build your profile</h3><p>Goal, activities, experience, and the days &amp; times you can realistically train.</p></div>
+          <div class="step"><div class="n">2</div><h3>Get matched</h3><p>We score every potential partner on shared goals and overlapping availability.</p></div>
+          <div class="step"><div class="n">3</div><h3>Show up together</h3><p>Pick your buddy, log your check-ins, and build a streak you don't want to break.</p></div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ONBOARDING -->
+  <div class="screen" id="screen-onboard">
+    <section class="pad"><div class="wrap" style="max-width:720px">
+      <div class="section-head">
+        <h2>Let's build your profile</h2>
+        <p>The better this is, the better your match. Takes about a minute.</p>
+      </div>
+      <form id="form" class="card" novalidate>
+        <fieldset>
+          <legend>What should we call you?</legend>
+          <label class="field" for="firstName">First name</label>
+          <input type="text" id="firstName" autocomplete="given-name" placeholder="e.g. Alex" maxlength="40" />
+          <p class="err" id="err-firstName">Add your first name so your buddy knows who they're matched with.</p>
+        </fieldset>
+
+        <fieldset>
+          <legend>Your main goal</legend>
+          <p class="hint">Pick the one that matters most right now.</p>
+          <div class="chips" id="goal" data-single="1" role="group" aria-label="Main goal"></div>
+          <p class="err" id="err-goal">Choose a goal.</p>
+        </fieldset>
+
+        <fieldset>
+          <legend>What do you like to do?</legend>
+          <p class="hint">Pick everything you enjoy — at least one.</p>
+          <div class="chips" id="activities" role="group" aria-label="Activities"></div>
+          <p class="err" id="err-activities">Pick at least one activity.</p>
+        </fieldset>
+
+        <fieldset>
+          <legend>Experience level</legend>
+          <div class="seg" id="level" data-single="1" role="group" aria-label="Experience level"></div>
+          <p class="err" id="err-level">Pick your level.</p>
+        </fieldset>
+
+        <fieldset>
+          <legend>When can you train?</legend>
+          <p class="hint">Days you're usually free.</p>
+          <div class="chips" id="days" role="group" aria-label="Days available" style="margin-bottom:14px"></div>
+          <p class="hint">And what time of day.</p>
+          <div class="seg" id="times" role="group" aria-label="Times available"></div>
+          <p class="err" id="err-avail">Pick at least one day and one time so we can find an overlap.</p>
+        </fieldset>
+
+        <div class="grid-2">
+          <fieldset>
+            <legend>Your timezone</legend>
+            <label class="field" for="timezone" style="position:absolute;left:-9999px">Timezone</label>
+            <select id="timezone"></select>
+          </fieldset>
+          <fieldset>
+            <legend>Check-in rhythm</legend>
+            <div class="seg" id="cadence" data-single="1" role="group" aria-label="Check-in cadence"></div>
+            <p class="err" id="err-cadence">Pick a cadence.</p>
+          </fieldset>
+        </div>
+
+        <fieldset>
+          <legend>What keeps you going? <span style="color:var(--text-3);font-weight:400">(optional)</span></legend>
+          <label class="field" for="bio" style="position:absolute;left:-9999px">Short bio</label>
+          <textarea id="bio" maxlength="160" placeholder="e.g. Training for a half marathon and I'm way more consistent when someone's waiting on me."></textarea>
+        </fieldset>
+
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:6px">
+          <button type="submit" class="btn btn-primary" id="submit-profile">Find my matches →</button>
+          <button type="button" class="btn btn-quiet" id="cancel-onboard">Back</button>
+        </div>
+      </form>
+    </div></section>
+  </div>
+
+  <!-- RESULTS -->
+  <div class="screen" id="screen-results">
+    <section class="pad"><div class="wrap">
+      <div class="section-head">
+        <h2 id="results-title">Your top matches</h2>
+        <p id="results-sub">Ranked by goal fit and how well your schedules overlap.</p>
+      </div>
+      <div class="match-grid" id="match-top"></div>
+      <div style="text-align:center;margin-top:22px">
+        <button class="btn btn-ghost" id="toggle-more">See all matches</button>
+      </div>
+      <div class="more" id="match-rest" style="margin-top:18px"></div>
+      <div style="text-align:center;margin-top:26px">
+        <button class="btn btn-quiet" id="edit-from-results">← Edit my profile</button>
+      </div>
+    </div></section>
+  </div>
+
+  <!-- DASHBOARD -->
+  <div class="screen" id="screen-dashboard">
+    <section class="pad"><div class="wrap">
+      <div class="section-head">
+        <h2 id="dash-hello">Your accountability partner</h2>
+        <p id="dash-sub">Keep each other showing up.</p>
+      </div>
+      <div class="dash-grid">
+        <div class="card">
+          <div class="buddy-hero">
+            <div class="avatar" id="b-avatar">🏃</div>
+            <div>
+              <div class="mname" id="b-name">—</div>
+              <div class="mmeta" id="b-meta">—</div>
+            </div>
+            <div class="ring" id="b-ring"><span class="pct" id="b-pct">0%</span></div>
+          </div>
+          <p id="b-bio" style="color:var(--text-2);font-size:14px;margin:6px 0 0"></p>
+
+          <div style="margin-top:20px">
+            <div class="label">Why you two click</div>
+            <ul class="why" id="b-why"></ul>
+          </div>
+
+          <div style="margin-top:20px">
+            <div class="label">Compatibility breakdown</div>
+            <div class="breakdown" id="b-breakdown"></div>
+          </div>
+
+          <div style="margin-top:20px">
+            <div class="label">You're both free</div>
+            <div class="free-list" id="b-free"></div>
+          </div>
+
+          <div class="dash-actions">
+            <button class="btn btn-primary" id="say-hi">👋 Say hi</button>
+            <button class="btn btn-ghost" id="rematch">Find a different buddy</button>
+            <button class="btn btn-quiet" id="edit-from-dash">Edit profile</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="label">Your check-in streak</div>
+          <div class="streak-top">
+            <span class="streak-num" id="streak-num">0</span>
+            <span style="color:var(--text-2)">day<span id="streak-s">s</span> · keep it alive 🔥</span>
+          </div>
+          <div class="grid14" id="grid14"></div>
+          <button class="btn btn-primary btn-block" id="checkin">Log today's workout ✅</button>
+          <p class="hint" id="checkin-hint" style="text-align:center;margin-top:10px">One tap when you've trained today.</p>
+          <div class="vs">
+            <span>🤝 <strong id="vs-buddy-name">Your buddy</strong>'s streak</span>
+            <span><strong id="vs-buddy-streak" style="color:var(--coral)">0</strong> days</span>
+          </div>
+        </div>
+      </div>
+    </div></section>
+  </div>
+</main>
+
+<!-- Say hi modal -->
+<div class="modal" id="modal-sayhi" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div class="box">
+    <h3 id="modal-title">Break the ice 👋</h3>
+    <p style="color:var(--text-2);font-size:14px;margin:8px 0 0">Here's a first message you can copy and send <span id="modal-buddy">your buddy</span> however you like.</p>
+    <div class="msg-template" id="msg-template"></div>
+    <div style="display:flex;gap:10px">
+      <button class="btn btn-primary" id="copy-msg">Copy message</button>
+      <button class="btn btn-quiet" id="close-modal">Close</button>
+    </div>
+    <p class="demo-note">🔒 This is a demo — nothing is actually sent. Your match lives only in this browser.</p>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<footer class="foot"><div class="wrap">
+  <span>AccountaBuddy · a fitness accountability matching demo</span>
+  <button class="link-btn" id="reset-demo">Reset demo data</button>
+</div></footer>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---------- Enums ---------- */
+  var GOALS = [
+    {key:"weight_loss", label:"Lose weight", emoji:"🔥"},
+    {key:"muscle", label:"Build muscle", emoji:"🏋️"},
+    {key:"endurance", label:"Boost endurance", emoji:"🏃"},
+    {key:"habit", label:"Build a habit", emoji:"📅"},
+    {key:"sport", label:"Train for a sport", emoji:"⚽"}
+  ];
+  var ACTIVITIES = ["Running","Gym / Lifting","Yoga","Cycling","Home workouts","Walking","Swimming","Classes"];
+  var LEVELS = ["Beginner","Intermediate","Advanced"];
+  var DAYS = ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
+  var TIMES = ["Morning","Midday","Evening"];
+  var CADENCES = ["Daily","3x per week","Weekly"];
+  var TZS = [
+    {tz:"America/Los_Angeles", label:"Los Angeles (PT)"},
+    {tz:"America/Denver", label:"Denver (MT)"},
+    {tz:"America/Chicago", label:"Chicago (CT)"},
+    {tz:"America/New_York", label:"New York (ET)"},
+    {tz:"America/Sao_Paulo", label:"São Paulo (BRT)"},
+    {tz:"Europe/London", label:"London (GMT/BST)"},
+    {tz:"Europe/Berlin", label:"Berlin (CET)"},
+    {tz:"Europe/Athens", label:"Athens (EET)"},
+    {tz:"Asia/Dubai", label:"Dubai (GST)"},
+    {tz:"Asia/Kolkata", label:"India (IST)"},
+    {tz:"Asia/Singapore", label:"Singapore (SGT)"},
+    {tz:"Asia/Tokyo", label:"Tokyo (JST)"},
+    {tz:"Australia/Sydney", label:"Sydney (AET)"}
+  ];
+
+  /* ---------- Seed buddy pool ---------- */
+  var BUDDIES = [
+    {id:"maya-r", name:"Maya", emoji:"🧘", goalKey:"habit", activities:["Yoga","Walking","Home workouts"], level:"Beginner", days:["Mon","Wed","Fri","Sun"], times:["Morning"], tz:"America/New_York", cadence:"Daily", bio:"Trying to make movement a daily thing instead of a someday thing.", streak:12},
+    {id:"deshawn-k", name:"DeShawn", emoji:"🏋️", goalKey:"muscle", activities:["Gym / Lifting","Classes"], level:"Advanced", days:["Mon","Tue","Thu","Fri"], times:["Evening"], tz:"America/Chicago", cadence:"Daily", bio:"Powerbuilding split, chasing a 4-plate deadlift this year.", streak:34},
+    {id:"freya-l", name:"Freya", emoji:"🏃", goalKey:"endurance", activities:["Running","Cycling"], level:"Intermediate", days:["Tue","Thu","Sat","Sun"], times:["Morning"], tz:"Europe/London", cadence:"3x per week", bio:"Half-marathon in the autumn — need someone to drag me out on cold mornings.", streak:9},
+    {id:"hiro-t", name:"Hiro", emoji:"🚴", goalKey:"endurance", activities:["Cycling","Swimming","Running"], level:"Advanced", days:["Wed","Fri","Sat","Sun"], times:["Morning","Midday"], tz:"Asia/Tokyo", cadence:"Daily", bio:"Triathlon-curious. Consistency is my weak leg, not the swim.", streak:21},
+    {id:"sofia-m", name:"Sofia", emoji:"💃", goalKey:"weight_loss", activities:["Classes","Home workouts","Walking"], level:"Beginner", days:["Mon","Tue","Wed","Thu"], times:["Evening"], tz:"Europe/Berlin", cadence:"Daily", bio:"Dance and HIIT classes after work. Down 6kg, 8 to go.", streak:18},
+    {id:"liam-b", name:"Liam", emoji:"🏃", goalKey:"weight_loss", activities:["Running","Gym / Lifting","Walking"], level:"Beginner", days:["Mon","Wed","Fri","Sat"], times:["Morning"], tz:"America/New_York", cadence:"3x per week", bio:"Couch-to-5K then keep going. Mornings before the kids wake up.", streak:7},
+    {id:"amara-o", name:"Amara", emoji:"🤸", goalKey:"habit", activities:["Home workouts","Yoga","Walking"], level:"Intermediate", days:["Tue","Thu","Sat","Sun"], times:["Evening"], tz:"America/Chicago", cadence:"Weekly", bio:"Rebuilding a routine after a long gap. Small steps, no zero days.", streak:15},
+    {id:"noah-c", name:"Noah", emoji:"⚽", goalKey:"sport", activities:["Running","Gym / Lifting","Classes"], level:"Intermediate", days:["Mon","Wed","Fri"], times:["Evening"], tz:"America/Los_Angeles", cadence:"3x per week", bio:"Sunday-league footballer working on speed and not pulling hamstrings.", streak:11},
+    {id:"priya-s", name:"Priya", emoji:"🧘", goalKey:"habit", activities:["Yoga","Walking","Swimming"], level:"Beginner", days:["Mon","Tue","Wed","Thu","Fri"], times:["Morning"], tz:"Asia/Kolkata", cadence:"Daily", bio:"Desk job recovery — gentle, daily, and actually sustainable.", streak:26},
+    {id:"tomas-v", name:"Tomás", emoji:"🏋️", goalKey:"muscle", activities:["Gym / Lifting","Home workouts"], level:"Intermediate", days:["Tue","Thu","Sat"], times:["Midday"], tz:"Europe/Athens", cadence:"3x per week", bio:"Lean bulk, push/pull/legs. Lunchtime lifter.", streak:5},
+    {id:"grace-w", name:"Grace", emoji:"🏊", goalKey:"endurance", activities:["Swimming","Cycling","Running"], level:"Advanced", days:["Mon","Wed","Fri","Sun"], times:["Morning"], tz:"Australia/Sydney", cadence:"Daily", bio:"Open-water swimmer. Love an early start and a training buddy to match it.", streak:29},
+    {id:"ben-a", name:"Ben", emoji:"🚶", goalKey:"weight_loss", activities:["Walking","Home workouts","Cycling"], level:"Beginner", days:["Sat","Sun","Wed"], times:["Midday","Evening"], tz:"Europe/London", cadence:"Weekly", bio:"Starting gentle. 10k steps and one real workout a week, building up.", streak:4},
+    {id:"isabel-q", name:"Isabel", emoji:"🤾", goalKey:"sport", activities:["Classes","Gym / Lifting","Running"], level:"Advanced", days:["Tue","Thu","Sat","Sun"], times:["Evening"], tz:"America/Sao_Paulo", cadence:"Daily", bio:"Handball season prep. I bring the intensity, you bring the schedule.", streak:23},
+    {id:"omar-h", name:"Omar", emoji:"🏋️", goalKey:"muscle", activities:["Gym / Lifting","Swimming"], level:"Beginner", days:["Mon","Wed","Fri"], times:["Evening"], tz:"Asia/Dubai", cadence:"3x per week", bio:"First real lifting program. Want a buddy who'll call me out if I skip.", streak:6},
+    {id:"yuki-n", name:"Yuki", emoji:"🧘", goalKey:"habit", activities:["Yoga","Home workouts","Cycling"], level:"Intermediate", days:["Mon","Tue","Thu","Sat"], times:["Morning","Midday"], tz:"Asia/Singapore", cadence:"Daily", bio:"Morning mobility + a ride. Tiny daily wins keep me sane.", streak:31},
+    {id:"chloe-d", name:"Chloe", emoji:"🏃", goalKey:"endurance", activities:["Running","Classes","Walking"], level:"Intermediate", days:["Mon","Wed","Fri","Sat"], times:["Morning","Evening"], tz:"America/Denver", cadence:"3x per week", bio:"Trail-running toward a first 10-miler. Accountability over motivation.", streak:14}
+  ];
+  BUDDIES.forEach(function(b){ var g = goalByKey(b.goalKey); b.goalLabel = g.label; b.goalEmoji = g.emoji; });
+
+  /* ---------- Storage ---------- */
+  var K = {profile:"ab.profile.v1", match:"ab.match.v1", checkins:"ab.checkins.v1"};
+  function load(k){ try{ var v = localStorage.getItem(k); return v ? JSON.parse(v) : null; }catch(e){ return null; } }
+  function save(k,v){ try{ localStorage.setItem(k, JSON.stringify(v)); }catch(e){} }
+  function del(k){ try{ localStorage.removeItem(k); }catch(e){} }
+
+  var profile = load(K.profile);
+  var match = load(K.match);
+  var checkins = load(K.checkins) || [];
+  if(!Array.isArray(checkins)) checkins = [];
+
+  /* ---------- Helpers ---------- */
+  function goalByKey(k){ for(var i=0;i<GOALS.length;i++){ if(GOALS[i].key===k) return GOALS[i]; } return GOALS[0]; }
+  function buddyById(id){ for(var i=0;i<BUDDIES.length;i++){ if(BUDDIES[i].id===id) return BUDDIES[i]; } return null; }
+  function tzLabel(tz){ for(var i=0;i<TZS.length;i++){ if(TZS[i].tz===tz) return TZS[i].label; } return tz; }
+  function intersect(a,b){ var s={},o=[]; (b||[]).forEach(function(x){s[x]=1;}); (a||[]).forEach(function(x){ if(s[x]){o.push(x);} }); return o; }
+  function jaccard(a,b){ if(!a.length && !b.length) return 0; var inter=intersect(a,b).length; var uni={}; a.concat(b).forEach(function(x){uni[x]=1;}); var u=Object.keys(uni).length; return u?inter/u:0; }
+  function el(id){ return document.getElementById(id); }
+  function esc(s){ return String(s==null?"":s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c];}); }
+
+  function tzOffsetMin(tz){
+    try{
+      var dtf = new Intl.DateTimeFormat("en-US",{timeZone:tz,timeZoneName:"shortOffset"});
+      var parts = dtf.formatToParts(new Date());
+      var nm = "GMT+0";
+      for(var i=0;i<parts.length;i++){ if(parts[i].type==="timeZoneName"){ nm = parts[i].value; break; } }
+      var m = nm.match(/GMT([+-]?\d{1,2})(?::?(\d{2}))?/);
+      if(!m) return 0;
+      var h = parseInt(m[1],10) || 0;
+      var mn = m[2] ? parseInt(m[2],10) : 0;
+      return h*60 + (h<0 ? -mn : mn);
+    }catch(e){ return 0; }
+  }
+
+  /* slot helpers: a "slot" is "Day|Time" */
+  function slotsOf(days,times){ var out=[]; (days||[]).forEach(function(d){ (times||[]).forEach(function(t){ out.push(d+"|"+t); }); }); return out; }
+
+  /* goal affinity 0..1 */
+  function goalAffinity(g1,g2){
+    if(g1===g2) return 1;
+    var rel = {
+      weight_loss:{endurance:.55, habit:.65, sport:.35, muscle:.4},
+      muscle:{sport:.6, endurance:.4, weight_loss:.4, habit:.45},
+      endurance:{sport:.7, weight_loss:.55, habit:.5, muscle:.4},
+      habit:{weight_loss:.65, endurance:.5, muscle:.45, sport:.45},
+      sport:{endurance:.7, muscle:.6, weight_loss:.35, habit:.45}
+    };
+    return (rel[g1] && rel[g1][g2]) ? rel[g1][g2] : .3;
+  }
+  function levelScore(a,b){ var ix=LEVELS.indexOf(a), iy=LEVELS.indexOf(b); var d=Math.abs(ix-iy); return d===0?1:(d===1?.6:.2); }
+
+  var WEIGHTS = {avail:.30, goal:.25, activity:.18, tz:.10, level:.10, cadence:.07};
+
+  function scoreBuddy(p,b){
+    var pSlots = slotsOf(p.days,p.times);
+    var bSlots = slotsOf(b.days,b.times);
+    var availOverlap = intersect(pSlots,bSlots);
+    var avail = jaccard(pSlots,bSlots);
+    var goal = goalAffinity(p.goalKey,b.goalKey);
+    var actInter = intersect(p.activities,b.activities);
+    var activity = jaccard(p.activities,b.activities);
+    var lvl = levelScore(p.level,b.level);
+    var cad = p.cadence===b.cadence?1:.5;
+    var tzd = Math.abs(tzOffsetMin(p.timezone)-tzOffsetMin(b.tz))/60;
+    var tz = 1 - Math.min(tzd,12)/12;
+    var total = WEIGHTS.avail*avail + WEIGHTS.goal*goal + WEIGHTS.activity*activity + WEIGHTS.tz*tz + WEIGHTS.level*lvl + WEIGHTS.cadence*cad;
+    var pct = Math.round(total*100);
+    if(pct>99) pct=99; if(pct<35) pct=35; /* keep demo scores believable */
+    return {
+      buddy:b, pct:pct,
+      parts:{Availability:avail, Goal:goal, Activities:activity, Timezone:tz, Level:lvl, Cadence:cad},
+      availOverlap:availOverlap, actInter:actInter, tzDiffHrs:Math.round(tzd)
+    };
+  }
+
+  function rankMatches(p){
+    var arr = BUDDIES.map(function(b){ return scoreBuddy(p,b); });
+    arr.sort(function(a,b){ return b.pct-a.pct; });
+    return arr;
+  }
+
+  function reasonsFor(p,s){
+    var r=[], b=s.buddy;
+    var slots = s.availOverlap;
+    if(slots.length){
+      var byTime={}; slots.forEach(function(x){ var t=x.split("|")[1]; (byTime[t]=byTime[t]||[]).push(x.split("|")[0]); });
+      var t0 = Object.keys(byTime)[0];
+      r.push("You both train "+byTime[t0].slice(0,3).join("/")+" "+t0.toLowerCase()+"s");
+    }
+    if(p.goalKey===b.goalKey) r.push("Same goal: "+b.goalLabel.toLowerCase());
+    else if(s.parts.Goal>=.55) r.push("Complementary goals ("+b.goalLabel.toLowerCase()+")");
+    if(s.actInter.length>=2) r.push(s.actInter.length+" activities in common: "+s.actInter.slice(0,3).join(", "));
+    else if(s.actInter.length===1) r.push("You both like "+s.actInter[0].toLowerCase());
+    if(p.cadence===b.cadence) r.push("Both want to check in "+b.cadence.toLowerCase());
+    if(p.level===b.level) r.push("Same experience level ("+b.level.toLowerCase()+")");
+    if(s.tzDiffHrs===0) r.push("Same timezone — easy to sync");
+    else if(s.tzDiffHrs<=3) r.push("Just "+s.tzDiffHrs+"h apart");
+    if(!r.length) r.push("A fresh perspective to keep you accountable");
+    return r.slice(0,4);
+  }
+
+  /* ---------- Routing ---------- */
+  var SCREENS = ["hero","onboard","results","dashboard"];
+  function show(name){
+    SCREENS.forEach(function(s){ var node=el("screen-"+s); if(node) node.classList.toggle("active", s===name); });
+    el("nav-dash").style.display = (match && profile) ? "" : "none";
+    el("bar-status").textContent = (name==="dashboard") ? "Matched" : "Demo";
+    window.scrollTo({top:0,behavior:"instant" in window ? "instant" : "auto"});
+  }
+
+  /* ---------- Build form controls ---------- */
+  function chipGroup(container, items, opts){
+    opts = opts||{};
+    container.innerHTML="";
+    items.forEach(function(it){
+      var val = opts.valueOf ? opts.valueOf(it) : it;
+      var lbl = opts.labelOf ? opts.labelOf(it) : it;
+      var btn=document.createElement("button");
+      btn.type="button"; btn.className=opts.seg?"chip":"chip"; btn.setAttribute("aria-pressed","false");
+      btn.setAttribute("data-val",val); btn.innerHTML=lbl;
+      btn.addEventListener("click",function(){
+        if(container.getAttribute("data-single")){
+          Array.prototype.forEach.call(container.children,function(c){ c.setAttribute("aria-pressed","false"); });
+          btn.setAttribute("aria-pressed","true");
+        }else{
+          btn.setAttribute("aria-pressed", btn.getAttribute("aria-pressed")==="true"?"false":"true");
+        }
+      });
+      container.appendChild(btn);
+    });
+  }
+  function getSelected(container){ var out=[]; Array.prototype.forEach.call(container.children,function(c){ if(c.getAttribute("aria-pressed")==="true") out.push(c.getAttribute("data-val")); }); return out; }
+  function setSelected(container, vals){ vals=vals||[]; Array.prototype.forEach.call(container.children,function(c){ c.setAttribute("aria-pressed", vals.indexOf(c.getAttribute("data-val"))>=0?"true":"false"); }); }
+
+  chipGroup(el("goal"), GOALS, {valueOf:function(g){return g.key;}, labelOf:function(g){return g.emoji+" "+g.label;}});
+  chipGroup(el("activities"), ACTIVITIES, {});
+  chipGroup(el("level"), LEVELS, {seg:true});
+  chipGroup(el("days"), DAYS, {});
+  chipGroup(el("times"), TIMES, {seg:true});
+  chipGroup(el("cadence"), CADENCES, {seg:true});
+
+  (function fillTz(){
+    var sel=el("timezone"); sel.innerHTML="";
+    var guess=""; try{ guess=Intl.DateTimeFormat().resolvedOptions().timeZone||""; }catch(e){}
+    var found=false;
+    TZS.forEach(function(z){ var o=document.createElement("option"); o.value=z.tz; o.textContent=z.label; if(z.tz===guess){o.selected=true;found=true;} sel.appendChild(o); });
+    if(!found){ sel.value="America/New_York"; }
+  })();
+
+  /* ---------- Validation + submit ---------- */
+  function setErr(id,on){ var e=el("err-"+id); if(e) e.classList.toggle("show",!!on); }
+
+  function readForm(){
+    return {
+      firstName: el("firstName").value.trim(),
+      goalKey: getSelected(el("goal"))[0]||"",
+      activities: getSelected(el("activities")),
+      level: getSelected(el("level"))[0]||"",
+      days: getSelected(el("days")),
+      times: getSelected(el("times")),
+      timezone: el("timezone").value,
+      cadence: getSelected(el("cadence"))[0]||"",
+      bio: el("bio").value.trim()
+    };
+  }
+  function validate(p){
+    var ok=true;
+    setErr("firstName", !p.firstName); if(!p.firstName) ok=false;
+    setErr("goal", !p.goalKey); if(!p.goalKey) ok=false;
+    setErr("activities", !p.activities.length); if(!p.activities.length) ok=false;
+    setErr("level", !p.level); if(!p.level) ok=false;
+    var availBad = !p.days.length || !p.times.length;
+    setErr("avail", availBad); if(availBad) ok=false;
+    setErr("cadence", !p.cadence); if(!p.cadence) ok=false;
+    return ok;
+  }
+
+  function prefillForm(p){
+    if(!p) return;
+    el("firstName").value=p.firstName||"";
+    setSelected(el("goal"),[p.goalKey]);
+    setSelected(el("activities"),p.activities);
+    setSelected(el("level"),[p.level]);
+    setSelected(el("days"),p.days);
+    setSelected(el("times"),p.times);
+    if(p.timezone) el("timezone").value=p.timezone;
+    setSelected(el("cadence"),[p.cadence]);
+    el("bio").value=p.bio||"";
+  }
+
+  el("form").addEventListener("submit",function(ev){
+    ev.preventDefault();
+    var p=readForm();
+    if(!validate(p)){
+      var firstErr=document.querySelector(".err.show");
+      if(firstErr) firstErr.scrollIntoView({behavior:"smooth",block:"center"});
+      return;
+    }
+    p.goalLabel=goalByKey(p.goalKey).label;
+    profile=p; save(K.profile,profile);
+    renderResults();
+    show("results");
+  });
+  el("cancel-onboard").addEventListener("click",function(){ show(profile&&match?"dashboard":"hero"); });
+
+  /* ---------- Results ---------- */
+  var lastRanked=[];
+  function matchCard(s,isTop){
+    var b=s.buddy;
+    var reasons=reasonsFor(profile,s);
+    var tags=b.activities.slice(0,3).map(function(a){return '<span class="tag">'+esc(a)+'</span>';}).join("");
+    var why=reasons.map(function(r){return '<li><span class="ic">✓</span><span>'+esc(r)+'</span></li>';}).join("");
+    return ''+
+    '<div class="mcard'+(isTop?' top':'')+'">'+
+      '<div class="mtop">'+
+        '<div class="avatar">'+esc(b.emoji)+'</div>'+
+        '<div><div class="mname">'+esc(b.name)+'</div><div class="mmeta">'+esc(b.goalEmoji+" "+b.goalLabel+" · "+b.level)+'</div></div>'+
+        '<div class="ring" style="--p:'+s.pct+'"><span class="pct">'+s.pct+'%</span></div>'+
+      '</div>'+
+      '<div class="tags">'+tags+'</div>'+
+      '<ul class="why">'+why+'</ul>'+
+      '<button class="btn '+(isTop?'btn-primary':'btn-ghost')+' btn-block" data-choose="'+esc(b.id)+'">Choose '+esc(b.name)+'</button>'+
+    '</div>';
+  }
+  function renderResults(){
+    lastRanked=rankMatches(profile);
+    el("results-title").textContent="Hey "+(profile.firstName||"there")+" — your top matches";
+    el("match-top").innerHTML=lastRanked.slice(0,3).map(function(s,i){return matchCard(s,i===0);}).join("");
+    el("match-rest").innerHTML='<div class="match-grid">'+lastRanked.slice(3).map(function(s){return matchCard(s,false);}).join("")+'</div>';
+    el("match-rest").classList.remove("show");
+    el("toggle-more").textContent="See all matches";
+    bindChoose();
+  }
+  function bindChoose(){
+    Array.prototype.forEach.call(document.querySelectorAll("[data-choose]"),function(btn){
+      btn.addEventListener("click",function(){ chooseBuddy(btn.getAttribute("data-choose")); });
+    });
+  }
+  el("toggle-more").addEventListener("click",function(){
+    var r=el("match-rest"); var open=r.classList.toggle("show");
+    el("toggle-more").textContent=open?"Show fewer":"See all matches";
+  });
+  el("edit-from-results").addEventListener("click",function(){ prefillForm(profile); show("onboard"); });
+
+  function chooseBuddy(id){
+    var s=null; for(var i=0;i<lastRanked.length;i++){ if(lastRanked[i].buddy.id===id){ s=lastRanked[i]; break; } }
+    if(!s) return;
+    match={id:id, pct:s.pct, at:Date.now()};
+    save(K.match,match);
+    renderDashboard();
+    show("dashboard");
+    toast("You're matched with "+s.buddy.name+"! 🎉");
+  }
+
+  /* ---------- Dashboard ---------- */
+  function freeSummary(s){
+    var slots=s.availOverlap;
+    if(!slots.length) return ['No overlapping slots yet — pick a flexible time to sync'];
+    var byTime={}; slots.forEach(function(x){ var p=x.split("|"); (byTime[p[1]]=byTime[p[1]]||[]).push(p[0]); });
+    var out=[];
+    Object.keys(byTime).forEach(function(t){ out.push(byTime[t].join(" / ")+" "+t.toLowerCase()+"s"); });
+    return out;
+  }
+  function renderDashboard(){
+    var b=buddyById(match.id); if(!b){ del(K.match); match=null; show(profile?"results":"hero"); return; }
+    var s=scoreBuddy(profile,b);
+    el("dash-hello").textContent=(profile.firstName||"You")+" & "+b.name;
+    el("b-avatar").textContent=b.emoji;
+    el("b-name").textContent=b.name;
+    el("b-meta").textContent=b.goalEmoji+" "+b.goalLabel+" · "+b.level+" · "+tzLabel(b.tz);
+    el("b-bio").textContent=b.bio||"";
+    el("b-pct").textContent=s.pct+"%";
+    el("b-ring").style.setProperty("--p",s.pct);
+    el("b-why").innerHTML=reasonsFor(profile,s).map(function(r){return '<li><span class="ic">✓</span><span>'+esc(r)+'</span></li>';}).join("");
+    var order=["Availability","Goal","Activities","Level","Cadence","Timezone"];
+    el("b-breakdown").innerHTML=order.map(function(k){
+      var v=Math.round((s.parts[k]||0)*100);
+      return '<div class="bk"><span>'+k+'</span><span class="bar"><i data-w="'+v+'"></i></span><span class="v">'+v+'%</span></div>';
+    }).join("");
+    setTimeout(function(){ Array.prototype.forEach.call(document.querySelectorAll("#b-breakdown .bar i"),function(i){ i.style.width=i.getAttribute("data-w")+"%"; }); },60);
+    el("b-free").innerHTML=freeSummary(s).map(function(f){return '<span class="free">'+esc(f)+'</span>';}).join("");
+    el("vs-buddy-name").textContent=b.name;
+    el("vs-buddy-streak").textContent=b.streak;
+    renderStreak();
+  }
+
+  function dayKey(offset){ var d=new Date(); d.setDate(d.getDate()+offset); var y=d.getFullYear(),m=("0"+(d.getMonth()+1)).slice(-2),da=("0"+d.getDate()).slice(-2); return y+"-"+m+"-"+da; }
+  function hasCheckin(k){ return checkins.indexOf(k)>=0; }
+  function currentStreak(){
+    var n=0;
+    for(var i=0;i<400;i++){ if(hasCheckin(dayKey(-i))) n++; else break; }
+    return n;
+  }
+  function renderStreak(){
+    var st=currentStreak();
+    el("streak-num").textContent=st;
+    el("streak-s").textContent=st===1?"":"s";
+    var labels=["S","M","T","W","T","F","S"];
+    var html="";
+    for(var i=13;i>=0;i--){
+      var k=dayKey(-i);
+      var d=new Date(); d.setDate(d.getDate()-i);
+      var cls="day"; if(i===0) cls+=" today";
+      if(hasCheckin(k)) cls+=" done"; else cls+=" miss";
+      html+='<div class="'+cls+'" title="'+k+'">'+labels[d.getDay()]+'</div>';
+    }
+    el("grid14").innerHTML=html;
+    var today=dayKey(0), done=hasCheckin(today);
+    el("checkin").disabled=done;
+    el("checkin").textContent=done?"Logged for today ✅":"Log today's workout ✅";
+    el("checkin-hint").textContent=done?("Nice — "+st+" day streak. See you tomorrow."):"One tap when you've trained today.";
+  }
+  el("checkin").addEventListener("click",function(){
+    var today=dayKey(0);
+    if(hasCheckin(today)) return;
+    checkins.push(today); save(K.checkins,checkins);
+    renderStreak();
+    toast("Workout logged 🔥 streak: "+currentStreak());
+  });
+  el("rematch").addEventListener("click",function(){ renderResults(); show("results"); });
+  el("edit-from-dash").addEventListener("click",function(){ prefillForm(profile); show("onboard"); });
+  el("nav-dash").addEventListener("click",function(){ if(match&&profile){ renderDashboard(); show("dashboard"); } });
+
+  /* ---------- Say hi modal ---------- */
+  function openModal(){
+    var b=buddyById(match.id); if(!b) return;
+    el("modal-buddy").textContent=b.name;
+    var s=scoreBuddy(profile,b);
+    var when=freeSummary(s)[0]||"this week";
+    el("msg-template").textContent="Hey "+b.name+"! 👋 AccountaBuddy matched us — looks like we're both into "+(s.actInter[0]?s.actInter[0].toLowerCase():"training")+" and free "+when.toLowerCase()+". Want to lock in a first session and keep each other accountable? I'm "+(profile.firstName||"new here")+", "+goalByKey(profile.goalKey).label.toLowerCase()+" is my focus right now.";
+    el("modal-sayhi").classList.add("open");
+    el("copy-msg").focus();
+  }
+  function closeModal(){ el("modal-sayhi").classList.remove("open"); }
+  el("say-hi").addEventListener("click",openModal);
+  el("close-modal").addEventListener("click",closeModal);
+  el("modal-sayhi").addEventListener("click",function(e){ if(e.target===el("modal-sayhi")) closeModal(); });
+  document.addEventListener("keydown",function(e){ if(e.key==="Escape") closeModal(); });
+  el("copy-msg").addEventListener("click",function(){
+    var txt=el("msg-template").textContent;
+    function done(){ toast("Message copied 📋"); closeModal(); }
+    if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(txt).then(done,done); }
+    else { try{ var ta=document.createElement("textarea"); ta.value=txt; document.body.appendChild(ta); ta.select(); document.execCommand("copy"); document.body.removeChild(ta); }catch(e){} done(); }
+  });
+
+  /* ---------- Misc ---------- */
+  var toastTimer=null;
+  function toast(msg){
+    var t=el("toast"); t.textContent=msg; t.classList.add("show");
+    if(toastTimer) clearTimeout(toastTimer);
+    toastTimer=setTimeout(function(){ t.classList.remove("show"); },2600);
+  }
+  el("cta-start").addEventListener("click",function(){ prefillForm(profile); show("onboard"); });
+  el("reset-demo").addEventListener("click",function(){
+    if(!confirm("Reset the demo? This clears your profile, match, and streak from this browser.")) return;
+    del(K.profile); del(K.match); del(K.checkins);
+    profile=null; match=null; checkins=[];
+    show("hero"); toast("Demo reset.");
+  });
+
+  /* ---------- Boot ---------- */
+  if(profile && match && buddyById(match.id)){ renderDashboard(); show("dashboard"); }
+  else if(profile){ renderResults(); show("results"); }
+  else { show("hero"); }
+
+})();
+</script>
+</body>
+</html>
