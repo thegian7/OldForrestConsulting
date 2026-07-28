@@ -47,3 +47,4 @@ out.zip
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+.gstack/
