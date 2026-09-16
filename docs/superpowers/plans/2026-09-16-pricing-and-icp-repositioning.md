@@ -592,13 +592,72 @@ Two ways to work with us, both priced before work starts:
 We do not bill by the hour.
 ```
 
-- [ ] **Step 4: Audit the structured data**
+- [ ] **Step 4: Rewrite the structured data**
 
-```bash
-/usr/bin/grep -nE 'trades|factor|franchis|construction|description|areaServed' components/JsonLd.tsx
+`components/JsonLd.tsx` renders on **every page** via `layout.tsx`, so it currently contradicts the new pricing page on the pricing page itself. Three concrete defects, verified by reading the file:
+
+1. `:46` — `priceRange: "$5,000 - $40,000 / month"`. Contains the retired `$40,000`, and `$5,000` is no longer a floor.
+2. `:59-96` — `hasOfferCatalog` declares four `Service` entries named **Embed / Operate / Maintain / Build**. Three of those products no longer exist.
+3. `:12` and `:45` — both `description` fields read "trades, factories, franchises, and property management".
+
+Apply exactly:
+
+**`:11-12`** — replace the Organization `description` with:
+
+```tsx
+    description:
+      "Managed Intelligence for operators whose records get challenged — by a regulator, an auditor, a counterparty, or a court — and who have nobody in-house whose job is keeping those systems honest. One firm that integrates, embeds, maintains, and builds the stack your business runs on, and handles your vendors.",
 ```
 
-Rewrite any `description` that defines the firm by vertical. Leave `areaServed` (geography) alone — geography is not the ICP claim being changed.
+**`:44-46`** — replace the ProfessionalService `description` and `priceRange` with:
+
+```tsx
+    description:
+      "Operations and data consulting for organisations whose output has to survive being questioned. Fixed-fee projects with written change orders, or a flat monthly fee to run a named stack.",
+    priceRange: "$2,500 - $12,000 / month",
+```
+
+**`:56-97`** — replace the whole `hasOfferCatalog` value with:
+
+```tsx
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Engagements",
+      itemListElement: [
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Assessment",
+            description:
+              "Fixed-scope three-week engagement: systems and data inventory, where the numbers disagree and why, and a costed plan the client keeps.",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Build",
+            description:
+              "Fixed-fee, milestone-billed projects: integrations, custom tooling, dashboards, migrations, platform builds. Additions arrive as written change orders.",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Managed",
+            description:
+              "A flat monthly fee to run a named list of systems, with one scoped item included each month and out-of-scope work at a stated day rate.",
+          },
+        },
+      ],
+    },
+```
+
+Leave `areaServed` alone — geography is not the ICP claim being changed.
+
+**Do not touch `foundingDate: "2024"` at `:13`.** It may well be wrong — the base operating agreement is effective 2023 and the LLC registered in 2026 — but resolving which is correct is a legal-record question, not a repositioning one. Flag it in your report; do not guess.
 
 - [ ] **Step 5: Verify**
 
