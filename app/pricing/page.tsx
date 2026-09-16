@@ -415,11 +415,12 @@ export default function PricingPage() {
                         The split-vendor comparison.
                     </h2>
                     <p className="text-base md:text-lg text-ink-2 leading-relaxed mb-8 max-w-3xl">
-                        The easiest way to understand what Managed is worth is to
-                        price out what it costs to source the same work across the
-                        vendors you&apos;d otherwise hire. Here&apos;s the
-                        current-market comparison for a client with real operational
-                        complexity — the kind of client who needs Managed.
+                        The easiest way to see what vendor consolidation is worth is
+                        to price out what it costs to source the same functions
+                        across the specialists you&apos;d otherwise hire one by one.
+                        Here&apos;s the current-market comparison for a client with
+                        real operational complexity — the kind of client who ends up
+                        managing a fleet of vendors instead of one firm.
                     </p>
 
                     <div className="overflow-x-auto -mx-6 md:mx-0">
@@ -471,6 +472,15 @@ export default function PricingPage() {
                             </tfoot>
                         </table>
                     </div>
+
+                    <p className="mt-6 text-sm text-ink-3 italic leading-relaxed max-w-3xl">
+                        A full engagement usually spans the whole ladder, not one
+                        line of it: an Assessment finds the work, a Build does it,
+                        and Managed keeps it running afterward. The monthly fee
+                        alone isn&apos;t a stand-in for all six functions above —
+                        it&apos;s what keeps the ones you&apos;ve already built
+                        running.
+                    </p>
 
                     {/* What makes the math work */}
                     <div className="mt-12">
