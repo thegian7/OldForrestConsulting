@@ -554,13 +554,31 @@ Per docs/superpowers/specs/2026-09-16-pricing-and-icp-repositioning-design.md"
 - Consumes: the ICP copy from Task 2 and the price strings from Task 1
 - Produces: nothing downstream
 
-- [ ] **Step 1: Find and fix price/vertical references in services**
+- [ ] **Step 1: Fix the retired-tier handoff in `app/services/page.tsx`**
 
-```bash
-/usr/bin/grep -nE '\$40k|\$120k|Operate|Maintain|trades|factor|franchis' app/services/page.tsx
+**Verified before writing this step — there is no `$40k` in this file.** The plan previously assumed there was; the actual defect is different and worse: the page still hands clients off to **tiers that no longer exist**.
+
+`:239-240` currently reads: *"Clients who already have a working stack can skip the sprint and start at **Operate** or **Maintain** — the first 30 days of any engagement still include discovery, just proportional to the tier."*
+
+Replace that sentence with:
+
+```tsx
+                        fit when you want real change fast. Clients who already have a
+                        working stack can skip the sprint and start on{" "}
+                        <strong className="text-forest-deep">Managed</strong> — the
+                        first 30 days still include discovery, just proportional to
+                        the scope you name.
 ```
 
-For each hit: if it is a **price tier reference**, remove it — the 90-day sprint is now quoted as a fixed-fee Build, so it carries no headline number. If it is the service **verb** "Maintain" or "Embed", leave it; the verbs survive. If it is a vertical used structurally, reframe; as an example, leave.
+Also fix the page metadata at `:11`, which still says "ongoing tiers":
+
+```tsx
+        "Integrate, embed, maintain, and build. And we handle your vendors so you don't have to. The 90-day Embed sprint, and what happens after it.",
+```
+
+**Leave `Embed` and `Maintain` alone at `:20` and `:24`** — those are the service **verbs**, which survive by design (spec §5; confirmed independently against spec:122 during Task 3's review). Likewise leave "The Embed sprint" at `:229` and `:233`: per the spec §8 decision the 90-day sprint survives as a delivery shape reclassified as a fixed-fee Build, so the sprint keeps its name. What must not survive is `Embed`/`Operate`/`Maintain` used as **price tiers**, which is exactly and only what `:239-240` does.
+
+This file contains no vertical strings (verified case-insensitively), so there is nothing to reframe here.
 
 - [ ] **Step 2: Rewrite the llms.txt fit section**
 
