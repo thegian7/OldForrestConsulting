@@ -15,8 +15,8 @@ const signals = [
         desc: "Keeping the systems honest is somebody's fourth priority, inherited alongside their real job. So it happens when there's time, which is never.",
     },
     {
-        name: "It spans several systems",
-        desc: "The number you need doesn't live in one place. It's assembled from a CRM, an accounting package, a field tool, and a spreadsheet — differently each time.",
+        name: "Nobody the right size can help",
+        desc: "The firms with real depth treat you as too small to bother with. The generalists who'd take the work have never had to defend a number to someone skeptical.",
     },
 ];
 
@@ -53,7 +53,7 @@ export default function VerticalsTeaser() {
                         href="/who-we-serve"
                         className="inline-flex items-center gap-2 text-sm font-semibold text-forest hover:text-ember transition-colors"
                     >
-                        Read why we work for these businesses
+                        Read why we work with these operators
                         <ArrowRight size={16} />
                     </Link>
                 </div>
