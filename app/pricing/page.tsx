@@ -25,7 +25,7 @@ const tiers: Tier[] = [
         name: "Assessment",
         tagline: "Fixed scope, three weeks",
         price: "$9,500",
-        priceUnit: "fixed",
+        priceUnit: " fixed",
         sub: "Three weeks · one price",
         items: [
             "Systems and data inventory across your entities",
@@ -39,7 +39,7 @@ const tiers: Tier[] = [
         name: "Build",
         tagline: "Fixed fee, milestone-billed",
         price: "Quoted",
-        priceUnit: "per project",
+        priceUnit: " per project",
         sub: "Additions arrive as written change orders",
         featured: true,
         items: [
