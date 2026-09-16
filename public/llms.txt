@@ -20,15 +20,31 @@ with one accountable partner.
 
 ## Who we're a fit for
 
-Operations-heavy businesses, roughly 20–100 employees, running several systems that
-don't reconcile. Especially:
+Operators whose records get challenged from outside — by a regulator, an
+auditor, a lender, a counterparty, or a court — and who have nobody in-house
+whose actual job is keeping those systems honest.
 
-- **Multi-entity operators** — a contracting core plus an equipment company plus real-estate LLCs, where no one can see a consolidated picture.
-- **Trades and field services** — construction, roofing, exteriors, mechanical.
-- **Factories and franchises** — multi-site operations with per-site data that never rolls up.
+The test is three questions: does anyone outside your company ask you to prove
+where a number came from; how long does that take and does it depend on one
+person; and is there anybody in-house who owns it.
 
-We are a poor fit for companies wanting staff augmentation by the hour, or a single
-one-off script with no ongoing relationship.
+We have done this in title and land records, aerial survey, death care,
+construction, law, clinical practice, minerals, and aviation. Those are
+examples of one pattern, not separate practice areas — in each, the output has
+to survive being questioned.
+
+We are a poor fit for staff augmentation by the hour, or a single one-off
+script with no ongoing relationship.
+
+## How we price
+
+Two ways to work with us, both priced before work starts:
+
+- **Assessment** — $9,500 fixed, three weeks. Inventory, findings, a costed plan you keep.
+- **Build** — fixed fee, milestone-billed. Additions arrive as written change orders.
+- **Managed** — from $2,500/mo to run a named stack, with one scoped item included each month (sized by tier). Anything outside the named list is $2,500/day, one-day minimum. Unused months don't roll over.
+
+We do not bill by the hour.
 
 ## What makes us different
 
@@ -41,7 +57,7 @@ one-off script with no ongoing relationship.
 
 - [Home](https://oldforrest.net/): positioning and the four verbs.
 - [Services](https://oldforrest.net/services/): the four verbs in depth, plus the 90-day embed sequence.
-- [Who we serve](https://oldforrest.net/who-we-serve/): trades, factories, franchises.
+- [Who we serve](https://oldforrest.net/who-we-serve/): operators whose records have to hold up under outside scrutiny.
 - [Pricing](https://oldforrest.net/pricing/): tiers and a comparison against buying the same capability from separate vendors.
 - [Operational Intelligence](https://oldforrest.net/operational-intelligence/): the offer for multi-entity operators — consolidated cash, WIP exposure, job margin, intercompany flows, utilization, with a weekly plain-English digest.
 - [Case studies](https://oldforrest.net/case-studies/): engagements with outcomes.

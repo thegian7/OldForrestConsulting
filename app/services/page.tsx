@@ -8,7 +8,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
     title: "Services",
     description:
-        "Integrate, embed, maintain, and build. And we handle your vendors so you don't have to. The 90-day Embed sprint and ongoing tiers.",
+        "Integrate, embed, maintain, and build. And we handle your vendors so you don't have to. The 90-day Embed sprint, and what happens after it.",
 };
 
 const verbs = [
@@ -235,11 +235,10 @@ export default function ServicesPage() {
                         business from tool sprawl to a working, integrated stack with
                         live dashboards and documented runbooks. It&apos;s the right
                         fit when you want real change fast. Clients who already have a
-                        working stack can skip the sprint and start at{" "}
-                        <strong className="text-forest-deep">Operate</strong> or{" "}
-                        <strong className="text-forest-deep">Maintain</strong> — the
-                        first 30 days of any engagement still include discovery, just
-                        proportional to the tier.
+                        working stack can skip the sprint and start on{" "}
+                        <strong className="text-forest-deep">Managed</strong> — the
+                        first 30 days still include discovery, just proportional to
+                        the scope you name.
                     </p>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">

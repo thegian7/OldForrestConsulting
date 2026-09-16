@@ -28,13 +28,13 @@ export const metadata: Metadata = {
     template: "%s | Old Forrest Consulting",
   },
   description:
-    "One firm that integrates, embeds, maintains, and builds the stack your business actually runs on — and handles your vendors. For trades, factories, franchises, and property management.",
+    "One firm that integrates, embeds, maintains, and builds the stack your business actually runs on — and handles your vendors. For operators whose records have to hold up.",
   keywords: [
     "Managed Intelligence",
     "Operations Consulting",
-    "Trades Consulting",
-    "Factory Operations",
-    "Franchise Operations",
+    "Records Integrity",
+    "Operational Data Provenance",
+    "Systems of Record",
     "Fractional CTO",
     "Fractional COO",
     "BI Dashboards",

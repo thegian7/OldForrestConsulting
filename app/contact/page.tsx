@@ -29,10 +29,9 @@ export default function ContactPage() {
                     </h1>
                     <p className="mt-6 md:mt-8 text-lg text-ink-2 leading-relaxed max-w-3xl">
                         We don&apos;t do the traditional enterprise sales dance. If
-                        you&apos;re a trades, factory, franchise, or property management
-                        operation that&apos;s
-                        felt the pain of too many disconnected tools, the first
-                        conversation is simple.
+                        someone outside your company can ask you to prove where a
+                        number came from — and nobody in-house owns keeping those
+                        systems honest — the first conversation is simple.
                     </p>
                 </div>
             </section>

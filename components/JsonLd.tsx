@@ -9,7 +9,7 @@ export function OrganizationJsonLd() {
     url: BASE_URL,
     logo: `${BASE_URL}/logo.png`,
     description:
-      "Managed Intelligence for trades, factories, franchises, and property management. One firm that integrates, embeds, maintains, and builds the stack your business actually runs on, and handles your vendors.",
+      "Managed Intelligence for operators whose records get challenged — by a regulator, an auditor, a counterparty, or a court — and who have nobody in-house whose job is keeping those systems honest. One firm that integrates, embeds, maintains, and builds the stack your business runs on, and handles your vendors.",
     foundingDate: "2024",
     address: {
       "@type": "PostalAddress",
@@ -42,8 +42,8 @@ export function ProfessionalServiceJsonLd() {
     name: "Old Forrest Consulting",
     url: BASE_URL,
     description:
-      "Operations consulting for trades, factories, franchises, and property management. One firm that integrates, embeds, maintains, and builds your stack, and handles your vendors.",
-    priceRange: "$5,000 - $40,000 / month",
+      "Operations and data consulting for organisations whose output has to survive being questioned. Fixed-fee projects with written change orders, or a flat monthly fee to run a named stack.",
+    priceRange: "$2,500 - $12,000 / month",
     areaServed: {
       "@type": "Country",
       name: "United States",
@@ -55,33 +55,15 @@ export function ProfessionalServiceJsonLd() {
     },
     hasOfferCatalog: {
       "@type": "OfferCatalog",
-      name: "Engagement tiers",
+      name: "Engagements",
       itemListElement: [
         {
           "@type": "Offer",
           itemOffered: {
             "@type": "Service",
-            name: "Embed",
+            name: "Assessment",
             description:
-              "90-day configuration sprint that takes a business from tool sprawl to a working, integrated stack with live dashboards and documented runbooks.",
-          },
-        },
-        {
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "Service",
-            name: "Operate",
-            description:
-              "Active ongoing engagement: dashboard iteration, vendor management, new integrations, and monthly strategy review.",
-          },
-        },
-        {
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "Service",
-            name: "Maintain",
-            description:
-              "On-call software and hardware support with integration monitoring and a monthly review cadence.",
+              "Fixed-scope three-week engagement: systems and data inventory, where the numbers disagree and why, and a costed plan the client keeps.",
           },
         },
         {
@@ -90,7 +72,16 @@ export function ProfessionalServiceJsonLd() {
             "@type": "Service",
             name: "Build",
             description:
-              "Discrete fixed-fee projects: integrations, custom tooling, dashboards, migrations, website rebuilds.",
+              "Fixed-fee, milestone-billed projects: integrations, custom tooling, dashboards, migrations, platform builds. Additions arrive as written change orders.",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Managed",
+            description:
+              "A flat monthly fee to run a named list of systems, with one scoped item included each month and out-of-scope work at a stated day rate.",
           },
         },
       ],
