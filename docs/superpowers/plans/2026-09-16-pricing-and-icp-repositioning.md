@@ -633,10 +633,18 @@ Per docs/superpowers/specs/2026-09-16-pricing-and-icp-repositioning-design.md"
 
 ```bash
 cd ~/Repos/_ofc/OldForrestConsulting
-/usr/bin/grep -rnE '\$40k|\$120k|Four tiers|\$10k–\$15k|Four verticals' app/ components/ public/
+/usr/bin/grep -rnE '\$40k|\$120k|Four tiers|Four verticals' app/ components/ public/
 ```
 
 Expected: no output.
+
+**Do not add `$10k–$15k` to this pattern.** It legitimately survives at `app/pricing/page.tsx:97` and `:150` as a *sourced third-party benchmark* for a Fractional CTO inside `mathRows`/`sources` — market comparison data the spec explicitly preserves (D8), not an OFC price. Instead verify by eye that every surviving occurrence sits inside `mathRows` or `sources`:
+
+```bash
+/usr/bin/grep -n '\$10k–\$15k' app/pricing/page.tsx
+```
+
+Expected: only hits within the vendor-benchmark arrays. Never reformat a cited figure to satisfy a regex.
 
 - [ ] **Step 2: Assert no page claims hourly billing**
 
@@ -644,7 +652,7 @@ Expected: no output.
 /usr/bin/grep -rniE 'per hour|hourly|/hr' app/ components/ public/ | /usr/bin/grep -v operational-intelligence
 ```
 
-Expected: no output, or only occurrences that describe a *vendor's* pricing in the comparison table — inspect each hit rather than assuming.
+Expected: no output, or only (a) occurrences describing a *vendor's* pricing in the comparison table, or (b) a sentence whose sense is that OFC is **not** hourly. Both are permitted — the constraint forbids hourly as OFC's *billing basis*, so a negation asserting the opposite is on-message and a bare word grep is a false positive against it. Inspect each hit rather than assuming.
 
 - [ ] **Step 3: Reconcile against the one-pager**
 
@@ -657,7 +665,7 @@ Confirm by eye that every figure there ($9,500 assessment, from $2,500/mo manage
 - [ ] **Step 4: Confirm the untouched page really is untouched**
 
 ```bash
-git diff --name-only HEAD~4 -- app/operational-intelligence/
+git diff --name-only "$(git merge-base main HEAD)" HEAD -- app/operational-intelligence/
 ```
 
 Expected: no output. If this file changed, revert it — spec §5.1.
