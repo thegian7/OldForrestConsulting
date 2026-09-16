@@ -213,7 +213,7 @@ const mathBullets = [
     },
     {
         head: "Context compounds.",
-        body: "We already know your business. A vendor you replaced starts from zero; we build on what's already there.",
+        body: "Once we've run your stack for a while, we know your business. A vendor you replaced starts from zero; we build on what's already there.",
     },
 ];
 
