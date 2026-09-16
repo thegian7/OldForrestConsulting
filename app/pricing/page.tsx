@@ -374,10 +374,26 @@ export default function PricingPage() {
                 </div>
             </section>
 
-            {/* MSA note */}
+            {/* How engagements start */}
             <section className="py-16 md:py-20 bg-cream-2/60 border-y border-rule">
                 <div className="container mx-auto px-6 max-w-3xl">
-                    <p className="text-sm text-ink-3 italic leading-relaxed">
+                    <div className="kicker mb-3">How engagements start</div>
+                    <h2 className="font-heading text-3xl md:text-4xl text-forest-deep tracking-tight mb-6">
+                        Most engagements start the same way.
+                    </h2>
+                    <p className="text-base md:text-lg text-ink-2 leading-relaxed">
+                        <strong className="text-forest-deep">Assessment</strong> is
+                        the usual entry point — three weeks, $9,500, and you walk
+                        away with a costed plan whether or not you continue. From
+                        there, most clients move to{" "}
+                        <strong className="text-forest-deep">Build</strong> for a
+                        defined project at a fixed fee, milestone by milestone, or
+                        to <strong className="text-forest-deep">Managed</strong>{" "}
+                        for an ongoing named stack at a flat monthly fee. Either can
+                        also start cold, without an assessment first, if you already
+                        know what you need.
+                    </p>
+                    <p className="mt-5 text-sm text-ink-3 italic leading-relaxed">
                         All engagements are covered by our standard{" "}
                         <Link
                             href="/legal/msa"
@@ -399,11 +415,11 @@ export default function PricingPage() {
                         The split-vendor comparison.
                     </h2>
                     <p className="text-base md:text-lg text-ink-2 leading-relaxed mb-8 max-w-3xl">
-                        The easiest way to understand what a monthly engagement is
-                        worth is to price out what it costs to source the same work
-                        across the vendors you&apos;d otherwise hire. Here&apos;s the
+                        The easiest way to understand what Managed is worth is to
+                        price out what it costs to source the same work across the
+                        vendors you&apos;d otherwise hire. Here&apos;s the
                         current-market comparison for a client with real operational
-                        complexity — the kind of client we work with.
+                        complexity — the kind of client who needs Managed.
                     </p>
 
                     <div className="overflow-x-auto -mx-6 md:mx-0">
