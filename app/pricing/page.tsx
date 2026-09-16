@@ -213,7 +213,7 @@ const mathBullets = [
     },
     {
         head: "Context compounds.",
-        body: "After 90 days we know your business. A vendor you replaced starts from zero; we build on what's already there.",
+        body: "We already know your business. A vendor you replaced starts from zero; we build on what's already there.",
     },
 ];
 
@@ -375,7 +375,7 @@ export default function PricingPage() {
             </section>
 
             {/* How engagements start */}
-            <section className="py-16 md:py-20 bg-cream-2/60 border-y border-rule">
+            <section className="py-16 md:py-20">
                 <div className="container mx-auto px-6 max-w-3xl">
                     <div className="kicker mb-3">How engagements start</div>
                     <h2 className="font-heading text-3xl md:text-4xl text-forest-deep tracking-tight mb-6">
@@ -383,9 +383,7 @@ export default function PricingPage() {
                     </h2>
                     <p className="text-base md:text-lg text-ink-2 leading-relaxed">
                         <strong className="text-forest-deep">Assessment</strong> is
-                        the usual entry point — three weeks, $9,500, and you walk
-                        away with a costed plan whether or not you continue. From
-                        there, most clients move to{" "}
+                        the usual entry point. From there, most clients move to{" "}
                         <strong className="text-forest-deep">Build</strong> for a
                         defined project at a fixed fee, milestone by milestone, or
                         to <strong className="text-forest-deep">Managed</strong>{" "}
@@ -540,15 +538,6 @@ export default function PricingPage() {
                             </li>
                         ))}
                     </ol>
-
-                    <p className="mt-8 text-sm text-ink-3 italic leading-relaxed">
-                        Coordination tax estimate (20–30% additional cost across 6–8
-                        vendors) reflects commonly-reported overhead from duplicated
-                        discovery, misaligned context, and client-side project
-                        management burden when sourcing across multiple specialized
-                        vendors. Client savings will vary by stack complexity, vendor
-                        count, and operational maturity.
-                    </p>
                 </div>
             </section>
 
@@ -556,12 +545,12 @@ export default function PricingPage() {
             <section className="py-20 md:py-24">
                 <div className="container mx-auto px-6 max-w-4xl text-center">
                     <h2 className="font-heading text-3xl md:text-4xl text-forest-deep tracking-tight mb-4">
-                        Ready to talk through which tier fits?
+                        Ready to talk through which engagement fits?
                     </h2>
                     <p className="text-base md:text-lg text-ink-2 leading-relaxed max-w-2xl mx-auto mb-8">
                         Bring your stack, your team size, and what&apos;s frustrating
-                        you. We&apos;ll tell you honestly which tier makes sense — or
-                        if we&apos;re not the right fit at all.
+                        you. We&apos;ll tell you honestly which engagement makes
+                        sense — or if we&apos;re not the right fit at all.
                     </p>
                     <Link
                         href="/contact"

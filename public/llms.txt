@@ -29,9 +29,9 @@ where a number came from; how long does that take and does it depend on one
 person; and is there anybody in-house who owns it.
 
 We have done this in title and land records, aerial survey, death care,
-construction, law, clinical practice, minerals, and aviation. Those are
-examples of one pattern, not separate practice areas — in each, the output has
-to survive being questioned.
+construction, law, clinical practice, minerals, and property and listings.
+Those are examples of one pattern, not separate practice areas — in each, the
+output has to survive being questioned.
 
 We are a poor fit for staff augmentation by the hour, or a single one-off
 script with no ongoing relationship.

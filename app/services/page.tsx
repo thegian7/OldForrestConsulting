@@ -74,7 +74,7 @@ const phases = [
         items: [
             "Train your team on the new flow",
             "Document the full stack and runbooks",
-            "Transition to ongoing support tier",
+            "Transition to ongoing support",
             "Set recurring review cadence",
             "On-call coverage begins",
         ],
@@ -234,11 +234,12 @@ export default function ServicesPage() {
                         looks like — a 90-day configuration sprint that takes a
                         business from tool sprawl to a working, integrated stack with
                         live dashboards and documented runbooks. It&apos;s the right
-                        fit when you want real change fast. Clients who already have a
-                        working stack can skip the sprint and start on{" "}
-                        <strong className="text-forest-deep">Managed</strong> — the
-                        first 30 days still include discovery, just proportional to
-                        the scope you name.
+                        fit when you want real change fast. The sprint itself is
+                        scoped and billed as a fixed-fee{" "}
+                        <strong className="text-forest-deep">Build</strong>. Clients
+                        who already have a working stack can skip the sprint and
+                        start straight on{" "}
+                        <strong className="text-forest-deep">Managed</strong>.
                     </p>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -295,7 +296,7 @@ export default function ServicesPage() {
                                 href="/pricing"
                                 className="text-ember-soft underline underline-offset-2 hover:text-ember"
                             >
-                                tier structure
+                                pricing
                             </Link>{" "}
                             is how we match what you need to what you pay.
                         </p>

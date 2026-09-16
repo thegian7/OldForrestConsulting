@@ -42,7 +42,7 @@ export function ProfessionalServiceJsonLd() {
     name: "Old Forrest Consulting",
     url: BASE_URL,
     description:
-      "Operations and data consulting for organisations whose output has to survive being questioned. Fixed-fee projects with written change orders, or a flat monthly fee to run a named stack.",
+      "Operations and data consulting for organizations whose output has to survive being questioned. Fixed-fee projects with written change orders, or a flat monthly fee to run a named stack.",
     priceRange: "$2,500 - $12,000 / month",
     areaServed: {
       "@type": "Country",

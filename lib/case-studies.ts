@@ -43,7 +43,6 @@ export const caseStudies: CaseStudy[] = [
             { value: "4+", label: "Operating entities supported" },
             { value: "1", label: "Partner replacing a fleet of vendors" },
             { value: "Fixed", label: "Monthly fee, not hourly" },
-            { value: "~40%", label: "Below split-vendor cost equivalent" },
         ],
         referenceNote:
             "Client references available on request. Ben Ercanbrack (ERK Holdings) and Derek Hansen (Dark Sky) have both agreed to speak directly with serious prospects about the engagement experience.",

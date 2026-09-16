@@ -58,7 +58,7 @@ const machinery = [
     {
         name: "Reproducible base configuration",
         what: "A versioned, idempotent setup for every engineer's working environment.",
-        how: "Everyone works from the same baseline, so behaviour doesn't drift between people or machines. A commit-time scan blocks anything that would put a credential into a repository, which is a category of mistake that is far cheaper to prevent than to clean up.",
+        how: "Everyone works from the same baseline, so behavior doesn't drift between people or machines. A commit-time scan blocks anything that would put a credential into a repository, which is a category of mistake that is far cheaper to prevent than to clean up.",
     },
     {
         name: "Isolated execution containers",
