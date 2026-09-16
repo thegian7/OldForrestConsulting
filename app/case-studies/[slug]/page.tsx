@@ -117,7 +117,13 @@ export default async function CaseStudyPage({ params }: PageProps) {
             {/* Stats */}
             <section className="py-12 md:py-16 bg-cream-2/60 border-y border-rule">
                 <div className="container mx-auto px-6 max-w-6xl">
-                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div
+                        className={
+                            study.stats.length === 3
+                                ? "grid grid-cols-1 sm:grid-cols-3 gap-4"
+                                : "grid grid-cols-2 lg:grid-cols-4 gap-4"
+                        }
+                    >
                         {study.stats.map((stat) => (
                             <div
                                 key={stat.label}
