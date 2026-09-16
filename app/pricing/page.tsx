@@ -7,7 +7,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
     title: "Pricing",
     description:
-        "Four tiers. Embed, Operate, Maintain, Build. Pick the right entry point for where you are today, with a transparent split-vendor comparison.",
+        "Two ways to work with us: fixed-fee projects with written change orders, or a flat monthly fee for a named stack. Every number here is one we have actually charged.",
 };
 
 interface Tier {
@@ -22,52 +22,76 @@ interface Tier {
 
 const tiers: Tier[] = [
     {
-        name: "Embed",
-        tagline: "90-day intensive",
-        price: "$40k",
-        priceUnit: "/mo",
-        sub: "× 3 months · $120k total",
+        name: "Assessment",
+        tagline: "Fixed scope, three weeks",
+        price: "$9,500",
+        priceUnit: "fixed",
+        sub: "Three weeks · one price",
+        items: [
+            "Systems and data inventory across your entities",
+            "Where the numbers disagree, and why",
+            "Your owner's-questions list, written down",
+            "A costed plan you keep — with us or anyone else",
+            "No obligation to continue",
+        ],
+    },
+    {
+        name: "Build",
+        tagline: "Fixed fee, milestone-billed",
+        price: "Quoted",
+        priceUnit: "per project",
+        sub: "Additions arrive as written change orders",
         featured: true,
         items: [
-            "Full discovery and inventory",
-            "Stack configuration and tuning",
-            "System integration and data layer",
-            "BI dashboards built and live",
-            "Custom tooling as needed",
-            "Vendor consolidation",
-            "Documentation and runbooks",
-            "Handoff to steady-state tier",
+            "Scope, price, and milestones agreed before work starts",
+            "Billed per milestone, on acceptance",
+            "New requests priced as change orders, never absorbed silently",
+            "You own the code outright at handover",
+            "Recent: a two-sided listings platform at $52.5k across seven milestones",
+            "Recent: a clinical program builder at $15k",
         ],
     },
     {
-        name: "Operate",
-        tagline: "Active ongoing",
-        price: "$10k–$15k",
+        name: "Managed",
+        tagline: "A named stack, kept healthy",
+        price: "From $2,500",
         priceUnit: "/mo",
-        sub: "Multi-system, active work",
+        sub: "One scoped item included each month",
         items: [
-            "Everything in Maintain, plus:",
-            "Ongoing dashboard iteration",
-            "Active vendor management",
-            "New integrations as needed",
-            "Monthly strategy review",
-            "Custom builds included up to scope",
+            "We name the systems we cover, in writing",
+            "Monitoring, fixes, updates, vendor escalations",
+            "One scoped item per month, sized by tier",
+            "Anything outside the named list: $2,500/day, one-day minimum",
+            "Cancel on 30 days' notice",
         ],
     },
+];
+
+interface ManagedTier {
+    name: string;
+    price: string;
+    included: string;
+    note: string;
+}
+
+const managedTiers: ManagedTier[] = [
     {
-        name: "Maintain",
-        tagline: "Stabilized · low-touch",
-        price: "$5k",
-        priceUnit: "/mo",
-        sub: "~20 hours/mo",
-        items: [
-            "On-call software & hardware support",
-            "Integration monitoring",
-            "Minor iterations and fixes",
-            "Monthly review and roadmap check-in",
-            "Vendor liaison",
-            "Larger work scoped as Build projects",
-        ],
+        name: "Entry",
+        price: "$2,500/mo",
+        included: "One item, up to 1 day",
+        note: "A small named stack — a CRM, an accounting system, the integration between them.",
+    },
+    {
+        name: "Mid",
+        price: "$6,000/mo",
+        included: "One item, up to 2 days",
+        note: "A larger named stack, multiple integrations, active reporting.",
+    },
+    {
+        name: "Full",
+        price: "$12,000/mo",
+        included: "One item, up to 3 days",
+        note: "Multi-entity. Priority response. Effectively your technology function.",
     },
 ];
 
@@ -158,7 +182,7 @@ const sources: Source[] = [
     },
     {
         label: "Managed IT / on-call support — $3k–$6k/mo",
-        body: "Regional MSP pricing for a ~20–30 user mid-market trades/construction client at $100–$200 per user per month for comprehensive managed services including monitoring, helpdesk, and security.",
+        body: "Regional MSP pricing for a ~20–30 user mid-market client at $100–$200 per user per month for comprehensive managed services including monitoring, helpdesk, and security.",
         cite: "Datapath Managed IT Services Pricing Guide 2026; Solutionbuilders Ultimate 2026 Guide to Managed IT Services Pricing; Corsica Technologies 2026 pricing benchmarks.",
     },
     {
@@ -184,8 +208,8 @@ const mathBullets = [
         body: "Configuration, documentation, and dashboard work is force-multiplied by modern tooling. Agency-grade output at two-person speed.",
     },
     {
-        head: "Vertical pattern recognition.",
-        body: "We've done this in construction and exteriors already. We're not learning your industry on your dime.",
+        head: "Pattern recognition across industries.",
+        body: "The same problem recurs in title, survey, death care, construction, and clinical work: a record that has to survive being questioned. We are not learning that problem on your dime.",
     },
     {
         head: "Context compounds.",
@@ -201,21 +225,21 @@ export default function PricingPage() {
             {/* Header */}
             <section className="pt-32 pb-12 md:pt-40 md:pb-16 border-b border-rule">
                 <div className="container mx-auto px-6 max-w-6xl">
-                    <div className="kicker mb-4">Transparent by design</div>
+                    <div className="kicker mb-4">Priced before we start</div>
                     <h1 className="font-heading text-4xl md:text-6xl lg:text-7xl text-forest-deep tracking-tight leading-[1.05] max-w-5xl">
-                        Four tiers. Pick the right entry point for where{" "}
-                        <span className="italic text-ember">you are today.</span>
+                        Two ways to work with us. Both of them{" "}
+                        <span className="italic text-ember">priced before we start.</span>
                     </h1>
                     <p className="mt-6 md:mt-8 text-lg text-ink-2 leading-relaxed max-w-3xl">
-                        Most clients with real operational complexity start with{" "}
-                        <strong className="text-forest-deep">Embed</strong> — a 90-day
-                        configuration sprint that gets the whole stack into shape
-                        fast. Others start at{" "}
-                        <strong className="text-forest-deep">Operate</strong> or{" "}
-                        <strong className="text-forest-deep">Maintain</strong> and
-                        build momentum from there.{" "}
-                        <strong className="text-forest-deep">Build</strong> projects
-                        sit alongside any tier for discrete work.
+                        Either we build something to a{" "}
+                        <strong className="text-forest-deep">fixed fee</strong> against
+                        agreed milestones, and anything you add arrives as a written
+                        change order — or we{" "}
+                        <strong className="text-forest-deep">run a named stack</strong>{" "}
+                        for a flat monthly fee, with one scoped item included each
+                        month. Most engagements open with a{" "}
+                        <strong className="text-forest-deep">$9,500 assessment</strong>,
+                        which produces a plan you keep whether or not you continue.
                     </p>
                 </div>
             </section>
@@ -295,48 +319,65 @@ export default function PricingPage() {
                             </div>
                         ))}
                     </div>
+                </div>
+            </section>
 
-                    {/* Build sidecar */}
-                    <div className="mt-6 bg-white rounded-md p-7 border border-rule border-l-[3px] border-l-ember">
-                        <div className="kicker mb-2">Build · Discrete projects</div>
-                        <p className="text-base text-ink-2 leading-relaxed">
-                            Layered on any tier when you need a specific thing built —
-                            a new integration, a custom tool, a migration, a website
-                            rebuild.{" "}
+            {/* Managed tiers */}
+            <section className="py-16 md:py-20 bg-cream-2/60 border-y border-rule">
+                <div className="container mx-auto px-6 max-w-5xl">
+                    <div className="kicker mb-3">Managed, in detail</div>
+                    <h2 className="font-heading text-3xl md:text-4xl text-forest-deep mb-10">
+                        What the monthly fee covers.
+                    </h2>
+
+                    <div className="divide-y divide-rule border-y border-rule mb-10">
+                        {managedTiers.map((t) => (
+                            <div
+                                key={t.name}
+                                className="py-6 grid md:grid-cols-4 gap-3 md:gap-6 items-baseline"
+                            >
+                                <div className="font-heading text-xl text-forest-deep">
+                                    {t.name}
+                                </div>
+                                <div className="font-heading text-lg text-ember">
+                                    {t.price}
+                                </div>
+                                <div className="text-base text-ink">{t.included}</div>
+                                <div className="text-sm text-ink-2 leading-relaxed">
+                                    {t.note}
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+
+                    <div className="max-w-3xl space-y-5">
+                        <p className="text-base md:text-lg text-ink-2 leading-relaxed">
                             <strong className="text-forest-deep">
-                                Fixed-fee scopes, not hourly.
+                                Why the included item costs less than a day of
+                                out-of-scope work.
                             </strong>{" "}
-                            Most projects land in the $5k–$50k range depending on
-                            complexity.
+                            Planned work on a stack we already maintain is genuinely
+                            cheaper for us to deliver than an unplanned interrupt. The
+                            day rate prices the interruption, not the hour.
+                        </p>
+                        <p className="text-base md:text-lg text-ink-2 leading-relaxed">
+                            <strong className="text-forest-deep">
+                                Unused months don&apos;t roll over.
+                            </strong>{" "}
+                            The fee buys a healthy stack; the included item is
+                            additive. In a quiet month you still got the thing you were
+                            paying for. Banking items would also make our capacity
+                            impossible to plan, which is how retainers start feeling
+                            unfair in both directions.
                         </p>
                     </div>
                 </div>
             </section>
 
-            {/* Three ways to start */}
+            {/* MSA note */}
             <section className="py-16 md:py-20 bg-cream-2/60 border-y border-rule">
                 <div className="container mx-auto px-6 max-w-3xl">
-                    <div className="kicker mb-3">Three ways to start</div>
-                    <h2 className="font-heading text-3xl md:text-4xl text-forest-deep tracking-tight mb-6">
-                        Match the tier to where you are.
-                    </h2>
-                    <p className="text-base md:text-lg text-ink-2 leading-relaxed">
-                        <strong className="text-forest-deep">Embed</strong> is the
-                        right fit when you want everything configured, integrated,
-                        and live in 90 days — multi-entity holdings, multi-location
-                        operators, or trades companies that have outgrown the
-                        spreadsheet stage.{" "}
-                        <strong className="text-forest-deep">Operate</strong> makes
-                        sense when you already have a working stack and want us
-                        actively building, integrating, and iterating alongside your
-                        team.{" "}
-                        <strong className="text-forest-deep">Maintain</strong> is
-                        for businesses whose stack is stable and who mostly need a
-                        reliable on-call partner and a monthly check-in. Any tier
-                        can graduate up or down as needs change — no penalty, no
-                        renegotiation theater.
-                    </p>
-                    <p className="mt-5 text-sm text-ink-3 italic leading-relaxed">
+                    <p className="text-sm text-ink-3 italic leading-relaxed">
                         All engagements are covered by our standard{" "}
                         <Link
                             href="/legal/msa"
@@ -358,11 +399,11 @@ export default function PricingPage() {
                         The split-vendor comparison.
                     </h2>
                     <p className="text-base md:text-lg text-ink-2 leading-relaxed mb-8 max-w-3xl">
-                        The easiest way to understand what Embed is worth is to price
-                        out what it costs to source the same work across the vendors
-                        you&apos;d otherwise hire. Here&apos;s the current-market
-                        comparison for a client with real operational complexity —
-                        the kind of client who needs Embed.
+                        The easiest way to understand what a monthly engagement is
+                        worth is to price out what it costs to source the same work
+                        across the vendors you&apos;d otherwise hire. Here&apos;s the
+                        current-market comparison for a client with real operational
+                        complexity — the kind of client we work with.
                     </p>
 
                     <div className="overflow-x-auto -mx-6 md:mx-0">
@@ -413,31 +454,6 @@ export default function PricingPage() {
                                 </tr>
                             </tfoot>
                         </table>
-                    </div>
-
-                    {/* 40% callout */}
-                    <div
-                        className="mt-10 rounded-lg p-7 md:p-9 text-cream"
-                        style={{
-                            background:
-                                "linear-gradient(135deg, var(--color-forest-deep) 0%, var(--color-forest) 100%)",
-                        }}
-                    >
-                        <div className="font-heading text-2xl md:text-3xl text-cream tracking-tight leading-tight mb-2">
-                            Embed is{" "}
-                            <span className="italic text-cream-2 underline decoration-cream-2/60 underline-offset-[6px] decoration-1">
-                                ~40% less
-                            </span>{" "}
-                            than the split-vendor equivalent.
-                        </div>
-                        <p className="text-sm md:text-base text-cream-2/90 leading-relaxed">
-                            Embed at $40k/mo is roughly 40% below the midpoint of
-                            sourcing the same work across vendors — before counting
-                            the coordination tax (20–30% slippage across 6–8 vendors)
-                            and the project-management burden that currently falls on
-                            you. In steady state, Maintain at $5k/mo is the cheapest
-                            insurance policy you&apos;ll buy for your stack.
-                        </p>
                     </div>
 
                     {/* What makes the math work */}
