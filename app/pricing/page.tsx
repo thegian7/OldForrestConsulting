@@ -477,7 +477,7 @@ export default function PricingPage() {
                         A full engagement usually spans the whole ladder, not one
                         line of it: an Assessment finds the work, a Build does it,
                         and Managed keeps it running afterward. The monthly fee
-                        alone isn&apos;t a stand-in for all six functions above —
+                        alone isn&apos;t a stand-in for all eight functions above —
                         it&apos;s what keeps the ones you&apos;ve already built
                         running.
                     </p>
