@@ -14,7 +14,7 @@ export const intakeSteps: IntakeStep[] = [
     },
     {
         title: "Scoped proposal — within 5 business days.",
-        body: "The right engagement for you — Assessment, Build, or Managed — with a realistic scope and honest pricing. No surprises.",
+        body: "The right engagement for you — Assessment, Build, or Managed — with a realistic scope and a fixed price. No surprises.",
     },
     {
         title: "Decide on your timeline.",
