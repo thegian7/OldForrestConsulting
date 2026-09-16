@@ -305,12 +305,19 @@ const examples = [
     { name: "Survey & geospatial", desc: "Geometry that feeds a siting or engineering decision." },
     { name: "Death care", desc: "Chain of custody, death certificates, mandated price disclosure." },
     { name: "Construction", desc: "WIP, retainage, lien exposure, true job margin." },
+    { name: "Property & listings", desc: "Listing accuracy against an authoritative feed, and who gets credit for a lead." },
     { name: "Legal", desc: "The file, and everything that has to be in it." },
     { name: "Clinical", desc: "Patient records, protocols, adherence." },
     { name: "Minerals & energy", desc: "Extraction rights, ownership chains, liability history." },
-    { name: "Aviation", desc: "Airworthiness and maintenance records under a regulator." },
 ];
 ```
+
+**Do not add Aviation or Pharmacy to this list, and do not treat their absence as a spec gap.** The section heading is "Where we've done it", so every entry must be delivered work:
+
+- **Aviation** (RuggedAero) — verified 2026-09-16: `_clients/ruggedaero/oi-assessment/` is unfilled template scaffolding. `ENGAGEMENT.md` still reads `phase: 0` with `<YYYY-MM-DD>` placeholders, and `inventory-matrix.md` still contains its `*(EXAMPLE ROW — delete)*`. The SOW was never signed and no assessment was produced. Listing it would be a false claim.
+- **Pharmacy** (Direct Meds) — a prospect with an RFI answered and no signed SOW.
+
+The spec §4.2 list of nine industries described the ICP's *reach*, not a client roster. Eight entries is the correct number and it fills the `lg:grid-cols-4` grid evenly.
 
 - [ ] **Step 2: Replace the header and kicker**
 
