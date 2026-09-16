@@ -283,7 +283,7 @@ export default function SOWPage() {
           Client agrees to provide the following in a timely manner to enable Consultant to
           perform the Services:
         </p>
-        <ul className="list-disc list-insidespace-y-2">
+        <ul className="list-disc list-inside space-y-2">
           <li>Access to all necessary systems, codebases, and environments</li>
           <li>Required credentials and permissions</li>
           <li>Designated point of contact available for questions and decisions</li>
@@ -342,7 +342,7 @@ export default function SOWPage() {
         </p>
 
         <h3 className="text-xl font-semibold text-forest-deep mt-6 mb-3">8.1 Change Order Process</h3>
-        <ol className="list-decimal list-insidespace-y-2">
+        <ol className="list-decimal list-inside space-y-2">
           <li>Client submits change request in writing (email acceptable)</li>
           <li>Consultant evaluates impact on scope, timeline, and cost within 3 business days</li>
           <li>Consultant provides written estimate for the change</li>
@@ -365,7 +365,7 @@ export default function SOWPage() {
         <p className="mb-4">
           Upon delivery of each milestone or deliverable:
         </p>
-        <ol className="list-decimal list-insidespace-y-2">
+        <ol className="list-decimal list-inside space-y-2">
           <li>Consultant delivers work product and notifies Client</li>
           <li>Client has 5 business days to review and test</li>
           <li>Client provides written acceptance or specific rejection reasons</li>

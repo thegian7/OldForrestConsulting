@@ -57,7 +57,7 @@ export default function TermsPage() {
           Old Forrest Consulting LLC provides technical consulting services, including but
           not limited to:
         </p>
-        <ul className="list-disc list-insidespace-y-2 mb-4">
+        <ul className="list-disc list-inside space-y-2 mb-4">
           <li>AI integration and development consulting</li>
           <li>Software architecture review and optimization</li>
           <li>Project rescue and completion services</li>
@@ -82,7 +82,7 @@ export default function TermsPage() {
         <p className="mb-4">
           This license does not include:
         </p>
-        <ul className="list-disc list-insidespace-y-2">
+        <ul className="list-disc list-inside space-y-2">
           <li>The right to resell or commercial use of the Site or its contents</li>
           <li>Any collection and use of product listings, descriptions, or prices</li>
           <li>Any derivative use of this Site or its contents</li>
@@ -97,7 +97,7 @@ export default function TermsPage() {
         <p className="mb-4">
           You agree not to:
         </p>
-        <ul className="list-disc list-insidespace-y-2">
+        <ul className="list-disc list-inside space-y-2">
           <li>Use the Site in any way that violates any applicable law or regulation</li>
           <li>Attempt to gain unauthorized access to any portion of the Site or any systems or networks connected to the Site</li>
           <li>Use the Site to transmit any viruses, worms, or other malicious code</li>
@@ -140,7 +140,7 @@ export default function TermsPage() {
             WE MAKE NO REPRESENTATIONS OR WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED,
             INCLUDING BUT NOT LIMITED TO:
           </p>
-          <ul className="list-disc list-insidespace-y-2">
+          <ul className="list-disc list-inside space-y-2">
             <li>The operation of the Site</li>
             <li>The accuracy, reliability, or completeness of any information or content</li>
             <li>The suitability of the information for any particular purpose</li>

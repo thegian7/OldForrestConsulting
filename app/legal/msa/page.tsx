@@ -96,7 +96,7 @@ export default function MSAPage() {
         <p className="mb-4">
           Fees for services shall be as set forth in each SOW. Unless otherwise specified:
         </p>
-        <ul className="list-disc list-insidespace-y-2 mb-4">
+        <ul className="list-disc list-inside space-y-2 mb-4">
           <li>Hourly Consulting: $150 - $300 per hour</li>
           <li>Project Rescue: $3,000 - $20,000 per project</li>
           <li>Fractional CTO: $1,500 - $5,000 per month</li>
@@ -106,7 +106,7 @@ export default function MSAPage() {
         <p className="mb-4">
           Payment terms shall be specified in each SOW. Unless otherwise agreed:
         </p>
-        <ul className="list-disc list-insidespace-y-2 mb-4">
+        <ul className="list-disc list-inside space-y-2 mb-4">
           <li>Invoices are due upon receipt unless otherwise specified</li>
           <li>Project-based work may require deposits as specified in the SOW</li>
           <li>Monthly retainers are due on the first of each month in advance</li>

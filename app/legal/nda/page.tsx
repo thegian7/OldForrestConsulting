@@ -88,7 +88,7 @@ export default function NDAPage() {
           one Party (the &quot;Disclosing Party&quot;) to the other Party (the &quot;Receiving Party&quot;),
           whether orally, in writing, or by any other means, including but not limited to:
         </p>
-        <ul className="list-disc list-insidespace-y-2 mb-4">
+        <ul className="list-disc list-inside space-y-2 mb-4">
           <li>Technical information, including software, source code, algorithms, APIs, architectures, and documentation</li>
           <li>Business information, including business plans, strategies, customer lists, and financial data</li>
           <li>Product information, including product plans, designs, and roadmaps</li>
@@ -113,7 +113,7 @@ export default function NDAPage() {
         <p className="mb-4">
           The Receiving Party agrees to:
         </p>
-        <ul className="list-disc list-insidespace-y-2 mb-4">
+        <ul className="list-disc list-inside space-y-2 mb-4">
           <li>Hold and maintain Confidential Information in strict confidence</li>
           <li>Use at least the same degree of care to protect Confidential Information as it uses to protect its own confidential information, but in no event less than reasonable care</li>
           <li>Use Confidential Information solely for the Purpose</li>
@@ -125,7 +125,7 @@ export default function NDAPage() {
           The Receiving Party may disclose Confidential Information to its employees,
           contractors, and advisors who:
         </p>
-        <ul className="list-disc list-insidespace-y-2 mb-4">
+        <ul className="list-disc list-inside space-y-2 mb-4">
           <li>Have a need to know such information for the Purpose</li>
           <li>Are bound by confidentiality obligations at least as protective as those in this Agreement</li>
         </ul>
@@ -148,7 +148,7 @@ export default function NDAPage() {
         <p className="mb-4">
           Confidential Information does not include information that:
         </p>
-        <ul className="list-disc list-insidespace-y-2">
+        <ul className="list-disc list-inside space-y-2">
           <li>Is or becomes publicly available through no fault of the Receiving Party</li>
           <li>Was rightfully in the Receiving Party&apos;s possession prior to disclosure, without restriction on use or disclosure</li>
           <li>Is rightfully received from a third party without restriction and without breach of this Agreement</li>

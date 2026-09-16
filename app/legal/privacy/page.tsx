@@ -23,7 +23,7 @@ export default function PrivacyPage() {
   return (
     <LegalPageLayout
       title="Privacy Policy"
-      lastUpdated="December 2024"
+      lastUpdated="September 2026"
       tableOfContents={tableOfContents}
     >
       <p className="mb-8">
@@ -41,7 +41,7 @@ export default function PrivacyPage() {
         <p className="mb-4">
           We collect information that you voluntarily provide when you:
         </p>
-        <ul className="list-disc list-insidespace-y-2 mb-4">
+        <ul className="list-disc list-inside space-y-2 mb-4">
           <li>Fill out a contact form on our website</li>
           <li>Schedule a consultation or meeting</li>
           <li>Request information about our services</li>
@@ -51,7 +51,7 @@ export default function PrivacyPage() {
         <p className="mb-4">
           This information may include:
         </p>
-        <ul className="list-disc list-insidespace-y-2">
+        <ul className="list-disc list-inside space-y-2">
           <li>Name and contact information (email, phone number)</li>
           <li>Company name and job title</li>
           <li>Project details and technical requirements</li>
@@ -64,7 +64,7 @@ export default function PrivacyPage() {
           When you visit our website, we may automatically collect certain information,
           including:
         </p>
-        <ul className="list-disc list-insidespace-y-2">
+        <ul className="list-disc list-inside space-y-2">
           <li>IP address and location data</li>
           <li>Browser type and version</li>
           <li>Device information</li>
@@ -80,7 +80,7 @@ export default function PrivacyPage() {
         <p className="mb-4">
           We use the information we collect for the following purposes:
         </p>
-        <ul className="list-disc list-insidespace-y-2">
+        <ul className="list-disc list-inside space-y-2">
           <li>To provide and deliver our consulting services</li>
           <li>To respond to your inquiries and requests</li>
           <li>To send you information about our services (with your consent)</li>
@@ -105,7 +105,7 @@ export default function PrivacyPage() {
           We may share information with trusted third-party service providers who assist
           us in operating our website and conducting our business, such as:
         </p>
-        <ul className="list-disc list-insidespace-y-2 mb-4">
+        <ul className="list-disc list-inside space-y-2 mb-4">
           <li>Payment processors</li>
           <li>Email service providers</li>
           <li>Analytics providers</li>
@@ -120,7 +120,7 @@ export default function PrivacyPage() {
         <p className="mb-4">
           We may disclose your information when required to:
         </p>
-        <ul className="list-disc list-insidespace-y-2">
+        <ul className="list-disc list-inside space-y-2">
           <li>Comply with applicable law, regulation, or legal process</li>
           <li>Respond to lawful requests from public authorities</li>
           <li>Protect our rights, privacy, safety, or property</li>
@@ -142,7 +142,7 @@ export default function PrivacyPage() {
           from unauthorized access, alteration, disclosure, or destruction. These measures
           include:
         </p>
-        <ul className="list-disc list-insidespace-y-2 mb-4">
+        <ul className="list-disc list-inside space-y-2 mb-4">
           <li>Encryption of data in transit using SSL/TLS</li>
           <li>Secure storage of data with access controls</li>
           <li>Regular security assessments and updates</li>
@@ -167,11 +167,16 @@ export default function PrivacyPage() {
         </p>
 
         <h3 className="text-xl font-semibold text-forest-deep mt-6 mb-3">5.2 Types of Cookies We Use</h3>
-        <ul className="list-disc list-insidespace-y-2 mb-4">
+        <ul className="list-disc list-inside space-y-2 mb-4">
           <li><strong className="text-forest-deep">Essential Cookies:</strong> Required for the website to function properly</li>
-          <li><strong className="text-forest-deep">Analytics Cookies:</strong> Help us understand how visitors interact with our website</li>
           <li><strong className="text-forest-deep">Functional Cookies:</strong> Remember your preferences and settings</li>
         </ul>
+        <p className="mb-4">
+          This website currently sets <strong className="text-forest-deep">no analytics,
+          advertising, or third-party tracking cookies</strong>, and loads no third-party
+          tracking scripts. If that changes, we will update this policy before the change
+          takes effect.
+        </p>
 
         <h3 className="text-xl font-semibold text-forest-deep mt-6 mb-3">5.3 Managing Cookies</h3>
         <p>
@@ -188,7 +193,7 @@ export default function PrivacyPage() {
           Depending on your location, you may have certain rights regarding your personal
           information:
         </p>
-        <ul className="list-disc list-insidespace-y-2 mb-4">
+        <ul className="list-disc list-inside space-y-2 mb-4">
           <li><strong className="text-forest-deep">Access:</strong> Request a copy of the personal information we hold about you</li>
           <li><strong className="text-forest-deep">Correction:</strong> Request correction of inaccurate or incomplete information</li>
           <li><strong className="text-forest-deep">Deletion:</strong> Request deletion of your personal information</li>
@@ -231,7 +236,7 @@ export default function PrivacyPage() {
           practices or for other operational, legal, or regulatory reasons. We will notify
           you of any material changes by:
         </p>
-        <ul className="list-disc list-insidespace-y-2 mb-4">
+        <ul className="list-disc list-inside space-y-2 mb-4">
           <li>Posting the new Privacy Policy on this page</li>
           <li>Updating the &quot;Last Updated&quot; date at the top of this page</li>
           <li>Sending you an email notification (for significant changes, if we have your email)</li>
@@ -261,7 +266,7 @@ export default function PrivacyPage() {
         <p className="mb-4">
           We retain your personal information for as long as necessary to:
         </p>
-        <ul className="list-disc list-insidespace-y-2">
+        <ul className="list-disc list-inside space-y-2">
           <li>Provide our services to you</li>
           <li>Comply with legal obligations</li>
           <li>Resolve disputes</li>
@@ -279,7 +284,7 @@ export default function PrivacyPage() {
           If you are a California resident, you may have additional rights under the
           California Consumer Privacy Act (CCPA), including:
         </p>
-        <ul className="list-disc list-insidespace-y-2">
+        <ul className="list-disc list-inside space-y-2">
           <li>The right to know what personal information is collected</li>
           <li>The right to know if personal information is sold or disclosed</li>
           <li>The right to opt out of the sale of personal information</li>

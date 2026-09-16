@@ -1,0 +1,57 @@
+# Old Forrest Consulting
+
+> A two-person Utah firm doing Managed Intelligence for operations-heavy businesses:
+> one partner in place of a fractional CTO, an MSP, a BI consultancy, and an integration
+> vendor. We integrate the systems a company already runs, embed with its operators,
+> maintain what we build, and build what's missing. Engagements are fixed-fee or a fixed
+> monthly retainer, never an hourly meter.
+
+## What we do
+
+Four things, in plain terms:
+
+- **Integrate** — make the systems a business already paid for talk to each other (CRM, accounting, field tools, time tracking, fleet).
+- **Embed** — work alongside ownership and operators rather than delivering over a wall.
+- **Maintain** — stay responsible for what we built, so there's one number to call.
+- **Build** — write the software that doesn't exist yet, when buying it isn't an option.
+
+The through-line is vendor consolidation: replacing a fleet of single-purpose vendors
+with one accountable partner.
+
+## Who we're a fit for
+
+Operations-heavy businesses, roughly 20–100 employees, running several systems that
+don't reconcile. Especially:
+
+- **Multi-entity operators** — a contracting core plus an equipment company plus real-estate LLCs, where no one can see a consolidated picture.
+- **Trades and field services** — construction, roofing, exteriors, mechanical.
+- **Factories and franchises** — multi-site operations with per-site data that never rolls up.
+
+We are a poor fit for companies wanting staff augmentation by the hour, or a single
+one-off script with no ongoing relationship.
+
+## What makes us different
+
+- **Fixed price, stated before the work starts.** Assessments, builds, and monthly coverage all carry a number you see up front.
+- **Your systems stay.** We don't require a platform migration to be useful. QuickBooks stays QuickBooks.
+- **Determinism where it matters.** On engineering and survey work we enforce, in code, that outputs trace to real measured data rather than generative model output — with tests that fail the build if a model enters the path.
+- **Client owns the code.** On build engagements, ownership transfers rather than being rented back.
+
+## Key pages
+
+- [Home](https://oldforrest.net/): positioning and the four verbs.
+- [Services](https://oldforrest.net/services/): the four verbs in depth, plus the 90-day embed sequence.
+- [Who we serve](https://oldforrest.net/who-we-serve/): trades, factories, franchises.
+- [Pricing](https://oldforrest.net/pricing/): tiers and a comparison against buying the same capability from separate vendors.
+- [Operational Intelligence](https://oldforrest.net/operational-intelligence/): the offer for multi-entity operators — consolidated cash, WIP exposure, job margin, intercompany flows, utilization, with a weekly plain-English digest.
+- [Case studies](https://oldforrest.net/case-studies/): engagements with outcomes.
+- [Products](https://oldforrest.net/products/): software we own and run — MetesAI (deed plotting with provenance, at metes.online), usgis, saas-data-export.
+- [Contact](https://oldforrest.net/contact/): how to start a conversation.
+
+## Legal
+
+- [Legal hub](https://oldforrest.net/legal/) — [Terms](https://oldforrest.net/legal/terms/), [Privacy](https://oldforrest.net/legal/privacy/), [MSA](https://oldforrest.net/legal/msa/), [SOW](https://oldforrest.net/legal/sow/), [NDA](https://oldforrest.net/legal/nda/)
+
+## Contact
+
+Old Forrest Consulting LLC — Utah, United States. chris@oldforrest.net
