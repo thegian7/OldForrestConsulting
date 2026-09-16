@@ -545,7 +545,10 @@ Per docs/superpowers/specs/2026-09-16-pricing-and-icp-repositioning-design.md"
 **Files:**
 - Modify: `app/services/page.tsx` — remove the `$40k/mo` tier reference from the 90-day sprint description; keep the sprint itself
 - Modify: `public/llms.txt` — the "Who we're a fit for" section
-- Modify: `components/JsonLd.tsx` — audit `description` fields (~`:11`, `:44`, `:65-92`) and `areaServed` (`:47`)
+- Modify: `components/JsonLd.tsx` — `description` fields, `priceRange`, `hasOfferCatalog`
+- Modify: `app/layout.tsx:30-36` — root `<meta description>` and the `keywords` array **(added after Task 3; renders in `<head>` on every page)**
+- Modify: `components/Footer.tsx:28-32` — sitewide footer blurb **(added after Task 3; renders on 11 pages)**
+- Modify: `app/contact/page.tsx:30-36` — the four-vertical sentence in the lede **(added after Task 3)**
 
 **Interfaces:**
 - Consumes: the ICP copy from Task 2 and the price strings from Task 1
@@ -666,15 +669,60 @@ Leave `areaServed` alone — geography is not the ICP claim being changed.
 
 **Do not touch `foundingDate: "2024"` at `:13`.** It may well be wrong — the base operating agreement is effective 2023 and the LLC registered in 2026 — but resolving which is correct is a legal-record question, not a repositioning one. Flag it in your report; do not guess.
 
+- [ ] **Step 4b: Root metadata — `app/layout.tsx`**
+
+This renders in `<head>` on every page and is what search engines and link previews display. Replace the `description` at `:30-31` with:
+
+```tsx
+  description:
+    "One firm that integrates, embeds, maintains, and builds the stack your business actually runs on — and handles your vendors. For operators whose records have to hold up.",
+```
+
+In the `keywords` array at `:32+`, replace the three vertical-specific entries — `"Trades Consulting"`, `"Factory Operations"`, `"Franchise Operations"` — with:
+
+```tsx
+    "Records Integrity",
+    "Operational Data Provenance",
+    "Systems of Record",
+```
+
+Leave every other keyword (`"Managed Intelligence"`, `"Operations Consulting"`, `"Fractional CTO"`, `"Fractional COO"`, `"BI Dashboards"`, `"CRM Integration"`, `"HubSpot"`, and any others) untouched. Leave the `title.default` untouched — "Managed Intelligence for Operations-Heavy Businesses" names no vertical and still holds.
+
+- [ ] **Step 4c: Sitewide footer — `components/Footer.tsx`**
+
+Replace the blurb at `:28-32` with:
+
+```tsx
+                        <p className="text-sm text-ink-2 leading-relaxed max-w-xs">
+                            Managed intelligence for operators whose records have to
+                            hold up. One firm that integrates, embeds, maintains, and
+                            builds the stack your business actually runs on.
+                        </p>
+```
+
+- [ ] **Step 4d: Contact page lede — `app/contact/page.tsx`**
+
+Replace the four-vertical sentence at `:30-36` with:
+
+```tsx
+                    <p className="mt-6 md:mt-8 text-lg text-ink-2 leading-relaxed max-w-3xl">
+                        We don&apos;t do the traditional enterprise sales dance. If
+                        someone outside your company can ask you to prove where a
+                        number came from — and nobody in-house owns keeping those
+                        systems honest — the first conversation is simple.
+                    </p>
+```
+
 - [ ] **Step 5: Verify**
 
 ```bash
 npx tsc --noEmit
 npm run build
 /usr/bin/grep -rnE '\$40k|\$120k' app/ components/ public/
+/usr/bin/grep -rniE 'trades|factories|franchises|property manage' app/ components/ public/ | /usr/bin/grep -v operational-intelligence
 ```
 
-Expected: `tsc` silent, build succeeds, grep returns nothing across all three trees.
+Expected: `tsc` silent, build succeeds, **both** greps return nothing. The second grep is **case-insensitive** — a case-sensitive pattern false-passed on capitalised verticals during Task 3 and hid `Hero.tsx:27` entirely.
 
 - [ ] **Step 6: Commit**
 
@@ -700,9 +748,14 @@ Per docs/superpowers/specs/2026-09-16-pricing-and-icp-repositioning-design.md"
 ```bash
 cd ~/Repos/_ofc/OldForrestConsulting
 /usr/bin/grep -rnE '\$40k|\$120k|Four tiers|Four verticals' app/ components/ public/
+/usr/bin/grep -rniE 'trades|factories|franchises|property manage' app/ components/ public/ | /usr/bin/grep -v operational-intelligence
 ```
 
-Expected: no output.
+Expected: no output from either.
+
+**The second grep is case-insensitive on purpose.** The original plan swept only price strings, which would have let the retired four-vertical positioning ship in `app/layout.tsx`'s root `<meta description>` (every page's `<head>`), `components/Footer.tsx` (11 pages), and `app/contact/page.tsx`. Task 3's implementer found all three; Task 4 Steps 4b–4d now own them. Separately, a *case-sensitive* audit pattern (`trades|factor|franchis`) false-passed on the capitalised `For Trades · Factories · Franchises` in `components/home/Hero.tsx:27` — the single most prominent line on the site. Always `-i` for vertical strings.
+
+The `operational-intelligence` exclusion is deliberate: that page is a segment landing page for multi-entity construction operators, so naming trades there is correct and in scope for it (spec §5.1 leaves it untouched).
 
 **Do not add `$10k–$15k` to this pattern.** It legitimately survives at `app/pricing/page.tsx:97` and `:150` as a *sourced third-party benchmark* for a Fractional CTO inside `mathRows`/`sources` — market comparison data the spec explicitly preserves (D8), not an OFC price. Instead verify by eye that every surviving occurrence sits inside `mathRows` or `sources`:
 

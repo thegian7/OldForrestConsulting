@@ -24,7 +24,7 @@ export default function Hero() {
                     />
 
                     <div className="kicker mb-6">
-                        For operators whose records get challenged
+                        For operators whose records have to hold up
                     </div>
 
                     <h1 className="font-heading text-[2.5rem] md:text-6xl lg:text-7xl font-bold leading-[1.05] max-w-5xl tracking-tight">
