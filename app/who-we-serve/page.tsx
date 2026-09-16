@@ -87,7 +87,12 @@ export default function WhoWeServePage() {
                         with. The exposure was never the spreadsheet. It&apos;s the
                         person who has to reconstruct the truth from memory when
                         someone outside your company asks, on their timeline, not
-                        yours. We build the systems that hold up on their own.
+                        yours. And nobody around you is set up to fix it: the firms
+                        with the depth to build for that kind of scrutiny treat a
+                        business your size as too small to bother with, and the
+                        generalists who&apos;d take the work have never had to
+                        defend a number to someone who doesn&apos;t have to believe
+                        them. We build the systems that hold up on their own.
                     </p>
                 </div>
             </section>
