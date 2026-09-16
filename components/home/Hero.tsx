@@ -24,7 +24,7 @@ export default function Hero() {
                     />
 
                     <div className="kicker mb-6">
-                        For Trades · Factories · Franchises
+                        For operators whose records get challenged
                     </div>
 
                     <h1 className="font-heading text-[2.5rem] md:text-6xl lg:text-7xl font-bold leading-[1.05] max-w-5xl tracking-tight">

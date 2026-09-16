@@ -1,22 +1,22 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
-const verticals = [
+const signals = [
     {
-        name: "Trades",
-        desc: "Construction, exteriors, roofing, HVAC, plumbing, electrical. Field crews, job sites, multiple entities, and a CRM nobody trusts.",
+        name: "Someone audits you",
+        desc: "A regulator, lender, insurer, counterparty, or court eventually asks you to show your work — and the answer has to be better than \"that's what the system says.\"",
     },
     {
-        name: "Factories",
-        desc: "Small-to-mid manufacturers, shops, fabrication. ERP modules and shop-floor data that doesn't reach management in time to act on it.",
+        name: "The answer lives with one person",
+        desc: "The reconciliation everybody depends on runs through a spreadsheet only one person fully understands. That's not a tooling risk, it's a personnel risk.",
     },
     {
-        name: "Franchises",
-        desc: "Multi-location operators. Each location runs a slightly different stack, corporate wants unified reporting, and roll-ups live in spreadsheets.",
+        name: "Nobody in-house owns it",
+        desc: "Keeping the systems honest is somebody's fourth priority, inherited alongside their real job. So it happens when there's time, which is never.",
     },
     {
-        name: "Property Management",
-        desc: "Multi-property residential and commercial operators. PMS, accounting, maintenance ticketing, and tenant comms each on a different tool — and a leasing pipeline living in someone's inbox.",
+        name: "It spans several systems",
+        desc: "The number you need doesn't live in one place. It's assembled from a CRM, an accounting package, a field tool, and a spreadsheet — differently each time.",
     },
 ];
 
@@ -27,13 +27,13 @@ export default function VerticalsTeaser() {
                 <div className="max-w-3xl mb-12 md:mb-16">
                     <div className="kicker mb-4">Who we serve</div>
                     <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl text-forest-deep tracking-tight leading-[1.15]">
-                        Operations-heavy businesses the big firms won&apos;t touch and
-                        the generalists don&apos;t understand.
+                        We work with operators whose records have to survive being
+                        questioned.
                     </h2>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
-                    {verticals.map((v) => (
+                    {signals.map((v) => (
                         <div
                             key={v.name}
                             className="bg-white rounded-md p-6 border-l-[3px] border-forest"
