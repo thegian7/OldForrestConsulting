@@ -38,9 +38,11 @@ script with no ongoing relationship.
 
 ## How we price
 
-Two ways to work with us, both priced before work starts:
+Most engagements open with an **Assessment** — $9,500 fixed, three weeks:
+inventory, findings, a costed plan you keep.
 
-- **Assessment** — $9,500 fixed, three weeks. Inventory, findings, a costed plan you keep.
+After that, two ways to work with us, both priced before work starts:
+
 - **Build** — fixed fee, milestone-billed. Additions arrive as written change orders.
 - **Managed** — from $2,500/mo to run a named stack, with one scoped item included each month (sized by tier). Anything outside the named list is $2,500/day, one-day minimum. Unused months don't roll over.
 
