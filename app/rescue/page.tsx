@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { rescueTriggers } from "@/lib/rescue-triggers";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -96,7 +97,7 @@ export default function RescuePage() {
                     </p>
 
                     <div className="divide-y divide-rule border-y border-rule">
-                        {triggers.map((t) => (
+                        {triggers.map((t, i) => (
                             <div key={t.n} className="py-7">
                                 <div className="flex gap-4 md:gap-6">
                                     <div className="font-heading text-ember text-lg shrink-0">
@@ -106,9 +107,16 @@ export default function RescuePage() {
                                         <p className="font-heading text-xl md:text-2xl text-forest-deep mb-2 leading-snug">
                                             {t.head}
                                         </p>
-                                        <p className="text-base text-ink-2 leading-relaxed">
+                                        <p className="text-base text-ink-2 leading-relaxed mb-3">
                                             {t.body}
                                         </p>
+                                        <Link
+                                            href={`/rescue/${rescueTriggers[i].slug}/`}
+                                            className="inline-flex items-center gap-2 text-ember underline underline-offset-2 hover:text-forest"
+                                        >
+                                            What to do in this case
+                                            <ArrowRight className="w-4 h-4" aria-hidden="true" />
+                                        </Link>
                                     </div>
                                 </div>
                             </div>

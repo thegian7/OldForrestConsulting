@@ -1,5 +1,6 @@
 import { MetadataRoute } from "next";
 import { caseStudies } from "@/lib/case-studies";
+import { rescueTriggers } from "@/lib/rescue-triggers";
 
 export const dynamic = "force-static";
 
@@ -27,6 +28,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: "monthly",
   }));
 
+  const rescuePages: MetadataRoute.Sitemap = rescueTriggers.map((t) => ({
+    url: `${BASE_URL}/rescue/${t.slug}`,
+    priority: 0.8,
+    changeFrequency: "monthly",
+  }));
+
   const legalPages: MetadataRoute.Sitemap = [
     { url: `${BASE_URL}/legal`, priority: 0.3, changeFrequency: "yearly" },
     { url: `${BASE_URL}/legal/terms`, priority: 0.3, changeFrequency: "yearly" },
@@ -36,7 +43,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/legal/nda`, priority: 0.3, changeFrequency: "yearly" },
   ];
 
-  return [...corePages, ...caseStudyPages, ...legalPages].map((entry) => ({
+  return [...corePages, ...caseStudyPages, ...rescuePages, ...legalPages].map((entry) => ({
     ...entry,
     lastModified: now,
   }));
