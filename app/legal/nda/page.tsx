@@ -4,6 +4,7 @@ import LegalPageLayout from "@/components/legal/LegalPageLayout";
 export const metadata: Metadata = {
   title: "Non-Disclosure Agreement",
   description: "Mutual Non-Disclosure Agreement for engagements with Old Forrest Consulting LLC.",
+    alternates: { canonical: "/legal/nda/" },
 };
 
 const tableOfContents = [

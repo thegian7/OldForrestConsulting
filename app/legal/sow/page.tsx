@@ -4,6 +4,7 @@ import LegalPageLayout from "@/components/legal/LegalPageLayout";
 export const metadata: Metadata = {
   title: "Statement of Work Template",
   description: "Statement of Work template for project engagements with Old Forrest Consulting LLC.",
+    alternates: { canonical: "/legal/sow/" },
 };
 
 const tableOfContents = [

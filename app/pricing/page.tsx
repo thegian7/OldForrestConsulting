@@ -8,6 +8,7 @@ export const metadata: Metadata = {
     title: "Pricing",
     description:
         "Two ways to work with us: fixed-fee projects with written change orders, or a flat monthly fee for a named stack. Every number here is one we have actually charged.",
+    alternates: { canonical: "/pricing/" },
 };
 
 interface Tier {

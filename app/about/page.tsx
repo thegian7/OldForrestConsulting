@@ -8,6 +8,7 @@ export const metadata: Metadata = {
     title: "About",
     description:
         "Old Forrest Consulting is a Utah-based firm founded by Christopher Ledbetter and Taylor Westmoreland. The kind of partner we wished we'd had when we were on the operating side.",
+    alternates: { canonical: "/about/" },
 };
 
 const principles = [

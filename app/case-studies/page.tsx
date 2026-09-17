@@ -9,6 +9,7 @@ export const metadata: Metadata = {
     title: "Case Studies",
     description:
         "Selected work. ERK Holdings — a multi-entity construction and exteriors family of companies in Utah, replacing a fleet of vendors with one partner.",
+    alternates: { canonical: "/case-studies/" },
 };
 
 export default function CaseStudiesIndex() {

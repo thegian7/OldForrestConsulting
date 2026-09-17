@@ -82,7 +82,9 @@ export const metadata: Metadata = {
     images: ["/og-image.png"],
   },
   alternates: {
-    canonical: BASE_URL,
+    // Root only. EVERY page must set its own alternates.canonical or it
+    // inherits this one and tells Google it is a duplicate of the homepage.
+    canonical: "/",
   },
   icons: {
     icon: "/favicon.ico",

@@ -25,6 +25,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     return {
         title: study.client,
         description: study.summary,
+        // Must be set per-slug. Without it this page inherits the root layout's
+        // canonical and tells Google it is a duplicate of the homepage.
+        alternates: { canonical: `/case-studies/${slug}/` },
     };
 }
 

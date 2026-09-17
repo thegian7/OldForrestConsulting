@@ -12,6 +12,7 @@ export const metadata: Metadata = {
     url: "https://oldforrest.net/operational-intelligence",
     type: "website",
   },
+    alternates: { canonical: "/operational-intelligence/" },
 };
 
 export default function OperationalIntelligencePage() {

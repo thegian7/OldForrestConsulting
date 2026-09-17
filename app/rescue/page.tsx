@@ -8,6 +8,7 @@ export const metadata: Metadata = {
     title: "Software Rescue",
     description:
         "Your developer stopped answering, your agency closed, or the person who understood it resigned — and the software is still load-bearing. A paid diagnostic from $750 tells you what's wrong, what it costs to finish, and what your options are.",
+    alternates: { canonical: "/rescue/" },
 };
 
 const triggers = [

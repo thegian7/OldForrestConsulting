@@ -7,6 +7,7 @@ import Footer from "@/components/Footer";
 export const metadata: Metadata = {
   title: "Legal",
   description: "Legal documents, terms of service, privacy policy, and consulting agreements for Old Forrest Consulting LLC.",
+    alternates: { canonical: "/legal/" },
 };
 
 const legalDocuments = [

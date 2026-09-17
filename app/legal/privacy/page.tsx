@@ -4,6 +4,7 @@ import LegalPageLayout from "@/components/legal/LegalPageLayout";
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description: "Privacy Policy for Old Forrest Consulting LLC - how we collect, use, and protect your information.",
+    alternates: { canonical: "/legal/privacy/" },
 };
 
 const tableOfContents = [

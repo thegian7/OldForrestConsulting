@@ -8,6 +8,7 @@ export const metadata: Metadata = {
     title: "Contact",
     description:
         "Tell us about your business, the stack, and what's frustrating you. No slides, no pitch, no long sales cycle. Email chris@oldforrest.net or use the form.",
+    alternates: { canonical: "/contact/" },
 };
 
 export default function ContactPage() {

@@ -8,6 +8,7 @@ export const metadata: Metadata = {
     title: "Products",
     description:
         "Software we own and run — starting with MetesAI, which plots metes-and-bounds legal descriptions and shows its work. Built in the course of client engagements, kept because the problem kept recurring.",
+    alternates: { canonical: "/products/" },
 };
 
 const featured = {

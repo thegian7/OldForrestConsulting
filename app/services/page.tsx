@@ -9,6 +9,7 @@ export const metadata: Metadata = {
     title: "Services",
     description:
         "Integrate, embed, maintain, and build. And we handle your vendors so you don't have to. The 90-day Embed sprint, and what happens after it.",
+    alternates: { canonical: "/services/" },
 };
 
 const verbs = [

@@ -4,6 +4,7 @@ import LegalPageLayout from "@/components/legal/LegalPageLayout";
 export const metadata: Metadata = {
   title: "Terms of Service",
   description: "Terms of Service for Old Forrest Consulting LLC website and services.",
+    alternates: { canonical: "/legal/terms/" },
 };
 
 const tableOfContents = [

@@ -8,6 +8,7 @@ export const metadata: Metadata = {
     title: "Who We Serve",
     description:
         "Operators whose records get challenged — by a regulator, an auditor, a counterparty, or a court — and who have nobody in-house whose job is keeping those systems honest.",
+    alternates: { canonical: "/who-we-serve/" },
 };
 
 const questions = [

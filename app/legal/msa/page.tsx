@@ -4,6 +4,7 @@ import LegalPageLayout from "@/components/legal/LegalPageLayout";
 export const metadata: Metadata = {
   title: "Master Service Agreement",
   description: "Master Service Agreement for consulting services with Old Forrest Consulting LLC.",
+    alternates: { canonical: "/legal/msa/" },
 };
 
 const tableOfContents = [
