@@ -27,7 +27,7 @@ export default function Wordmark({
                     sizeMap[size],
                 )}
             >
-                Old For<span className="text-ember">(</span>rest<span className="text-ember">)</span> Consulting
+                Old Forrest Consulting
             </span>
             {showSubline && (
                 <span

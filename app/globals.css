@@ -13,8 +13,15 @@
   --color-forest: #1f3d2b;
   --color-forest-deep: #132418;
   --color-moss: #3d5a3f;
-  --color-ember: #b8621b;
-  --color-ember-soft: #d98c4a;
+  /* Gold, taken from the 2026 logo. --color-ember is a darkened form of the
+     logo's #cfaa51 so it reads as text on cream (4.51:1, up from the burnt
+     orange's 3.91:1). --color-ember-soft IS the logo's literal gold, used on
+     dark backgrounds where it has 7.36:1. Do not use ember-soft on cream. */
+  --color-ember: #8a6a1f;
+  --color-ember-soft: #cfaa51;
+  /* The logo badge's sage-teal. Graphic use only — 3.50:1 on cream, so it is
+     large-text / UI-element safe but not body-text safe. */
+  --color-sage: #5c8984;
   --color-cream: #f6f2e8;
   --color-cream-2: #ebe4d3;
   --color-ink: #1a1a1a;

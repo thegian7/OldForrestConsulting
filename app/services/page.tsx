@@ -294,7 +294,7 @@ export default function ServicesPage() {
                             stack. The{" "}
                             <Link
                                 href="/pricing"
-                                className="text-ember-soft underline underline-offset-2 hover:text-ember"
+                                className="text-ember underline underline-offset-2 hover:text-forest"
                             >
                                 pricing
                             </Link>{" "}
