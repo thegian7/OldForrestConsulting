@@ -58,10 +58,10 @@ export default function TermsPage() {
           not limited to:
         </p>
         <ul className="list-disc list-inside space-y-2 mb-4">
-          <li>AI integration and development consulting</li>
+          <li>Systems integration and data engineering</li>
           <li>Software architecture review and optimization</li>
-          <li>Project rescue and completion services</li>
-          <li>Fractional CTO services</li>
+          <li>Taking over and completing work begun by another party</li>
+          <li>Ongoing operation of named systems</li>
           <li>Code review and technical audits</li>
           <li>Infrastructure and deployment consulting</li>
         </ul>

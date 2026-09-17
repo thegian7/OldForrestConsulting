@@ -56,9 +56,10 @@ export default function MSAPage() {
           Agreement and become part of it upon execution.
         </p>
         <p>
-          Services may include but are not limited to: AI integration and development, software
-          architecture consulting, code review and optimization, infrastructure setup and migration,
-          technical leadership, and fractional CTO services.
+          Services may include but are not limited to: systems integration and data engineering,
+          software architecture and development, code review and optimization, infrastructure setup
+          and migration, ongoing operation of named systems, and taking over and completing work
+          begun by another party.
         </p>
       </section>
 
@@ -66,25 +67,39 @@ export default function MSAPage() {
       <section id="engagement-types" className="mb-12">
         <h2 className="text-2xl font-bold text-forest-deep mb-4">3. Engagement Types</h2>
 
-        <h3 className="text-xl font-semibold text-forest-deep mt-6 mb-3">3.1 Hourly Consulting</h3>
+        <h3 className="text-xl font-semibold text-forest-deep mt-6 mb-3">3.1 Assessment</h3>
         <p className="mb-4">
-          Time-based engagements billed at the hourly rate specified in the applicable SOW.
-          Minimum billing increments of 30 minutes apply. Services include live debugging,
-          architecture review, code audit, and immediate problem-solving.
+          A fixed-scope, fixed-fee engagement over a defined period, as specified in the SOW.
+          Deliverables typically include an inventory of systems and data, written findings on
+          where records disagree and why, and a costed plan of recommended work. Client retains
+          the plan and is under no obligation to proceed to any further engagement.
         </p>
 
-        <h3 className="text-xl font-semibold text-forest-deep mt-6 mb-3">3.2 Project-Based (Project Rescue)</h3>
+        <h3 className="text-xl font-semibold text-forest-deep mt-6 mb-3">3.2 Build</h3>
         <p className="mb-4">
-          Fixed-scope engagements with defined deliverables, timeline, and pricing as specified
-          in the SOW. Includes a 30-day warranty period following project completion during which
-          Consultant will address defects in delivered work at no additional charge.
+          Fixed-scope engagements with defined deliverables, milestones, and pricing as specified
+          in the SOW, billed per milestone on acceptance. Work requested outside the agreed scope
+          is priced in a written change order before it is performed. Includes a 30-day warranty
+          period following project completion during which Consultant will address defects in
+          delivered work at no additional charge.
         </p>
 
-        <h3 className="text-xl font-semibold text-forest-deep mt-6 mb-3">3.3 Fractional CTO (Monthly Retainer)</h3>
+        <h3 className="text-xl font-semibold text-forest-deep mt-6 mb-3">3.3 Managed</h3>
+        <p className="mb-4">
+          Ongoing engagements at a fixed monthly fee, not billed by the hour, covering the systems
+          named in the SOW. Scope, the systems covered, any work included each month, and the rate
+          applied to work outside the named scope are defined in the SOW. Either party may
+          terminate on the notice period stated in the SOW.
+        </p>
+
+        <h3 className="text-xl font-semibold text-forest-deep mt-6 mb-3">3.4 Rescue</h3>
         <p>
-          Ongoing monthly engagements providing technical leadership, strategy, and guidance.
-          Scope and deliverables defined in the SOW, typically including weekly strategy calls,
-          code review, architectural decisions, vendor evaluation, and hiring assistance.
+          Engagements in which Consultant takes over, repairs, or completes work begun by Client or
+          by a third party. Because the condition of pre-existing work cannot be fully known in
+          advance, a Rescue engagement begins with a paid diagnostic of fixed scope and fixed fee,
+          as specified in the SOW. Any remedial work that follows is scoped and priced separately
+          under Section 3.2. Consultant offers no warranty in respect of pre-existing work it did
+          not author, except as expressly stated in a SOW.
         </p>
       </section>
 
@@ -94,13 +109,11 @@ export default function MSAPage() {
 
         <h3 className="text-xl font-semibold text-forest-deep mt-6 mb-3">4.1 Fees</h3>
         <p className="mb-4">
-          Fees for services shall be as set forth in each SOW. Unless otherwise specified:
+          Fees for services shall be as set forth in each SOW. No rate card forms part of this
+          Agreement: pricing is agreed per engagement and recorded in the applicable SOW before
+          work begins. Where a SOW provides for work outside its agreed scope, that work is billed
+          at the rate and minimum increment stated in that SOW.
         </p>
-        <ul className="list-disc list-inside space-y-2 mb-4">
-          <li>Hourly Consulting: $150 - $300 per hour</li>
-          <li>Project Rescue: $3,000 - $20,000 per project</li>
-          <li>Fractional CTO: $1,500 - $5,000 per month</li>
-        </ul>
 
         <h3 className="text-xl font-semibold text-forest-deep mt-6 mb-3">4.2 Payment Terms</h3>
         <p className="mb-4">

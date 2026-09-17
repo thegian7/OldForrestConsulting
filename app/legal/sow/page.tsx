@@ -76,18 +76,22 @@ export default function SOWPage() {
 
           <div>
             <label className="block text-ink-3 text-sm mb-1">Engagement Type</label>
-            <div className="flex gap-4 mt-2">
+            <div className="flex flex-wrap gap-x-4 gap-y-2 mt-2">
               <label className="flex items-center gap-2">
                 <div className="w-4 h-4 border border-rule rounded"></div>
-                Hourly Consulting
+                Assessment
               </label>
               <label className="flex items-center gap-2">
                 <div className="w-4 h-4 border border-rule rounded"></div>
-                Project Rescue
+                Build
               </label>
               <label className="flex items-center gap-2">
                 <div className="w-4 h-4 border border-rule rounded"></div>
-                Fractional CTO
+                Managed
+              </label>
+              <label className="flex items-center gap-2">
+                <div className="w-4 h-4 border border-rule rounded"></div>
+                Rescue
               </label>
             </div>
           </div>
@@ -246,7 +250,7 @@ export default function SOWPage() {
                 </label>
                 <label className="flex items-center gap-2">
                   <div className="w-4 h-4 border border-rule rounded"></div>
-                  Hourly: $______/hour (Est. ______ hours)
+                  Day rate for out-of-scope work: $______/day (minimum ______ day)
                 </label>
                 <label className="flex items-center gap-2">
                   <div className="w-4 h-4 border border-rule rounded"></div>
@@ -268,11 +272,12 @@ export default function SOWPage() {
           <p><strong className="text-forest-deep">Final Payment:</strong> Due upon delivery and acceptance</p>
         </div>
 
-        <h3 className="text-xl font-semibold text-forest-deep mt-6 mb-3">5.2 Hourly Overage (if applicable)</h3>
+        <h3 className="text-xl font-semibold text-forest-deep mt-6 mb-3">5.2 Out-of-Scope Work (if applicable)</h3>
         <p>
-          If actual hours exceed the estimate by more than 10%, Consultant will notify Client
-          and obtain written approval before continuing. Additional hours will be billed at
-          $______/hour.
+          Work outside the scope defined above is not performed until Consultant has notified
+          Client and obtained written approval. Approved out-of-scope work is billed at the day
+          rate stated in Section 5.1, subject to the stated minimum increment, or as a fixed fee
+          agreed in a written change order.
         </p>
       </section>
 
@@ -352,8 +357,9 @@ export default function SOWPage() {
 
         <h3 className="text-xl font-semibold text-forest-deep mt-6 mb-3">8.2 Change Order Fees</h3>
         <p>
-          Changes will be priced at the hourly rate of $______/hour, or as a fixed fee for
-          defined scope additions. A minimum change order fee of $______ applies.
+          Changes will be priced as a fixed fee for the defined scope addition, or at the day
+          rate stated in Section 5.1 where a fixed fee is not practicable. A minimum change order
+          fee of $______ applies.
         </p>
       </section>
 
