@@ -63,6 +63,7 @@ We do not bill by the hour.
 - [Pricing](https://oldforrest.net/pricing/): tiers and a comparison against buying the same capability from separate vendors.
 - [Operational Intelligence](https://oldforrest.net/operational-intelligence/): the offer for multi-entity operators — consolidated cash, WIP exposure, job margin, intercompany flows, utilization, with a weekly plain-English digest.
 - [Case studies](https://oldforrest.net/case-studies/): engagements with outcomes.
+- [Software rescue](https://oldforrest.net/rescue/): the offer for a second audience — a business whose load-bearing software was built by someone who has since left, or an agency that shut down, or a platform being sunset. Entry is a paid diagnostic from $750 over 2-5 days.
 - [Products](https://oldforrest.net/products/): software we own and run — MetesAI (deed plotting with provenance, at metes.online), usgis, saas-data-export.
 - [Contact](https://oldforrest.net/contact/): how to start a conversation.
 

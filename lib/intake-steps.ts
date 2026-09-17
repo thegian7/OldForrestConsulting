@@ -10,7 +10,7 @@ export const intakeSteps: IntakeStep[] = [
     },
     {
         title: "Discovery session — 60–90 minutes.",
-        body: "If there's a fit, we do a paid working session walking the stack together. You come away with a clear picture of what an engagement looks like.",
+        body: "If there's a fit, we do a paid working session walking the stack together — from $750, scoped before you pay. You come away with a clear picture of what an engagement looks like, and a plan you keep either way.",
     },
     {
         title: "Scoped proposal — within 5 business days.",
