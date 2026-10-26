@@ -11,6 +11,21 @@ export const metadata: Metadata = {
     alternates: { canonical: "/about/" },
 };
 
+const security = [
+    {
+        head: "Offensive testing.",
+        body: "Authorized penetration testing and exploit validation against client web applications, infrastructure, and hardware — every test scoped in writing and approved by the system owner before it starts, with findings reported back to the owner.",
+    },
+    {
+        head: "Defense & forensics.",
+        body: "Credential-exposure review and remediation, clean-room legacy-software forensics, data recovery, and npm/PyPI supply-chain compromise auditing.",
+    },
+    {
+        head: "Research & hardware.",
+        body: "Firmware and hardware reverse engineering, vehicle (CAN-bus) security, and browser-to-hardware (WebUSB) work — the research depth behind the testing.",
+    },
+];
+
 const principles = [
     {
         head: "Honest about fit.",
@@ -145,8 +160,51 @@ export default function AboutPage() {
                 </div>
             </section>
 
-            {/* Principles */}
+            {/* Security practice */}
             <section className="py-16 md:py-20">
+                <div className="container mx-auto px-6 max-w-4xl">
+                    <div className="kicker mb-3">Security practice</div>
+                    <h2 className="font-heading text-3xl md:text-4xl text-forest-deep tracking-tight mb-6">
+                        Authorized testing, defense, and research.
+                    </h2>
+                    <p className="text-lg md:text-xl text-ink-2 leading-relaxed mb-10">
+                        Old Forrest&apos;s security work is led by{" "}
+                        <strong className="text-forest-deep">
+                            Christopher Ledbetter
+                        </strong>
+                        , the firm&apos;s security lead. We run authorized security
+                        testing and remediation for client systems under signed
+                        engagements — vulnerability identification, exploit validation,
+                        credential-exposure review, and patch verification across web
+                        applications, infrastructure, and firmware. Alongside the client
+                        work, Christopher competes and researches in the open: extracting
+                        a conference badge&apos;s master signing key and responsibly
+                        disclosing a bug in its official firmware uploader at DEF CON,
+                        clearing an eleven-lesson CAN-bus vehicle-security course, and
+                        playing the SAINTCON Hackers Challenge across web, reverse
+                        engineering, cryptanalysis, forensics, and hardware.
+                    </p>
+
+                    <ul className="grid grid-cols-1 md:grid-cols-3 gap-5">
+                        {security.map((s) => (
+                            <li
+                                key={s.head}
+                                className="bg-white rounded-md p-6 border border-rule border-l-[3px] border-l-forest"
+                            >
+                                <div className="font-heading font-bold text-forest-deep text-lg mb-1.5">
+                                    {s.head}
+                                </div>
+                                <p className="text-[0.95rem] md:text-base text-ink-2 leading-relaxed">
+                                    {s.body}
+                                </p>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            </section>
+
+            {/* Principles */}
+            <section className="py-16 md:py-20 bg-cream-2/60 border-y border-rule">
                 <div className="container mx-auto px-6 max-w-4xl">
                     <div className="kicker mb-3">How we work</div>
                     <h2 className="font-heading text-3xl md:text-4xl text-forest-deep tracking-tight mb-10">
